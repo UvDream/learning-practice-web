@@ -41,12 +41,15 @@
     }
     //给obj添加fullName
     /**
-    configurable:是否可以重新定义
-    enumerable:是否可以枚举
-    value:初始值
-    writable:是否可以修改属性值
-    get:回调函数,根据其他的属性动态计算得到当前属性值
-    set:回调函数,监事当前属性值的变化,更新其他相关属性值
+    属性描述符:
+    1.数据描述符
+        configurable:是否可以重新定义
+        enumerable:是否可以枚举
+        value:初始值
+        writable:是否可以修改属性值
+    2.访问描述符
+        get:回调函数,根据其他的属性动态计算得到当前属性值
+        set:回调函数,监事当前属性值的变化,更新其他相关属性值
     */
     Object.defineProperty(obj,'fullName',{
         get(){
@@ -65,9 +68,27 @@
     obj.fullName="E-F"
     console.log(obj.firstName,obj.lastName)
 
+    Object.defineProperty(obj,'fullName2',{
+        configurable:false,
+        enumerable:true,
+        value:'初始值',
+        writable:false
+    })
+    console.log("配置参数")
+    console.log(obj.fullName2)
+    obj.fullName2="hh"
+    console.log(obj.fullName2)
+    // 验证是否能重新定义
+    // Object.defineProperty(obj,'fullName2',{
+    //     configurable:false,
+    //     enumerable:false,
+    //     value:'初始值',
+    //     writable:true
+    // })
     
-
-
+    // 4.Object.keys(obj)
+    const names=Object.keys(obj)
+    console.log(names)
 
 </script>
 </html>
