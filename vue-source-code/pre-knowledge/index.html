@@ -25,7 +25,7 @@
     const lis2=Array.prototype.slice.call(lis)
     console.log(lis2 instanceof Array,lis2[1].innerHTML,lis2.forEach) //true "第二个" f forEach()
 
-    // node.nodeType:得到节点类型
+    // node.nodeType:用来得到节点类型,用来区分不同类型的节点，比如 元素, 文本 和 注释。
     const elementNode=document.getElementById("test")
     // 获取id
     const attrNode=elementNode.getAttributeNode("id")
@@ -33,7 +33,6 @@
     const textNode=elementNode.firstChild
     console.log(elementNode,attrNode,textNode)
     console.log(elementNode.nodeType,attrNode.nodeType,textNode.nodeType)
-
 
 
 </script>
