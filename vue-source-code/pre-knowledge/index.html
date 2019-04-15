@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>前置知识</title>
+</head>
+<body>
+    <div id="test">
+        测试
+    </div>
+    <ul id="">
+        <li>第一个</li>
+        <li>第二个</li>
+        <li>第三个</li>
+    </ul>
+</body>
+<script>
+    // 1.[].slice.call():将伪数组转换为真数组
+    const lis=document.getElementsByTagName('li')
+    console.log(lis)
+    //判断是否为真数组
+    console.log(lis instanceof Array,lis[1].innerHTML,lis.forEach) //false "第二个" undefined
+    const lis2=Array.prototype.slice.call(lis)
+    console.log(lis2 instanceof Array,lis2[1].innerHTML,lis2.forEach) //true "第二个" f forEach()
+
+    // node.nodeType:得到节点类型
+    const elementNode=document.getElementById("test")
+    // 获取id
+    const attrNode=elementNode.getAttributeNode("id")
+    // 获取内容
+    const textNode=elementNode.firstChild
+    console.log(elementNode,attrNode,textNode)
+    console.log(elementNode.nodeType,attrNode.nodeType,textNode.nodeType)
+
+
+
+</script>
+</html>
