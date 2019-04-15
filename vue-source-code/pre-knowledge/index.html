@@ -46,7 +46,7 @@
     value:初始值
     writable:是否可以修改属性值
     get:回调函数,根据其他的属性动态计算得到当前属性值
-    set:
+    set:回调函数,监事当前属性值的变化,更新其他相关属性值
     */
     Object.defineProperty(obj,'fullName',{
         get(){
@@ -62,6 +62,10 @@
     obj.firstName="wzj"
     obj.lastName="hh"
     console.log(obj.fullName)
+    obj.fullName="E-F"
+    console.log(obj.firstName,obj.lastName)
+
+    
 
 
 
