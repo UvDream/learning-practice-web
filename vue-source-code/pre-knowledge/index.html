@@ -25,7 +25,7 @@
     const lis2=Array.prototype.slice.call(lis)
     console.log(lis2 instanceof Array,lis2[1].innerHTML,lis2.forEach) //true "第二个" f forEach()
 
-    // node.nodeType:用来得到节点类型,用来区分不同类型的节点，比如 元素, 文本 和 注释。
+    // 2.node.nodeType:用来得到节点类型,用来区分不同类型的节点，比如 元素, 文本 和 注释。
     const elementNode=document.getElementById("test")
     // 获取id
     const attrNode=elementNode.getAttributeNode("id")
@@ -33,6 +33,36 @@
     const textNode=elementNode.firstChild
     console.log(elementNode,attrNode,textNode)
     console.log(elementNode.nodeType,attrNode.nodeType,textNode.nodeType)
+    
+    // 3.Object.defineProperty(obj, prop, descriptor)
+    const obj={
+        firstName:'A',
+        lastName:'B'
+    }
+    //给obj添加fullName
+    /**
+    configurable:是否可以重新定义
+    enumerable:是否可以枚举
+    value:初始值
+    writable:是否可以修改属性值
+    get:回调函数,根据其他的属性动态计算得到当前属性值
+    set:
+    */
+    Object.defineProperty(obj,'fullName',{
+        get(){
+            return this.firstName+'-'+this.lastName
+        },
+        set(value){
+            const names=value.split('-')
+            this.firstName=names[0]
+            this.lastName=names[1]
+        }
+    })
+    console.log(obj.fullName)
+    obj.firstName="wzj"
+    obj.lastName="hh"
+    console.log(obj.fullName)
+
 
 
 </script>
