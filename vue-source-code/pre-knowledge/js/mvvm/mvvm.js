@@ -1,4 +1,6 @@
+// options即是new实例化的时候传的参数
 function MVVM(options) {
+    debugger
     this.$options = options || {};
     var data = this._data = this.$options.data;
     var me = this;
