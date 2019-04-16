@@ -56,6 +56,7 @@
             return this.firstName+'-'+this.lastName
         },
         set(value){
+            // split() 方法使用指定的分隔符字符串将一个String对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置
             const names=value.split('-')
             this.firstName=names[0]
             this.lastName=names[1]
