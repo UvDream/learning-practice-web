@@ -17,6 +17,7 @@
     </ul>
 </body>
 <script>
+    console.log("--------------------------伪数组转真数组-----------------------")
     // 1.[].slice.call():将伪数组转换为真数组
     const lis=document.getElementsByTagName('li')
     console.log(lis)
@@ -33,7 +34,8 @@
     const textNode=elementNode.firstChild
     console.log(elementNode,attrNode,textNode)
     console.log(elementNode.nodeType,attrNode.nodeType,textNode.nodeType)
-    
+
+    console.log("--------------------------Object.defineProperty-----------------------")    
     // 3.Object.defineProperty(obj, prop, descriptor)
     const obj={
         firstName:'A',
@@ -86,14 +88,14 @@
     //     value:'初始值',
     //     writable:true
     // })
-    
+    console.log("--------------------------Object.keys-----------------------")
     // 4.Object.keys(obj)
     const names=Object.keys(obj)
     console.log(names)
-
+    console.log("--------------------------hasOwnProperty-----------------------")
     // 5.obj.hasOwnProperty(prop)
     console.log(obj.hasOwnProperty("fullName"),obj.hasOwnProperty('toString'))
-    
+    console.log("--------------------------documentFragment-----------------------")
     // 6.DocumentFragment:文档碎片
     // document:对应显示的页面,包含n个element,一旦更新document内部的某个元素界面更新
     // documentFragment:内存中保存n个element的容器对象(不与界面关联),如果更新framgnet中的某个元素,界面不变
@@ -111,6 +113,7 @@
     console.log(fragment.childNodes)
     Array.prototype.slice.call(fragment.childNodes).forEach(node=>{
         if(node.nodeType===1){//元素节点
+            console.log(node.textContent)
             node.textContent="hh"
         }
     })

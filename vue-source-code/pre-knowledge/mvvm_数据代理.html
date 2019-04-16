@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据代理</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script src="./js/mvvm/compile.js"></script>
+<script src="./js/mvvm/observer.js"></script>
+<script src="./js/mvvm/watcher.js"></script>
+<script src="./js/mvvm/mvvm.js"></script>
+<script>
+const vm=new MVVM({
+    el:"#app",
+    data:{
+        name:"hh"
+    }
+})
+console.log(vm.name,vm) //vm代理对data数据的读操作
+vm.name="xx"  //vm代理对data的写操作
+console.log(vm._data.name)
+console.log(vm.name)
+</script>
+</html>
