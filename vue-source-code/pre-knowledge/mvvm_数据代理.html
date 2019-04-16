@@ -21,11 +21,11 @@
     const vm = new MVVM({
         el: "#app",
         data: {
-            name: "hh"
+            name: "mvc"
         }
     })
-    console.log(vm.name, vm) //vm代理对data数据的读操作
-    vm.name = "xx" //vm代理对data的写操作
+    console.log(vm.name, vm) 
+    vm.name = "mvvm" 
     console.log(vm._data.name)
     console.log(vm.name)
 </script>
