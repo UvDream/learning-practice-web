@@ -19,13 +19,14 @@
     const vm = new MVVM({
         el: "#app",
         data: {
-            name: "mvc"
-        }
+            name: "mvc",
+            list:[]
+        },
     });
-    console.log(vm.name, vm) ;
+    // console.log(vm.name, vm) ;
     vm.name = "mvvm" ;
-    console.log(vm._data.name);
-    console.log(vm.name);
+    // console.log(vm._data.name);
+    // console.log(vm.name);
 </script>
 
 </html>
