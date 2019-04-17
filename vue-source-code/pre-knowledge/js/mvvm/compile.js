@@ -30,25 +30,31 @@ Compile.prototype = {
     },
 
     init: function() {
+        //编译指定元素(所有层次的子节点)
         this.compileElement(this.$fragment);
     },
 
     compileElement: function(el) {
+        //取出最外层所有子节点
         var childNodes = el.childNodes,
+            //保存compile对象
             me = this;
-
+        //遍历所有子节点(text/element)
         [].slice.call(childNodes).forEach(function(node) {
+            //得到子节点的文本内容
             var text = node.textContent;
+            //创建正则对象,匹配{{}}表达式
             var reg = /\{\{(.*)\}\}/;  //正则匹配{{name}}
-
+            //判断是否是一个元素子节点
             if (me.isElementNode(node)) {
-                //指令
+                //解析指令
                 me.compile(node);
-
+            //判断节点是否是{{}}格式的文本节点
             } else if (me.isTextNode(node) && reg.test(text)) {
+                //编译{{}}文本节点
                 me.compileText(node, RegExp.$1.trim());
             }
-
+            //如果当前节点还有子节点,通过递归调用实现所有层次节点的编译
             if (node.childNodes && node.childNodes.length) {
                 me.compileElement(node);
             }
@@ -171,16 +177,17 @@ var compileUtil = {
     }
 };
 
-//更新数据
+//包含多个更新节点的方法的工具对象
 var updater = {
+    //更新节点textContent属性值
     textUpdater: function(node, value) {
         node.textContent = typeof value == 'undefined' ? '' : value;
     },
-
+    //更新节点的innerHtml属性值
     htmlUpdater: function(node, value) {
         node.innerHTML = typeof value == 'undefined' ? '' : value;
     },
-
+    //更新节点的className属性值
     classUpdater: function(node, value, oldValue) {
         var className = node.className;
         className = className.replace(oldValue, '').replace(/\s$/, '');
@@ -189,7 +196,7 @@ var updater = {
 
         node.className = className + space + value;
     },
-
+    //更新节点的value属性值
     modelUpdater: function(node, value, oldValue) {
         node.value = typeof value == 'undefined' ? '' : value;
     }
