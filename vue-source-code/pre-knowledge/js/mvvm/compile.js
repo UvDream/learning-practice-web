@@ -1,17 +1,22 @@
 //模板解析
 function Compile(el, vm) {
+    //保存vm到Compile对象
     this.$vm = vm;
+    //将el对应的元素对象保存到compile对象
     this.$el = this.isElementNode(el) ? el : document.querySelector(el);
-
+    //检测是否存在el
     if (this.$el) {
-        //将所有子节点放入内存
+        //1.将el所有子节点放入内存
         this.$fragment = this.node2Fragment(this.$el);
+        //2.初始化,编译fragment中所有层次子节点
         this.init();
+        //3.将编译好的fragment添加到页码的el元素中
         this.$el.appendChild(this.$fragment);
     }
 }
 
 Compile.prototype = {
+    // 创建空的fragment
     node2Fragment: function(el) {
         var fragment = document.createDocumentFragment(),
             child;
@@ -20,7 +25,7 @@ Compile.prototype = {
         while (child = el.firstChild) {
             fragment.appendChild(child);
         }
-
+        //返回fragment
         return fragment;
     },
 
