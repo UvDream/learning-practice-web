@@ -104,16 +104,17 @@ Compile.prototype = {
     }
 };
 
-// 指令处理集合
+// 包含多个解析指令的方法的工具对象
 var compileUtil = {
+    //解析v-text
     text: function(node, vm, exp) {
         this.bind(node, vm, exp, 'text');
     },
-
+    //解析v-html
     html: function(node, vm, exp) {
         this.bind(node, vm, exp, 'html');
     },
-
+    //解析v-model
     model: function(node, vm, exp) {
         this.bind(node, vm, exp, 'model');
 
@@ -129,14 +130,15 @@ var compileUtil = {
             val = newValue;
         });
     },
-
+    //解析v-class
     class: function(node, vm, exp) {
         this.bind(node, vm, exp, 'class');
     },
 
     bind: function(node, vm, exp, dir) {
+        //得到更新节点的函数
         var updaterFn = updater[dir + 'Updater'];
-        //对象深层解析例如a.b.c
+        //调用函数更新节点
         updaterFn && updaterFn(node, this._getVMVal(vm, exp));
 
         new Watcher(vm, exp, function(value, oldValue) {
@@ -153,7 +155,7 @@ var compileUtil = {
             node.addEventListener(eventType, fn.bind(vm), false);
         }
     },
-
+    //对象深层解析例如a.b.c,
     _getVMVal: function(vm, exp) {
         var val = vm;
         exp = exp.split('.');
