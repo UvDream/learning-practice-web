@@ -19,7 +19,7 @@ function MVVM(options) {
     this._initComputed();
 
     observe(data, this);
-
+    //传入id 对应值
     this.$compile = new Compile(options.el || document.body, this)
 }
 
@@ -32,7 +32,6 @@ MVVM.prototype = {
         console.log(key);
         //保存vm
         var me = this;
-        debugger;
         //给vm添加指定属性名的属性
         setter = setter ||
             Object.defineProperty(me, key, {

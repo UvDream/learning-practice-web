@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板解析_表达式</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{name}}</p>
+    </div>
+</body>
+<script src="./js/mvvm/compile.js"></script>
+<script src="./js/mvvm/observer.js"></script>
+<script src="./js/mvvm/watcher.js"></script>
+<script src="./js/mvvm/mvvm.js"></script>
+<script>
+    new MVVM(
+        {
+            el:"#app",
+            data:{
+                name:"傻子"
+            }
+        }
+    )
+</script>
+</html>

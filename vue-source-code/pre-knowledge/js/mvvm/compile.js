@@ -1,8 +1,10 @@
+//模板解析
 function Compile(el, vm) {
     this.$vm = vm;
     this.$el = this.isElementNode(el) ? el : document.querySelector(el);
 
     if (this.$el) {
+        //将所有子节点放入内存
         this.$fragment = this.node2Fragment(this.$el);
         this.init();
         this.$el.appendChild(this.$fragment);
@@ -32,9 +34,10 @@ Compile.prototype = {
 
         [].slice.call(childNodes).forEach(function(node) {
             var text = node.textContent;
-            var reg = /\{\{(.*)\}\}/;
+            var reg = /\{\{(.*)\}\}/;  //正则匹配{{name}}
 
             if (me.isElementNode(node)) {
+                //指令
                 me.compile(node);
 
             } else if (me.isTextNode(node) && reg.test(text)) {
@@ -122,7 +125,7 @@ var compileUtil = {
 
     bind: function(node, vm, exp, dir) {
         var updaterFn = updater[dir + 'Updater'];
-
+        //对象深层解析例如a.b.c
         updaterFn && updaterFn(node, this._getVMVal(vm, exp));
 
         new Watcher(vm, exp, function(value, oldValue) {
@@ -163,7 +166,7 @@ var compileUtil = {
     }
 };
 
-
+//更新数据
 var updater = {
     textUpdater: function(node, value) {
         node.textContent = typeof value == 'undefined' ? '' : value;
