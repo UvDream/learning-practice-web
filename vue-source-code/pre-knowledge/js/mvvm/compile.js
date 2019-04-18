@@ -94,11 +94,11 @@ Compile.prototype = {
     isEventDirective: function(dir) {
         return dir.indexOf('on') === 0;
     },
-
+    //判断是否是一个元素节点
     isElementNode: function(node) {
         return node.nodeType == 1;
     },
-
+    //判断是否是一个文本节点
     isTextNode: function(node) {
         return node.nodeType == 3;
     }
