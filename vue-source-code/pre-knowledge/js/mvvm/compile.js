@@ -16,7 +16,7 @@ function Compile(el, vm) {
 }
 
 Compile.prototype = {
-    // 创建空的fragment
+    // 创建空的fragment方法
     node2Fragment: function(el) {
         var fragment = document.createDocumentFragment(),
             child;
@@ -33,7 +33,7 @@ Compile.prototype = {
         //编译指定元素(所有层次的子节点)
         this.compileElement(this.$fragment);
     },
-
+    //一个递归方法遍历所有元素
     compileElement: function(el) {
         //取出最外层所有子节点
         var childNodes = el.childNodes,
