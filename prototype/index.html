@@ -1,31 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Prototype</title>
-</head>
-<body>
+<html>
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>原型和原型链</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h1>原型和原型链</h1>
+    <canvas width="100" height="50" id="regcode"></canvas>
+    <div id="app">
+        <div>
+            <div v-if="show">
+                <span> 密码</span>
+                <input type="text" placeholder="密码">
+            </div>
+            <div v-if="!show">
+                <input type="text" placeholder="验证码">
+                <button>点击获取验证码</button>
+            </div>
+        </div>
+        <div @click="butClick">
+            {{message}}
+        </div>
+    </div>
 </body>
+<!-- <script src="main.js"></script> -->
+<!-- <script src="index.js"></script> -->
+<script src="es6.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>
-    function fun(){
-        this.a=0;
-        this.b=function(){
-            alert(this.a)
-        }
-    }
-    fun.prototype={
-        b:function(){
-            this.a=20;
-            alert(this.a)
+    var app = new Vue({
+        el: '#app',
+        data: {
+            show: true,
+            message: "验证码"
         },
-        c:function(){
-            this.a=30;
-            alert(this.a)
+        methods: {
+            butClick() {
+                this.show = !this.show;
+                if (this.show) {
+                    this.message = "验证码登陆"
+                } else {
+                    this.message = "密码登陆"
+                }
+            }
         }
-    };
-    var my_fun=new fun();
-    my_fun.b()//0 优先自己属性
-    my_fun.c()//30
+    })
 </script>
+<script>
+    let reg = new RegCode({
+        lineWidth: 0.5,  // 线条宽度
+        lineNum: 5,  // 线条数量
+        dotNum: 20, // 点的数量
+        dotR: 1, // 点的半径
+        foregroundColor: [10, 80], // 前景色区间
+        backgroundColor: [150, 250], // 背景色区间
+        fontSize: 36, // 字体大小
+        fontFamily: 'Georgia', // 字体类型
+        fontStyle: 'fill', // 字体绘制方法，fill/stroke
+        content: 'acdefhijkmnpwxyABCDEFGHJKMNPQWXY12345789', // 验证码因子
+        len: 4, // 验证码长度
+        callback: function () { } // 回调函数
+    });
+    reg.draw(document.querySelector('#regcode'), r => {
+        console.log(r);
+    });
+    console.log(reg);
+</script>
+
 </html>
