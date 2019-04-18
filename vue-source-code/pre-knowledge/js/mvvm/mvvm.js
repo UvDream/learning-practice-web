@@ -1,6 +1,6 @@
 // options即是new实例化的时候传的参数
 function MVVM(options) {
-    console.log("深入理解");
+    console.log("源码开始");
     // 将配置对象保存到vm
     this.$options = options || {};
     // 将data对象保存到vm和变量data中
@@ -9,7 +9,7 @@ function MVVM(options) {
     var me = this;
 
     // 数据代理
-    // 实现 vm.xxx -> vm._data.xxx
+    // 实现 vm.xxx => vm._data.xxx
     // 遍历data中所有的属性
     Object.keys(data).forEach(function (key) { //key是data的属性名
         // 对指定的属性实现代理
