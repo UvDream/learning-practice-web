@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>算法</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+<!-- <button onclick="clickA">点击刷新</button> -->
+	<script>
+		var arr=randomArray(9);
+		console.log(arr);
+		function randomArray(length) {
+			var i,
+			index,
+			temp,
+			arr = [length];
+			length = typeof(length) === 'undefined' ? 9 : length;
+			for (i = 1; i <= length; i++) {
+				arr[i - 1] = i;
+			}
+    // 打乱数组
+    for (i = 1; i <= length; i++) {
+        // 产生从 i 到 length 之间的随机数
+        index = parseInt(Math.random() * (length - i)) + i;
+        if (index != i) {
+        	temp = arr[i];
+        	arr[i] = arr[index];
+        	arr[index] = temp;
+        }
+    }
+    return arr;
+}
+</script>
+</body>
+</html>
