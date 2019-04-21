@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+</head>
+<style type="text/css">
+    #gongao {
+        width: 1000px;
+        height: 30px;
+        overflow: hidden;
+        line-height: 30px;
+        font-size: 13px;
+        background: #DDE5ED;
+        color: #0C77CF;
+        font-weight: bold;
+    }
+
+    #gongao #scroll_begin,
+    #gongao #scroll_end {
+        display: inline
+    }
+
+    #scroll_div {
+        width: 300px;
+        height: 30px;
+        margin: 0 auto;
+        white-space: nowrap;
+        overflow: hidden;
+        outline: 1px solid red;
+    }
+</style>
+
+<body>
+    <div id="gongao">
+    <div id="scroll_div">
+        <div id="scroll_begin">
+            我擦我擦我擦我擦1 我擦我擦我擦我擦2 我擦我擦我擦我擦3
+        </div>
+        <div id="scroll_end"></div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    ScrollImgLeft();
+    function ScrollImgLeft() {
+        var speed = 50;
+        var scroll_begin = document.getElementById("scroll_begin");
+        var scroll_end = document.getElementById("scroll_end");
+        var scroll_div = document.getElementById("scroll_div");
+        scroll_end.innerHTML = scroll_begin.innerHTML;
+        function Marquee() {
+            if (scroll_end.offsetWidth - scroll_div.scrollLeft <= 0)
+                scroll_div.scrollLeft -= scroll_begin.offsetWidth;
+            else
+                scroll_div.scrollLeft++;
+        }
+        var MyMar = setInterval(Marquee, speed);
+        scroll_div.onmouseover = function () { clearInterval(MyMar); }
+        scroll_div.onmouseout = function () { MyMar = setInterval(Marquee, speed); }
+    }
+</script>
+</html>
