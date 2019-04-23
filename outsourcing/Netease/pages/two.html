@@ -6,25 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>楚留香</title>
 </head>
-<style>
-</style>
-<body>
-    第一个页面
-    <div id="mse"></div>
-</body>
-<script src="../js/rem.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/xgplayer/browser/index.js" charset="utf-8"></script>
+<style type="text/css">
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        overflow: hidden;
+    }
 
-  <script type="text/javascript">
-      let player = new Player({
-          id: 'mse',
-          autoplay: false,
-          volume: 0.3,
-          url: '/video/mp4/xgplayer-demo-720p.mp4',
-          poster: "http://s2.pstatp.com/cdn/expire-1-M/byted-player-videos/1.0.0/xgplayer-demo.mp4",
-          playsinline: true,
-          height: window.innerHeight,
-          width: window.innerWidth
-      });
- </script>
+    body {
+        display: flex;
+    }
+
+    #mse {
+        width: 100%;
+        height: 100%;
+        outline: 1px solid red;
+    }
+</style>
+<script type="text/javascript">
+    window.addEventListener('resize', function () {
+        document.getElementById('mse').style.height = window.innerHeight + 'px';
+    });
+</script>
+<body>
+
+<div id="mse"></div>
+<script src="//cdn.jsdelivr.net/npm/xgplayer/browser/index.js" charset="utf-8"></script>
+<script type="text/javascript">
+    let player = new Player({
+        id: 'mse',
+        autoplay: true,
+        volume: 0.3,
+        url: 'http://s2.pstatp.com/cdn/expire-1-M/byted-player-videos/1.0.0/xgplayer-demo.mp4',
+        playsinline: true,
+        'x5-video-orientation': 'landscape'
+    });
+</script>
+</body>
+
 </html>
