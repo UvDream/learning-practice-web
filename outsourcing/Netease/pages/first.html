@@ -67,7 +67,7 @@
         <div class="music" id="music" onclick="btnClick()">
             <audio autoplay id="audio" loop>
                 <source
-                    src="http://m10.music.126.net/20190424202454/b4a71d5e985f032d0900574c243e2c55/ymusic/e481/fb0f/fdfb/954e2bd01b5990de4dbe7073a93cd9c5.mp3"
+                    src="http://m10.music.126.net/20190424223917/e86c54ac681dcd00ca46b32c2da53382/ymusic/bd63/ae93/10cd/9f9a5a155f99bf4c64f58f242d035437.mp3"
                     type="audio/mpeg" />
                 Your browser does not support the audio element.
             </audio>
@@ -96,6 +96,17 @@
     function listenClick(){
         window.location.href = './two.html';
     }
+    document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+            var audio = document.getElementById('audio');
+            audio.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                audio.play();
+            }, false);
+        }
+        audioAutoPlay();
+    });
+
 </script>
 
 </html>
