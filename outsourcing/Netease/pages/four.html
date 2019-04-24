@@ -100,18 +100,66 @@
         <p>听听CV给你带来的独家录音</p>
     </div>
     <div class="avatar">
-        <section v-for="(item,index) in people">
+        <section  @click="avatarClick(1)">
             <div>
+                <audio  id="audio1" loop>
+                    <source
+                            src="http://m10.music.126.net/20190424222717/7ee2184b6975c422901572c19b6d130e/ymusic/22ee/1e3f/5914/e9f85ec7de491e1ce72e528a4118d07f.mp3"
+                            type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
                 <div>
-                    <img :src="item.img" alt="">
+                    <img src="../images/tx.png" alt="">
                 </div>
-                <p>{{item.name}}</p>
+                <p>CV名字七个字</p>
+            </div>
+        </section>
+        <section @click="avatarClick(2)">
+            <div>
+                <audio  id="audio2" loop>
+                    <source
+                            src="http://m10.music.126.net/20190424222717/7ee2184b6975c422901572c19b6d130e/ymusic/22ee/1e3f/5914/e9f85ec7de491e1ce72e528a4118d07f.mp3"
+                            type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
+                <div>
+                    <img src="../images/tx.png" alt="">
+                </div>
+                <p>CV名字七个字</p>
+            </div>
+        </section>
+        <section @click="avatarClick(3)">
+            <div>
+                <audio  id="audio3" loop>
+                    <source
+                            src="http://m10.music.126.net/20190424202454/b4a71d5e985f032d0900574c243e2c55/ymusic/e481/fb0f/fdfb/954e2bd01b5990de4dbe7073a93cd9c5.mp3"
+                            type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
+                <div>
+                    <img src="../images/tx.png" alt="">
+                </div>
+                <p>CV名字七个字</p>
+            </div>
+        </section>
+        <section @click="avatarClick(4)">
+            <div>
+                <audio  id="audio4" loop>
+                    <source
+                            src="http://m10.music.126.net/20190424202454/b4a71d5e985f032d0900574c243e2c55/ymusic/e481/fb0f/fdfb/954e2bd01b5990de4dbe7073a93cd9c5.mp3"
+                            type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
+                <div>
+                    <img src="../images/tx.png" alt="">
+                </div>
+                <p>CV名字七个字</p>
             </div>
         </section>
     </div>
     <div class="button">
-        <section>听更多声音</section>
-        <section>前往做客</section>
+        <section>前往电台作客</section>
+        <section>分享</section>
     </div>
 
 </div>
@@ -122,24 +170,39 @@
     new Vue({
         el: '#main',
         data: {
+            url:"",
             people:[
                 {
                     img:"../images/tx.png",
-                    name:"CV名字七个字"
+                    name:"CV名字七个字",
+                    url:"http://m10.music.126.net/20190424220430/92524ff3d0437d81f96a10de7e3e26b3/ymusic/ad88/2e51/404c/16ff5b6c848450012194d21b18456a01.mp3",
+                    autoplay:true
                 },
                 {
                     img:"../images/tx.png",
-                    name:"CV名字七个字"
+                    name:"CV名字七个字",
+                    url:"http://m10.music.126.net/20190424220446/0e45f413588fc438792618cdad0e3d3f/ymusic/6d49/da60/2f9a/d050d36b52b03d18d2164d0d2418bf68.mp3",
+                    autoplay:true
                 },
                 {
                     img:"../images/tx.png",
-                    name:"CV名字七个字"
+                    name:"CV名字七个字",
+                    url:"http://m10.music.126.net/20190424220504/167bf3c01d596b23115804b5bfaf6c8c/ymusic/e5bd/cb1a/de88/b24ef00c8936a1bcc2acba6cbea3e5bf.mp3",
+                    autoplay:true
                 },
                 {
                     img:"../images/tx.png",
-                    name:"CV名字七个字"
+                    name:"CV名字七个字",
+                    url:"http://m10.music.126.net/20190424220430/92524ff3d0437d81f96a10de7e3e26b3/ymusic/ad88/2e51/404c/16ff5b6c848450012194d21b18456a01.mp3",
+                    autoplay:true
                 }
             ]
+        },
+        methods:{
+            avatarClick(id){
+                var audio = document.getElementById('audio1');
+                audio.play()
+            }
         }
     })
 </script>
