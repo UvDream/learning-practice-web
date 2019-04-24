@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
@@ -8,31 +9,78 @@
     <title>楚留香</title>
 </head>
 <style>
-    .main{
-        width:100vw;
+    .main {
+        width: 100vw;
         height: 100vh;
-        background-color: aqua;
+        position: relative;
+    }
+
+    .music {
+        position: absolute;
+        width: 1.4rem;
+        height: 1.4rem;
+        top: .5rem;
+        right: .5rem;
+        outline: 1px solid red;
+        animation: trans 2s linear infinite;
+    }
+
+    @-webkit-keyframes trans {
+
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        25% {
+            -webkit-transform: rotate(90deg);
+        }
+
+        50% {
+            -webkit-transform: rotate(180deg);
+        }
+
+        75% {
+            -webkit-transform: rotate(270deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+
     }
 </style>
-<body>
-   <div class="main">
-    第一个页面
-       <div id="mse"></div>
-   </div>
-</body>
-<script src="../js/rem.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/xgplayer/browser/index.js" charset="utf-8"></script>
 
-  <script type="text/javascript">
-      let player = new Player({
-          id: 'mse',
-          autoplay: false,
-          volume: 0.3,
-          url: 'http://s2.pstatp.com/cdn/expire-1-M/byted-player-videos/1.0.0/xgplayer-demo.mp4',
-          poster: "http://s2.pstatp.com/cdn/expire-1-M/byted-player-videos/1.0.0/xgplayer-demo.mp4",
-          playsinline: true,
-          height: window.innerHeight,
-          width: window.innerWidth
-      });
- </script>
+<body>
+    <div class="main">
+        第一个页面
+        <div class="music" id="music">
+            <audio autoplay id="audio" loop>
+                <source
+                    src="http://m10.music.126.net/20190424140833/f5985246fa9518f4cedff352b7c4f90d/ymusic/f99d/4dc7/8d6c/195408a32c775ca7c34fc463931c7058.mp3"
+                    type="audio/mpeg" />
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+    </div>
+</body>
+<script src="../js/x-play.js" charset="utf-8"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#music").click(function () {
+            var audio = document.getElementById('audio');
+            if (audio !== null) {
+                //检测播放是否已暂停.audio.paused 在播放器播放时返回false.
+                if (audio.paused) {
+                    audio.play(); //audio.play();// 这个就是播放
+                } else {
+                    audio.pause(); // 这个就是暂停
+                }
+            }
+        });
+    });
+</script>
+
 </html>

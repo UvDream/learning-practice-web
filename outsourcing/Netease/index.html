@@ -9,7 +9,6 @@
     <meta charset="utf-8">
     <title>进度条</title>
     <style type="text/css">
-  
         .main{
             width: 100vw;
             height: 100vh;
@@ -17,24 +16,46 @@
             background-size: 100% 100%;
             outline: 1px solid red;
             overflow: hidden;
+            position: relative;
         }
         .music{
             width: 4rem;
             height: 5rem;
-            margin: 5.7rem auto;
+            margin: 8rem auto;
             text-align: center;
-            outline: 1px solid red;
+        }
+        .music img{
+            display: inline-block;
+            width:4rem;
         }
         span{
             color: #fff;
             font-size: .48rem;
+        }
+        .column,.column>img{
+            position: absolute;
+            height: 5.32rem;
+            right:.5rem;
+        }
+        .logo>img{
+        width: 2.5rem;
+        position: absolute;
+        left: .58rem;
+        top: .4rem;
         }
     </style>
 </head>
 
 <body>
     <div class="main">
+        <div class="logo">
+            <img src="./images/logo.png" alt="">
+        </div>
+        <div class="column">
+            <img src="./images/column.png" alt="">
+        </div>
         <div class="music">
+            <img src="./images/music.png" alt="">
             <span id="percentage">0%</span>
         </div>
     </div>
@@ -57,9 +78,9 @@
             $("#percentage").html(percentageValue);
             if (count >= 100) {
                 clearInterval(timer);
-                // window.location.href='./pages/first.html';
+                window.location.href='./pages/first.html';
             }
-        }, 99)
+        }, 30)
     })
 </script>
 
