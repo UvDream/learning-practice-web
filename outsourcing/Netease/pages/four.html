@@ -17,34 +17,40 @@
         background-image: url("../images/page3-background.png");
         background-size: cover;
     }
-    .logo>img {
+
+    .logo > img {
         width: 4.9rem;
         position: absolute;
         left: 1rem;
         top: .8rem;
     }
-    .text{
+
+    .text {
         width: 16.24rem;
         height: 5.22rem;
         background-image: url("../images/page4-text.png");
         background-size: 100% 100%;
         margin: 4.93rem auto;
     }
-    .text p{
+
+    .text p {
         color: #fff;
         font-size: 1.06rem;
         text-align: center;
     }
-    .text p:nth-child(1){
+
+    .text p:nth-child(1) {
         padding-top: .5rem;
     }
-    .avatar{
+
+    .avatar {
         width: 18rem;
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
     }
-    .avatar section{
+
+    .avatar section {
         width: 50%;
         height: 8.29rem;
         display: flex;
@@ -52,7 +58,7 @@
         align-items: center;
     }
 
-    .avatar section>div>div{
+    .avatar section > div > div {
         width: 4.24rem;
         height: 4.24rem;
         background-image: url("../images/avatar.png");
@@ -60,21 +66,25 @@
         padding: .2rem .2rem;
         margin: 0 auto;
     }
-    .avatar section>div>div>img{
+
+    .avatar section > div > div > img {
         width: 100%;
         height: 100%;
     }
-    .avatar section>div>p{
+
+    .avatar section > div > p {
         font-size: .85rem;
         color: #fff;
         text-align: center;
     }
-    .button{
+
+    .button {
         display: flex;
         justify-content: center;
         margin-top: 2rem;
     }
-    .button section{
+
+    .button section {
         width: 8.16rem;
         height: 2.13rem;
         background-image: url("../images/page3-button.png");
@@ -85,7 +95,8 @@
         font-size: .96rem;
 
     }
-    .button section:nth-child(2){
+
+    .button section:nth-child(2) {
         margin-left: 1.78rem;
     }
 </style>
@@ -100,12 +111,12 @@
         <p>听听CV给你带来的独家录音</p>
     </div>
     <div class="avatar">
-        <section  @click="avatarClick(1)">
+        <section @click="avatarClick(1)">
             <div>
-                <audio  id="audio1" loop>
+                <audio id="audio1" loop>
                     <source
                             src="http://m10.music.126.net/20190424222717/7ee2184b6975c422901572c19b6d130e/ymusic/22ee/1e3f/5914/e9f85ec7de491e1ce72e528a4118d07f.mp3"
-                            type="audio/mpeg" />
+                            type="audio/mpeg"/>
                     Your browser does not support the audio element.
                 </audio>
                 <div>
@@ -116,10 +127,10 @@
         </section>
         <section @click="avatarClick(2)">
             <div>
-                <audio  id="audio2" loop>
+                <audio id="audio2" loop>
                     <source
                             src="http://m10.music.126.net/20190424222717/7ee2184b6975c422901572c19b6d130e/ymusic/22ee/1e3f/5914/e9f85ec7de491e1ce72e528a4118d07f.mp3"
-                            type="audio/mpeg" />
+                            type="audio/mpeg"/>
                     Your browser does not support the audio element.
                 </audio>
                 <div>
@@ -130,10 +141,10 @@
         </section>
         <section @click="avatarClick(3)">
             <div>
-                <audio  id="audio3" loop>
+                <audio id="audio3" loop>
                     <source
                             src="http://m10.music.126.net/20190424202454/b4a71d5e985f032d0900574c243e2c55/ymusic/e481/fb0f/fdfb/954e2bd01b5990de4dbe7073a93cd9c5.mp3"
-                            type="audio/mpeg" />
+                            type="audio/mpeg"/>
                     Your browser does not support the audio element.
                 </audio>
                 <div>
@@ -144,10 +155,10 @@
         </section>
         <section @click="avatarClick(4)">
             <div>
-                <audio  id="audio4" loop>
+                <audio id="audio4" loop>
                     <source
                             src="http://m10.music.126.net/20190424202454/b4a71d5e985f032d0900574c243e2c55/ymusic/e481/fb0f/fdfb/954e2bd01b5990de4dbe7073a93cd9c5.mp3"
-                            type="audio/mpeg" />
+                            type="audio/mpeg"/>
                     Your browser does not support the audio element.
                 </audio>
                 <div>
@@ -170,36 +181,36 @@
     new Vue({
         el: '#main',
         data: {
-            url:"",
-            people:[
+            url: "",
+            people: [
                 {
-                    img:"../images/tx.png",
-                    name:"CV名字七个字",
-                    url:"http://m10.music.126.net/20190424220430/92524ff3d0437d81f96a10de7e3e26b3/ymusic/ad88/2e51/404c/16ff5b6c848450012194d21b18456a01.mp3",
-                    autoplay:true
+                    img: "../images/tx.png",
+                    name: "CV名字七个字",
+                    url: "http://m10.music.126.net/20190424220430/92524ff3d0437d81f96a10de7e3e26b3/ymusic/ad88/2e51/404c/16ff5b6c848450012194d21b18456a01.mp3",
+                    autoplay: true
                 },
                 {
-                    img:"../images/tx.png",
-                    name:"CV名字七个字",
-                    url:"http://m10.music.126.net/20190424220446/0e45f413588fc438792618cdad0e3d3f/ymusic/6d49/da60/2f9a/d050d36b52b03d18d2164d0d2418bf68.mp3",
-                    autoplay:true
+                    img: "../images/tx.png",
+                    name: "CV名字七个字",
+                    url: "http://m10.music.126.net/20190424220446/0e45f413588fc438792618cdad0e3d3f/ymusic/6d49/da60/2f9a/d050d36b52b03d18d2164d0d2418bf68.mp3",
+                    autoplay: true
                 },
                 {
-                    img:"../images/tx.png",
-                    name:"CV名字七个字",
-                    url:"http://m10.music.126.net/20190424220504/167bf3c01d596b23115804b5bfaf6c8c/ymusic/e5bd/cb1a/de88/b24ef00c8936a1bcc2acba6cbea3e5bf.mp3",
-                    autoplay:true
+                    img: "../images/tx.png",
+                    name: "CV名字七个字",
+                    url: "http://m10.music.126.net/20190424220504/167bf3c01d596b23115804b5bfaf6c8c/ymusic/e5bd/cb1a/de88/b24ef00c8936a1bcc2acba6cbea3e5bf.mp3",
+                    autoplay: true
                 },
                 {
-                    img:"../images/tx.png",
-                    name:"CV名字七个字",
-                    url:"http://m10.music.126.net/20190424220430/92524ff3d0437d81f96a10de7e3e26b3/ymusic/ad88/2e51/404c/16ff5b6c848450012194d21b18456a01.mp3",
-                    autoplay:true
+                    img: "../images/tx.png",
+                    name: "CV名字七个字",
+                    url: "http://m10.music.126.net/20190424220430/92524ff3d0437d81f96a10de7e3e26b3/ymusic/ad88/2e51/404c/16ff5b6c848450012194d21b18456a01.mp3",
+                    autoplay: true
                 }
             ]
         },
-        methods:{
-            avatarClick(id){
+        methods: {
+            avatarClick(id) {
                 var audio = document.getElementById('audio1');
                 audio.play()
             }
