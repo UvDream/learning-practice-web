@@ -10,18 +10,18 @@
 </head>
 <style>
     .main {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         position: relative;
         background-image: url("../images/background.png");
         background-size: cover;
-        overflow: hidden;
+        position: fixed;
     }
 
     .music {
         position: absolute;
-        width: 1.4rem;
-        height: 1.4rem;
+        width: 2.29rem;
+        height: 2.69rem;
         top: .5rem;
         right: .5rem;
         animation: trans 2s linear infinite;
@@ -54,11 +54,11 @@
     }
 
     .btn {
-        width: 5.5rem;
-        height: 3.5rem;
+        width: 9.6rem;
+        height: 6.32rem;
         background-image: url("../images/button.png");
-        background-size: contain;
-        margin: 15rem auto;
+        background-size: 100% 100%;
+        margin: 25.56rem auto;
     }
 </style>
 
@@ -79,7 +79,7 @@
     </div>
 </body>
 <script src="../js/x-play.js" charset="utf-8"></script>
-
+<script src="../js/rem.js"></script>
 <script type="text/javascript">
     function btnClick() {
         var audio = document.getElementById('audio');
