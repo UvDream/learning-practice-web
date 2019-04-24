@@ -1,15 +1,16 @@
 <!DOCTYPE html>
- <meta charset="UTF-8">
- <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
- <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title>楚留香江湖电台</title>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>楚留香江湖电台</title>
 <link rel="stylesheet" href="style.css">
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>进度条</title>
     <style type="text/css">
-        .main{
+        .main {
             width: 100vw;
             height: 100vh;
             background-image: url("./images/loading.png");
@@ -18,30 +19,36 @@
             overflow: hidden;
             position: relative;
         }
-        .music{
+
+        .music {
             width: 4rem;
             height: 5rem;
             margin: 8rem auto;
             text-align: center;
         }
-        .music img{
+
+        .music img {
             display: inline-block;
-            width:4rem;
+            width: 4rem;
         }
-        span{
+
+        span {
             color: #fff;
             font-size: .48rem;
         }
-        .column,.column>img{
+
+        .column,
+        .column>img {
             position: absolute;
             height: 5.32rem;
-            right:.5rem;
+            right: .5rem;
         }
-        .logo>img{
-        width: 2.5rem;
-        position: absolute;
-        left: .58rem;
-        top: .4rem;
+
+        .logo>img {
+            width: 2.5rem;
+            position: absolute;
+            left: .58rem;
+            top: .4rem;
         }
     </style>
 </head>
@@ -78,7 +85,7 @@
             $("#percentage").html(percentageValue);
             if (count >= 100) {
                 clearInterval(timer);
-                window.location.href='./pages/first.html';
+                window.location.href = './pages/first.html';
             }
         }, 30)
     })
