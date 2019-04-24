@@ -13,6 +13,9 @@
         width: 100vw;
         height: 100vh;
         position: relative;
+        background-image: url("../images/background.png");
+        background-size: cover;
+        overflow: hidden;
     }
 
     .music {
@@ -21,8 +24,9 @@
         height: 1.4rem;
         top: .5rem;
         right: .5rem;
-        outline: 1px solid red;
         animation: trans 2s linear infinite;
+        background-image: url("../images/erhu.png");
+        background-size: contain;
     }
 
     @-webkit-keyframes trans {
@@ -48,39 +52,47 @@
         }
 
     }
+    .btn{
+        width: 5.5rem;
+        height: 3.5rem;
+        background-image: url("../images/button.png");
+        background-size: contain;
+        margin:  15rem auto;
+    }
 </style>
 
 <body>
     <div class="main">
-        第一个页面
-        <div class="music" id="music">
+        <div class="music" id="music" onclick="btnClick()">
             <audio autoplay id="audio" loop>
                 <source
-                    src="http://m10.music.126.net/20190424140833/f5985246fa9518f4cedff352b7c4f90d/ymusic/f99d/4dc7/8d6c/195408a32c775ca7c34fc463931c7058.mp3"
+                    src="http://m10.music.126.net/20190424171311/a63bfacb87520605780e8df9c9f76fc6/ymusic/4c19/c99d/a372/c8bb250f93046594998a3e278261e374.mp3"
                     type="audio/mpeg" />
                 Your browser does not support the audio element.
             </audio>
+        </div>
+        <div class="btn">
+            <!-- <img src="../images/button.png" alt=""> -->
         </div>
 
     </div>
 </body>
 <script src="../js/x-play.js" charset="utf-8"></script>
-<script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $("#music").click(function () {
-            var audio = document.getElementById('audio');
-            if (audio !== null) {
-                //检测播放是否已暂停.audio.paused 在播放器播放时返回false.
-                if (audio.paused) {
-                    audio.play(); //audio.play();// 这个就是播放
-                } else {
-                    audio.pause(); // 这个就是暂停
-                }
+    function btnClick() {
+        var audio = document.getElementById('audio');
+        if (audio !== null) {
+            //检测播放是否已暂停.audio.paused 在播放器播放时返回false.
+            if (audio.paused) {
+                audio.play(); //audio.play();// 这个就是播放
+                document.getElementById("music").style.animationPlayState = "running";
+            } else {
+                audio.pause(); // 这个就是暂停
+                document.getElementById("music").style.animationPlayState = "paused";
             }
-        });
-    });
+        }
+    }
 </script>
 
 </html>
