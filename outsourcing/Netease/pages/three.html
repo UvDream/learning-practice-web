@@ -6,28 +6,93 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>楚留香江湖电台</title>
+    <link rel="stylesheet" href="../style.css">
+
 </head>
 <style>
+    .main {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-image: url("../images/page3-background.png");
+        background-size: cover;
+    }
+
+    .title-top, .title-bottom {
+        font-size: .85rem;
+        text-align: center;
+        color: #ffffff;
+    }
+
+    .title-top {
+        margin-top: 3.44rem;
+    }
+
+    .text {
+        width: 18rem;
+        height: 13.6rem;
+        margin: 2.96rem auto;
+        background-image: url("../images/page3-text.png");
+        background-size: cover;
+    }
+    .text p{
+        font-size: .85rem;
+        text-align: center;
+        color: #fff;
+    }
+    .text>p:nth-child(1){
+        padding-top: 1.48rem;
+    }
+    .text>p:nth-child(2){
+        color: #fe8866;
+    }
+    .text>p>span{
+        color: #fe8866;
+    }
+    .button{
+        display: flex;
+        justify-content: center;
+        margin-top: 8rem;
+    }
+    .button section{
+        width: 8.16rem;
+        height: 2.13rem;
+        background-image: url("../images/page3-button.png");
+        background-size: 100% 100%;
+        line-height: 2.13rem;
+        text-align: center;
+        color: #fff;
+        font-size: .96rem;
+
+    }
+    .button section:nth-child(2){
+        margin-left: 1.78rem;
+    }
 </style>
 
 <body>
-    第一个页面
-    <div id="mse"></div>
+<div class="main">
+    <p class="title-top">江湖</p>
+    <p class="title-bottom">总是发生着各式各样的故事</p>
+    <div class="text">
+        <p>以上故事节选自楚留香江湖电台</p>
+        <p>由CV：XXX、XXX、XXX</p>
+        <p>等联合演绎</p>
+        <p>江湖电台节目将于<span>5月3日</span></p>
+        <p>正式开启</p>
+        <p>欢迎各位小友前来做客</p>
+
+    </div>
+    <div class="button">
+        <section>听更多声音</section>
+        <section>前往做客</section>
+    </div>
+</div>
 </body>
 <script src="../js/rem.js"></script>
-<script src="//cdn.jsdelivr.net/npm/xgplayer/browser/index.js" charset="utf-8"></script>
 
 <script type="text/javascript">
-    let player = new Player({
-        id: 'mse',
-        autoplay: false,
-        volume: 0.3,
-        url: '/video/mp4/xgplayer-demo-720p.mp4',
-        poster: "http://s2.pstatp.com/cdn/expire-1-M/byted-player-videos/1.0.0/xgplayer-demo.mp4",
-        playsinline: true,
-        height: window.innerHeight,
-        width: window.innerWidth
-    });
+
 </script>
 
 </html>

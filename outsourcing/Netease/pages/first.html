@@ -67,13 +67,12 @@
         <div class="music" id="music" onclick="btnClick()">
             <audio autoplay id="audio" loop>
                 <source
-                    src="http://m10.music.126.net/20190424171311/a63bfacb87520605780e8df9c9f76fc6/ymusic/4c19/c99d/a372/c8bb250f93046594998a3e278261e374.mp3"
+                    src="http://m10.music.126.net/20190424202454/b4a71d5e985f032d0900574c243e2c55/ymusic/e481/fb0f/fdfb/954e2bd01b5990de4dbe7073a93cd9c5.mp3"
                     type="audio/mpeg" />
                 Your browser does not support the audio element.
             </audio>
         </div>
-        <div class="btn">
-            <!-- <img src="../images/button.png" alt=""> -->
+        <div class="btn" onclick="listenClick()">
         </div>
 
     </div>
@@ -93,6 +92,9 @@
                 document.getElementById("music").style.animationPlayState = "paused";
             }
         }
+    }
+    function listenClick(){
+        window.location.href = './two.html';
     }
 </script>
 
