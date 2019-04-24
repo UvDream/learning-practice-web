@@ -15,40 +15,38 @@
             height: 100vh;
             background-image: url("./images/loading.png");
             background-size: cover;
-            outline: 1px solid red;
-            overflow: hidden;
-            position: relative;
+            position: fixed;
         }
 
         .music {
-            width: 4rem;
-            height: 5rem;
-            margin: 8rem auto;
+            width: 8rem;
+            height: 8rem;
+            margin: 11rem auto;
             text-align: center;
         }
 
         .music img {
             display: inline-block;
-            width: 4rem;
+            width: 8rem;
         }
 
         span {
             color: #fff;
-            font-size: .48rem;
+            font-size: .96rem;
         }
 
         .column,
         .column>img {
             position: absolute;
-            height: 5.32rem;
-            right: .5rem;
+            height: 10rem;
+            right: .72rem;
         }
 
         .logo>img {
-            width: 2.5rem;
+            width: 4.9rem;
             position: absolute;
-            left: .58rem;
-            top: .4rem;
+            left: 1rem;
+            top: .8rem;
         }
     </style>
 </head>
@@ -69,6 +67,7 @@
 
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
+<script src="./js/rem.js"></script>
 <script>
     $(function () {
         $("html").css("opacity", "0");
