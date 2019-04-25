@@ -65,10 +65,10 @@
         background-size: 100% 100%;
         padding: .2rem .2rem;
         margin: 0 auto;
+        text-align: center;
     }
 
     .avatar section > div > div > img {
-        width: 100%;
         height: 100%;
     }
 
@@ -111,60 +111,60 @@
         <p>听听CV给你带来的独家录音</p>
     </div>
     <div class="avatar">
-        <section @click="avatarClick(1)">
+        <section @click="avatarClick(1)" >
             <div>
-                <audio id="audio1" loop>
+                <audio id="audio1" >
                     <source
-                            src="http://m10.music.126.net/20190424222717/7ee2184b6975c422901572c19b6d130e/ymusic/22ee/1e3f/5914/e9f85ec7de491e1ce72e528a4118d07f.mp3"
+                            src="../asset/dyf.m4a"
                             type="audio/mpeg"/>
                     Your browser does not support the audio element.
                 </audio>
                 <div>
-                    <img src="../images/tx.png" alt="">
+                    <img src="../images/one.png" alt="">
                 </div>
-                <p>CV名字七个字</p>
+                <p>CV豆艳芬</p>
             </div>
         </section>
         <section @click="avatarClick(2)">
             <div>
-                <audio id="audio2" loop>
+                <audio id="audio2" >
                     <source
-                            src="http://m10.music.126.net/20190424222717/7ee2184b6975c422901572c19b6d130e/ymusic/22ee/1e3f/5914/e9f85ec7de491e1ce72e528a4118d07f.mp3"
+                            src="../asset/hf.m4a"
                             type="audio/mpeg"/>
                     Your browser does not support the audio element.
                 </audio>
                 <div>
-                    <img src="../images/tx.png" alt="">
+                    <img src="../images/two.png" alt="">
                 </div>
-                <p>CV名字七个字</p>
+                <p>CV化肥</p>
             </div>
         </section>
         <section @click="avatarClick(3)">
             <div>
-                <audio id="audio3" loop>
+                <audio id="audio3" >
                     <source
-                            src="http://m10.music.126.net/20190424202454/b4a71d5e985f032d0900574c243e2c55/ymusic/e481/fb0f/fdfb/954e2bd01b5990de4dbe7073a93cd9c5.mp3"
+                            src="../asset/qklxbl.mp3"
                             type="audio/mpeg"/>
                     Your browser does not support the audio element.
                 </audio>
                 <div>
-                    <img src="../images/tx.png" alt="">
+                    <img src="../images/three.png" alt="">
                 </div>
-                <p>CV名字七个字</p>
+                <p>CV巧克力星冰乐</p>
             </div>
         </section>
         <section @click="avatarClick(4)">
             <div>
-                <audio id="audio4" loop>
+                <audio id="audio4" >
                     <source
-                            src="http://m10.music.126.net/20190424202454/b4a71d5e985f032d0900574c243e2c55/ymusic/e481/fb0f/fdfb/954e2bd01b5990de4dbe7073a93cd9c5.mp3"
+                            src="../asset/xjqq.m4a"
                             type="audio/mpeg"/>
                     Your browser does not support the audio element.
                 </audio>
                 <div>
-                    <img src="../images/tx.png" alt="">
+                    <img src="../images/four.png" alt="">
                 </div>
-                <p>CV名字七个字</p>
+                <p>CV许家七七</p>
             </div>
         </section>
     </div>
@@ -182,40 +182,26 @@
         el: '#main',
         data: {
             url: "",
-            people: [
-                {
-                    img: "../images/tx.png",
-                    name: "CV名字七个字",
-                    url: "http://m10.music.126.net/20190424220430/92524ff3d0437d81f96a10de7e3e26b3/ymusic/ad88/2e51/404c/16ff5b6c848450012194d21b18456a01.mp3",
-                    autoplay: true
-                },
-                {
-                    img: "../images/tx.png",
-                    name: "CV名字七个字",
-                    url: "http://m10.music.126.net/20190424220446/0e45f413588fc438792618cdad0e3d3f/ymusic/6d49/da60/2f9a/d050d36b52b03d18d2164d0d2418bf68.mp3",
-                    autoplay: true
-                },
-                {
-                    img: "../images/tx.png",
-                    name: "CV名字七个字",
-                    url: "http://m10.music.126.net/20190424220504/167bf3c01d596b23115804b5bfaf6c8c/ymusic/e5bd/cb1a/de88/b24ef00c8936a1bcc2acba6cbea3e5bf.mp3",
-                    autoplay: true
-                },
-                {
-                    img: "../images/tx.png",
-                    name: "CV名字七个字",
-                    url: "http://m10.music.126.net/20190424220430/92524ff3d0437d81f96a10de7e3e26b3/ymusic/ad88/2e51/404c/16ff5b6c848450012194d21b18456a01.mp3",
-                    autoplay: true
-                }
-            ]
+            current:''
         },
         methods: {
             avatarClick(id) {
-                var audio = document.getElementById('audio1');
-                audio.play()
+                var audios = document.getElementsByTagName("audio");
+                console.log(audios);
+                var self = this;
+                [].forEach.call(audios, function (i) {
+                    i !== self && i.pause();
+                });
+                let a='audio';
+                let b=id;
+                let c=a+b;
+                let audio = document.getElementById(c);
+                audio.play();
             }
         }
     })
+
+
 </script>
 
 </html>
