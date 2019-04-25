@@ -30,7 +30,7 @@
         height: 5.22rem;
         background-image: url("../images/page4-text.png");
         background-size: 100% 100%;
-        margin: 4.93rem auto 1rem;
+        margin: 4.93rem auto 1rem ;
     }
 
     .text p {
@@ -169,7 +169,7 @@
         </section>
     </div>
     <div class="button">
-        <section>前往电台作客</section>
+        <section @click="moreClick">前往电台作客</section>
         <section>分享</section>
     </div>
 
@@ -213,6 +213,9 @@
             avatarClick(id) {
                 var audio = document.getElementById('audio1');
                 audio.play()
+            },
+            moreClick(){
+                window.location.href = './five.html';
             }
         }
     })
