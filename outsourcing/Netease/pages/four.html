@@ -30,7 +30,7 @@
         height: 5.22rem;
         background-image: url("../images/page4-text.png");
         background-size: 100% 100%;
-        margin: 4.93rem auto;
+        margin: 4.93rem auto 1rem ;
     }
 
     .text p {
@@ -169,7 +169,7 @@
         </section>
     </div>
     <div class="button">
-        <section>前往电台作客</section>
+        <section @click="moreClick">前往电台作客</section>
         <section>分享</section>
     </div>
 
@@ -187,7 +187,6 @@
         methods: {
             avatarClick(id) {
                 var audios = document.getElementsByTagName("audio");
-                console.log(audios);
                 var self = this;
                 [].forEach.call(audios, function (i) {
                     i !== self && i.pause();
@@ -197,6 +196,9 @@
                 let c = a + b;
                 let audio = document.getElementById(c);
                 audio.play();
+            },
+            moreClick(){
+                window.location.href = './five.html';
             }
         }
     })
