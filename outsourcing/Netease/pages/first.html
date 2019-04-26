@@ -67,12 +67,12 @@
     <div class="music" id="music" onclick="btnClick()">
         <audio autoplay id="audio" loop>
             <source
-                    src="http://m10.music.126.net/20190424223917/e86c54ac681dcd00ca46b32c2da53382/ymusic/bd63/ae93/10cd/9f9a5a155f99bf4c64f58f242d035437.mp3"
+                    src="../asset/bgm.mp3"
                     type="audio/mpeg"/>
             Your browser does not support the audio element.
         </audio>
     </div>
-    <div class="btn" onclick="listenClick()">
+    <div class="btn" onclick="listenClick()" >
     </div>
 
 </div>
@@ -111,12 +111,12 @@
 
         audioAutoPlay();
     });
-    $("body").on("touchstart", function(e) {
-
-        e.preventDefault();
-        startX = e.originalEvent.changedTouches[0].pageX,
-            startY = e.originalEvent.changedTouches[0].pageY;
-    });
+    // $("body").on("touchstart", function(e) {
+    //
+    //     e.preventDefault();
+    //     startX = e.originalEvent.changedTouches[0].pageX,
+    //         startY = e.originalEvent.changedTouches[0].pageY;
+    // });
     // $("body").on("touchmove", function(e) {
     //     e.preventDefault();
     //     moveEndX = e.originalEvent.changedTouches[0].pageX,

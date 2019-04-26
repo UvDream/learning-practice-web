@@ -174,12 +174,12 @@
         <section @click="moreClick">前往电台作客</section>
         <section id="share">分享</section>
     </div>
-
 </div>
 </body>
 <script src="../js/rem.js"></script>
 <script src="../js/vue.js"></script>
 <script src="../js/zepto(mixNIE).last.js"></script>
+<script src="../js/jquery.js"></script>
 <script type="text/javascript">
     new Vue({
         el: '#main',
@@ -222,7 +222,8 @@
 
             }
         });
-        $("#share").click(function(e){//分享按钮绑定点事件，显示分享弹层
+        $("#share").click(function(){//分享按钮绑定点事件，显示分享弹层
+            alert("xxx");
             MobileShare.showShare();
         })
     });
