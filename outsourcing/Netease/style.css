@@ -2,6 +2,10 @@ body {
     font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft YaHei";
 }
 
+@font-face {
+    font-family: mFont;
+    src: url('./asset/fz.ttf');
+}
 html,
 body {
     margin: 0;
