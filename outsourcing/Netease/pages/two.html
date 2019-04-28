@@ -71,9 +71,10 @@
     //     controls: true,
     //     // fluid: true,
     // });
-    var timer=setInterval(function () {
+    var md=document.getElementsByTagName("video")[0];
+    md.addEventListener("ended",function(){
         window.location.href='./three.html'
-    },75000)
+    })
 </script>
 
 </html>
