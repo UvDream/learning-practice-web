@@ -63,26 +63,7 @@
     $(window).on('touchstart', function () {
         $("#video")[0].play();
     });
-    $("body").on("touchstart", function (e) {
 
-        e.preventDefault();
-        startX = e.originalEvent.changedTouches[0].pageX,
-            startY = e.originalEvent.changedTouches[0].pageY;
-    });
-    $("body").on("touchmove", function (e) {
-                e.preventDefault();
-                moveEndX = e.originalEvent.changedTouches[0].pageX,
-                    moveEndY = e.originalEvent.changedTouches[0].pageY,
-                    X = moveEndX - startX,
-                    Y = moveEndY - startY;
-
-                if (X > 0) {
-                    // alert("left 2 right");
-                    window.location.href = './first.html';
-                } else if (X < 0) { // alert("right 2 left"); window.location.href='./two.html' ; } else if ( Y> 0) {
-                    // alert("top 2 bottom");
-                } else if (Y < 0) { // alert("bottom 2 top"); } else{ // alert("just touch");
-                 } });
                     // 兼容微信(微信可以自动播放)
                     document.addEventListener("WeixinJSBridgeReady", function () {
                         $("#video")[0].play();
