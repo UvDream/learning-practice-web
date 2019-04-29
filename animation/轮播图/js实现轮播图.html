@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        body,
+        p,
+        ul,
+        li,
+        ol,
+        dl,
+        dd,
+        button,
+        input,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            border: none;
+        }
+
+        .clearfix {
+            zoom: 1;
+        }
+
+        .clearfix:after {
+            display: block;
+            content: "";
+            clear: both;
+        }
+
+        #banner-box {
+            position: relative;
+            width: 800px;
+            height: 373px;
+            margin: 30px auto 0;
+            overflow: hidden;
+            font-family: "微软雅黑";
+        }
+
+        #banner li {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        #banner-box img {
+            width: 1024px;
+            height: 373px;
+        }
+
+        #nav {
+            position: absolute;
+            right: 80px;
+            bottom: 20px;
+            z-index: 2;
+        }
+
+        #nav li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin: 0 6px;
+            border-radius: 100%;
+            background: #935B5B;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        #nav li.cur,
+        #nav li:hover {
+            background: #E91E63;
+        }
+
+        #btn div {
+            z-index: 2;
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background: #5C2C2C;
+            top: 155px;
+            opacity: .3;
+            filter: alpha(opacity=30);
+            text-align: center;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            display: none;
+        }
+
+        .prev {
+            left: 30px;
+        }
+
+        .next {
+            right: 30px;
+        }
+
+        #banner-box div {
+            display: block;
+        }
+
+        #banner-box:hover div:hover {
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="banner-box">
+        <ul id="banner">
+            <li><img src="images/1.jpg"></li>
+            <li><img src="images/2.jpg"></li>
+            <li><img src="images/3.jpg"></li>
+            <li><img src="images/4.jpg"></li>
+        </ul>
+        <ul id="nav">
+            <li class="cur">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="btn">
+            <div class="prev">&lt;</div>
+            <div class="next">&gt;</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var oBanner = document.getElementById("banner");
+        var aBannerLi = oBanner.getElementsByTagName("li");
+        var oNav = document.getElementById("nav");
+        var aNavLi = oNav.getElementsByTagName("li");
+        var oBtn = document.getElementById("btn");
+        var oPrev = oBtn.getElementsByTagName("div")[0];
+        var oNext = oBtn.getElementsByTagName("div")[1];
+        var oBannerBox = document.getElementById("banner-box");
+        var i = 0;
+        aBannerLi[0].style.opacity = 1;
+        aBannerLi[0].style.zIndex = 1;
+        var timer = setInterval(move, 3000);//filter 
+        for (var n = 0; n < aBannerLi.length; n++) {
+            aBannerLi[n].index = n;
+            aBannerLi[n].onmouseover = function () {
+                console.log(this.index);
+            }
+        }
+        function move() {
+            clearInterval(timer);
+            i++;
+            for (var j = 0; j < aBannerLi.length; j++) {
+                aBannerLi[j].style.zIndex = 0;
+                startMove(aBannerLi[j], { "opacity": 0 });
+            }
+            for (var k = 0; k < aNavLi.length; k++) {
+                aNavLi[k].className = "";
+            }
+            if (i >= aBannerLi.length) {
+                i = 0;
+            }
+            aNavLi[i].className = "cur";
+            aBannerLi[i].style.zIndex = 1;
+            startMove(aBannerLi[i], { "opacity": 100 }, clear);
+        }
+        function clear() {
+            timer = setInterval(move, 3000);
+        }
+
+        for (var m = 0; m < aNavLi.length; m++) {
+            aNavLi[m].index = m;
+            aNavLi[m].onclick = function () {
+                i = this.index - 1;
+                move();
+            }
+        }
+        oPrev.onclick = function () {
+            if (i == 0) {
+                i = aBannerLi.length - 2;
+            } else {
+                i = i - 2;
+            }
+            move();
+        }
+        oNext.onclick = function () {
+            move();
+        }
+        function getStyle(obj, attr) {
+            if (obj.currentStyle) {
+                return obj.currentStyle[attr]
+            }
+            else {
+                return getComputedStyle(obj, false)[attr]
+            }
+        }
+        function startMove(obj, json, fnEnd) {
+            var MAX = 18;
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var bStop = true;
+                for (var name in json) {
+                    var iTarget = json[name];
+                    if (name == 'opacity') {
+                        var cur = Math.round(parseFloat(getStyle(obj, name)) * 100);
+                    }
+                    else {
+                        var cur = parseInt(getStyle(obj, name));
+
+                    }
+                    var speed = (iTarget - cur) / 8;
+
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+                    if (Math.abs(speed) > MAX) speed = speed > 0 ? MAX : -MAX;
+
+                    if (name == 'opacity') {
+                        obj.style.filter = 'alpha(opacity:' + (cur + speed) + ')';
+                        obj.style.opacity = (cur + speed) / 100; //ff chrome
+                    }
+                    else {
+                        obj.style[name] = cur + speed + 'px';
+                    }
+                    if (cur != iTarget) {
+                        bStop = false;
+                    }
+                }
+                if (bStop) {
+                    clearInterval(obj.timer);
+
+                    if (fnEnd) {
+                        fnEnd();
+                    }
+                }
+            }, 10);
+        }
+    </script>
+</body>
+
+</html>

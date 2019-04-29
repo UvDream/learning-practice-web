@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #div1 {
+        width: 800px;
+        height: 130px;
+        margin: 100px auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #div1 ul {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    #div1 ul li {
+        float: left;
+        list-style: none;
+        width: 200px;
+        height: 130px;
+    }
+
+    a {
+        margin-left: 240px;
+    }
+
+    #a {
+        margin-top: 100px;
+    }
+</style>
+
+<body>
+    <div id="a">
+        <a href="javascript:void(0)" id="id1">向左</a>
+        <a href="javascript:void(0)" id="id3">暂停</a>
+        <a href="javascript:void(0)" id="id2">向右</a>
+    </div>
+
+    <div id="div1">
+        <ul>
+            <li><img src="images/1.jpg" /></li>
+
+            <li><img src="images/2.jpg" /></li>
+
+            <li><img src="images/3.jpg" /></li>
+
+            <li><img src="images/4.jpg" /></li>
+        </ul>
+    </div>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById("div1");
+            var oUl = document.getElementsByTagName("ul")[0];
+            var oLi = document.getElementsByTagName("li");
+
+            oUl.innerHTML = oUl.innerHTML + oUl.innerHTML;
+
+            oUl.style.width = oLi[0].offsetWidth * oLi.length + "px";
+
+
+            //移动速度
+            var speed = 2;
+
+
+            //控制滚动的方向
+            var a1 = document.getElementById("id1");
+            var a2 = document.getElementById("id2");
+            var a3 = document.getElementById("id3");
+
+            a1.onclick = function () {
+                speed = 2;
+            }
+            a2.onclick = function () {
+                speed = -2;
+            }
+            a3.onclick = function () {
+                speed = 0;
+            }
+
+            //鼠标移开  
+            function move() {
+                if (oUl.offsetLeft < -oUl.offsetWidth / 2) {
+                    oUl.style.left = "0";
+                }
+
+                if (oUl.offsetLeft > 0) {
+                    oUl.style.left = -oUl.offsetWidth / 2 + "px";
+                }
+
+                oUl.style.left = oUl.offsetLeft - speed + "px";
+
+            }
+
+            //定时器  控制移动的时间
+            var timer = setInterval(move, 30);
+
+            //鼠标移入
+            oDiv.onmouseover = function () {
+                clearInterval(timer);
+            }
+
+            //鼠标移开
+            oDiv.onmouseout = function () {
+                timer = setInterval(move, 30);
+            }
+        }
+    </script>
+</body>
+
+</html>

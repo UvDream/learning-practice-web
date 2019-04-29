@@ -1,1 +1,95 @@
-<!DOCTYPE html><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>楚留香江湖电台</title><link rel="stylesheet" href="style.css"><html><head>    <meta charset="utf-8">    <title>进度条</title>    <style type="text/css">        .main {            width: 100vw;            height: 100vh;            background-image: url("./images/loading.png");            background-size: cover;            position: relative;        }        .music {            width: 8rem;            height: 8rem;            margin: 0rem auto;            text-align: center;        }        .music img {            display: inline-block;            width: 8rem;        }        span {            color: #fff;            font-size: .96rem;        }        .column,        .column > img {            position: absolute;            height: 10rem;            right: .72rem;        }        .logo > img {            width: 4.9rem;            position: absolute;            left: 1rem;            top: .8rem;        }    </style></head><body><div class="main">    <div class="logo">        <img src="./images/logo.png" alt="">    </div>    <div class="column">        <img src="./images/column.png" alt="">    </div>    <div style="height: 11rem;">    </div>    <div class="music">        <img src="./images/music.png" alt="">        <span id="percentage">0%</span>    </div></div></body><script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script><script src="./js/rem.js"></script><script>    $(function () {        $("html").css("opacity", "0");        $("html").animate({            opacity: 1        }, 1000);        $("#progressFill").animate({            width: "100%"        }, 10 * 1000);        var count = 0;        var timer = setInterval(function () {            count++;            var percentageValue = count + '%'            $("#percentage").html(percentageValue);            if (count >= 100) {                clearInterval(timer);                window.location.href = './pages/first.html';            }        }, 30)    })</script></html>
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>楚留香江湖电台</title>
+<link rel="stylesheet" href="style.css">
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>进度条</title>
+    <style type="text/css">
+        .main {
+            width: 100vw;
+            height: 100vh;
+            background-image: url("./images/loading.png");
+            background-size: cover;
+            position: relative;
+        }
+
+        .music {
+            width: 8rem;
+            height: 8rem;
+            margin: 0rem auto;
+            text-align: center;
+        }
+
+        .music img {
+            display: inline-block;
+            width: 8rem;
+        }
+
+        span {
+            color: #fff;
+            font-size: .96rem;
+        }
+
+        .column,
+        .column > img {
+            position: absolute;
+            height: 10rem;
+            right: .72rem;
+        }
+
+        .logo > img {
+            width: 4.9rem;
+            position: absolute;
+            left: 1rem;
+            top: .8rem;
+        }
+    </style>
+</head>
+
+<body>
+<div class="main">
+    <div class="logo">
+        <img src="./images/logo.png" alt="">
+    </div>
+    <div class="column">
+        <img src="./images/column.png" alt="">
+    </div>
+    <div style="height: 11rem;">
+
+    </div>
+    <div class="music">
+        <img src="./images/music.png" alt="">
+        <span id="percentage">0%</span>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
+<script src="./js/rem.js"></script>
+<script>
+    $(function () {
+        $("html").css("opacity", "0");
+        $("html").animate({
+            opacity: 1
+        }, 1000);
+        $("#progressFill").animate({
+            width: "100%"
+        }, 10 * 1000);
+        var count = 0;
+        var timer = setInterval(function () {
+            count++;
+            var percentageValue = count + '%'
+            $("#percentage").html(percentageValue);
+            if (count >= 100) {
+                clearInterval(timer);
+                window.location.href = './pages/first.html';
+            }
+        }, 30)
+    })
+</script>
+
+</html>
