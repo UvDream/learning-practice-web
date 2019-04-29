@@ -15,7 +15,6 @@
         height: 100vh;
         background-image: url("../images/page2-background.png");
         background-size: 100% 100%;
-        overflow: hidden;
     }
 
     #mse {
@@ -28,53 +27,63 @@
         transform: rotate(90deg);
         transform-origin: left top;
     }
-    .video{
+
+    .video {
         width: 100%;
         height: 100%;
     }
 </style>
 
 <body>
-<div class="main">
-    <!--<div id="mse"></div>-->
-    <video src="../asset/test.mp4" class="video" id="video" controls="controls" autoplay="autoplay"></video>
-</div>
+    <div class="main">
+        <!--<div id="mse"></div>-->
+        <video src="http://f.us.sinaimg.cn/002Flr2plx07tsPCwm4M01041200trG20E010.mp4?label=mp4_hd&template=480x852.24.0&Expires=1556541781&ssig=YgAe43j%2BP7&KID=unistore,video" class="video" id="video" controls="controls" autoplay="autoplay"></video>
+    </div>
 </body>
 <!--<script src="../js/x-play.js" charset="utf-8"></script>-->
 <script src="../js/rem.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
-    $(function() {
+    $(function () {
         var p = $("body");
         var offset = p.offset();
-        $("#fadeDiv").css({ top: offset.top, left: offset.left, width: $("#bodyDiv").width(), height: $("body").height(), backgroundColor: "white", opacity: 1, position: "absolute" });
+        $("#fadeDiv").css({
+            top: offset.top,
+            left: offset.left,
+            width: $("#bodyDiv").width(),
+            height: $("body").height(),
+            backgroundColor: "white",
+            opacity: 1,
+            position: "absolute"
+        });
         if (jQuery.isReady) {
             $("#fadeDiv").fadeOut(1000000);
         }
     })
-    $(window).on('touchstart', function(){
+    $(window).on('touchstart', function () {
         $("#video")[0].play();
     });
-    // 兼容微信(微信可以自动播放)
-    document.addEventListener("WeixinJSBridgeReady", function () {
-        $("#video")[0].play();
-    }, false);
-    // let player = new Player({
-    //     id: 'mse',
-    //     autoplay: true,
-    //     volume: 0.3,
-    //     url: '../asset/test.mp4',
-    //     playsinline: true,
-    //     //w微信全屏播放
-    //     'x5-video-player-fullscreen': true,
-    //     'x5-video-orientation': 'landscape',
-    //     controls: true,
-    //     // fluid: true,
-    // });
-    var md=document.getElementsByTagName("video")[0];
-    md.addEventListener("ended",function(){
-        window.location.href='./three.html'
-    })
+
+                    // 兼容微信(微信可以自动播放)
+                    document.addEventListener("WeixinJSBridgeReady", function () {
+                        $("#video")[0].play();
+                    }, false);
+                    // let player = new Player({
+                    //     id: 'mse',
+                    //     autoplay: true,
+                    //     volume: 0.3,
+                    //     url: '../asset/test.mp4',
+                    //     playsinline: true,
+                    //     //w微信全屏播放
+                    //     'x5-video-player-fullscreen': true,
+                    //     'x5-video-orientation': 'landscape',
+                    //     controls: true,
+                    //     // fluid: true,
+                    // });
+                    var md = document.getElementsByTagName("video")[0];
+                    md.addEventListener("ended", function () {
+                        window.location.href = './three.html'
+                    })
 </script>
 
 </html>
