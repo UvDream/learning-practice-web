@@ -1,147 +1,1 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../style.css">
-    <title>楚留香江湖电台</title>
-</head>
-<style>
-    .main {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        overflow: hidden;
-        background-image: url("../images/background.png");
-        background-size: cover;
-    }
-
-    .music {
-        position: absolute;
-        width: 2.29rem;
-        height: 2.69rem;
-        top: .5rem;
-        right: .5rem;
-        animation: trans 2s linear infinite;
-        background-image: url("../images/erhu.png");
-        background-size: contain;
-    }
-
-    @-webkit-keyframes trans {
-
-        0% {
-            -webkit-transform: rotate(0deg);
-        }
-
-        25% {
-            -webkit-transform: rotate(90deg);
-        }
-
-        50% {
-            -webkit-transform: rotate(180deg);
-        }
-
-        75% {
-            -webkit-transform: rotate(270deg);
-        }
-
-        100% {
-            -webkit-transform: rotate(360deg);
-        }
-
-    }
-
-    .btn {
-        width: 9.6rem;
-        height: 6.32rem;
-        background-image: url("../images/button.png");
-        background-size: 100% 100%;
-        margin: 25.56rem auto;
-    }
-</style>
-
-<body>
-<div class="main">
-    <div class="music" id="music" onclick="btnClick()">
-        <audio autoplay id="audio" loop>
-            <source
-                    src="https://music.163.com/song/media/outer/url?id=1341937632.mp3"
-                    type="audio/mpeg"/>
-            Your browser does not support the audio element.
-        </audio>
-    </div>
-    <div class="btn" onclick="listenClick()" >
-    </div>
-
-</div>
-</body>
-<script src="../js/x-play.js" charset="utf-8"></script>
-<script src="../js/rem.js"></script>
-<script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
-
-<script type="text/javascript">
-    function btnClick() {
-        var audio = document.getElementById('audio');
-        if (audio !== null) {
-            //检测播放是否已暂停.audio.paused 在播放器播放时返回false.
-            if (audio.paused) {
-                audio.play(); //audio.play();// 这个就是播放
-                document.getElementById("music").style.animationPlayState = "running";
-            } else {
-                audio.pause(); // 这个就是暂停
-                document.getElementById("music").style.animationPlayState = "paused";
-            }
-        }
-    }
-
-    function listenClick() {
-        window.location.href = './two.html';
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        function audioAutoPlay() {
-            var audio = document.getElementById('audio');
-            audio.play();
-            document.addEventListener("WeixinJSBridgeReady", function () {
-                audio.play();
-            }, false);
-        }
-
-        audioAutoPlay();
-    });
-    // $("body").on("touchstart", function(e) {
-    //
-    //     e.preventDefault();
-    //     startX = e.originalEvent.changedTouches[0].pageX,
-    //         startY = e.originalEvent.changedTouches[0].pageY;
-    // });
-    // $("body").on("touchmove", function(e) {
-    //     e.preventDefault();
-    //     moveEndX = e.originalEvent.changedTouches[0].pageX,
-    //         moveEndY = e.originalEvent.changedTouches[0].pageY,
-    //         X = moveEndX - startX,
-    //         Y = moveEndY - startY;
-    //
-    //     if ( X > 0 ) {
-    //         alert("left 2 right");
-    //     }
-    //     else if ( X < 0 ) {
-    //         alert("right 2 left");
-    //     }
-    //     else if ( Y > 0) {
-    //         alert("top 2 bottom");
-    //     }
-    //     else if ( Y < 0 ) {
-    //         alert("bottom 2 top");
-    //     }
-    //     else{
-    //         alert("just touch");
-    //     }
-    // });
-</script>
-
-</html>
+<!DOCTYPE html><html lang="en"><head>    <meta charset="UTF-8">    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">    <meta http-equiv="X-UA-Compatible" content="ie=edge">    <link rel="stylesheet" href="../style.css">    <title>楚留香江湖电台</title></head><style>    .main {        width: 100%;        height: 100%;        position: absolute;        left: 0;        top: 0;        overflow: hidden;        background-image: url("../images/background.png");        background-size: cover;    }    .music {        position: absolute;        width: 2.29rem;        height: 2.69rem;        top: .5rem;        right: .5rem;        animation: trans 2s linear infinite;        background-image: url("../images/erhu.png");        background-size: contain;    }    @-webkit-keyframes trans {        0% {            -webkit-transform: rotate(0deg);        }        25% {            -webkit-transform: rotate(90deg);        }        50% {            -webkit-transform: rotate(180deg);        }        75% {            -webkit-transform: rotate(270deg);        }        100% {            -webkit-transform: rotate(360deg);        }    }    .btn {        width: 9.6rem;        height: 6.32rem;        background-image: url("../images/button.png");        background-size: 100% 100%;        margin: 21.5rem auto;    }</style><body><div class="main">    <div class="music" id="music" onclick="btnClick()">        <audio autoplay id="audio" loop>            <source                    src="https://music.163.com/song/media/outer/url?id=1341937632.mp3"                    type="audio/mpeg"/>            Your browser does not support the audio element.        </audio>    </div>    <div class="btn" onclick="listenClick()" >    </div></div></body><script src="../js/x-play.js" charset="utf-8"></script><script src="../js/rem.js"></script><script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script><script type="text/javascript">    function btnClick() {        var audio = document.getElementById('audio');        if (audio !== null) {            //检测播放是否已暂停.audio.paused 在播放器播放时返回false.            if (audio.paused) {                audio.play(); //audio.play();// 这个就是播放                document.getElementById("music").style.animationPlayState = "running";            } else {                audio.pause(); // 这个就是暂停                document.getElementById("music").style.animationPlayState = "paused";            }        }    }    function listenClick() {        window.location.href = './two.html';    }    document.addEventListener('DOMContentLoaded', function () {        function audioAutoPlay() {            var audio = document.getElementById('audio');            audio.play();            document.addEventListener("WeixinJSBridgeReady", function () {                audio.play();            }, false);        }        audioAutoPlay();    });    // $("body").on("touchstart", function(e) {    //    //     e.preventDefault();    //     startX = e.originalEvent.changedTouches[0].pageX,    //         startY = e.originalEvent.changedTouches[0].pageY;    // });    // $("body").on("touchmove", function(e) {    //     e.preventDefault();    //     moveEndX = e.originalEvent.changedTouches[0].pageX,    //         moveEndY = e.originalEvent.changedTouches[0].pageY,    //         X = moveEndX - startX,    //         Y = moveEndY - startY;    //    //     if ( X > 0 ) {    //         alert("left 2 right");    //     }    //     else if ( X < 0 ) {    //         alert("right 2 left");    //     }    //     else if ( Y > 0) {    //         alert("top 2 bottom");    //     }    //     else if ( Y < 0 ) {    //         alert("bottom 2 top");    //     }    //     else{    //         alert("just touch");    //     }    // });</script></html>
