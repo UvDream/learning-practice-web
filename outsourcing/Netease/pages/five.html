@@ -119,6 +119,9 @@
         });
         $("#share").click(function(e){//分享按钮绑定点事件，显示分享弹层
             MobileShare.showShare();
+            MobileShare.updateShare({
+                url:"http://clx.16163.com/zt/clx/2019/topicb/"
+            })
         })
     });
     function goClick() {
