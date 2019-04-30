@@ -84,3 +84,20 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+.NIE-share_buttons a em{
+    font-size: 1rem!important;
+}
+.NIE-share_buttons a i{
+    font-size: 1.8rem!important;
+}
+.NIE-share-guide{
+    position: absolute!important;
+    right: 0;
+}
+.NIE-share_qrcode div{
+    width: 95%!important;
+    height: 10rem!important;
+}
+.NIE-share_qrcode div p{
+    font-size: 1rem!important;
+}
