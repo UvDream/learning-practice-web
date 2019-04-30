@@ -111,7 +111,7 @@
             guideText:"点击此处分享朋友圈",//微信中点分享按钮（参数button）显示的分享引导语
             qrcodeIcon:"http://res.gfxm.netease.com/m/boot/20151118101641/img/logo_4a0b3dc.png",//二维码图标
             shareCallback: function(res) {//微信易信分享回调res=｛type:0,res:[微信返回的提示]｝res.type：0表示取消，-1：分享失败，1：分享到朋友圈，2：分享给好友，3：QQ，4：微博。易信只返回1或2两种情况。
-                alert(JSON.stringify(res));
+                // alert(JSON.stringify(res));
             },
             wxSdkCallback:function(){//微信sdk加载完成后回调，可在此回调中调用微信JS-SDK的其他API,如上传图片等。
 
