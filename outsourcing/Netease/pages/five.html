@@ -114,7 +114,9 @@
                 // alert(JSON.stringify(res));
             },
             wxSdkCallback:function(){//微信sdk加载完成后回调，可在此回调中调用微信JS-SDK的其他API,如上传图片等。
-
+                MobileShare.updateShare({
+                    url:"http://clx.16163.com/zt/clx/2019/topicb/",
+                })
             }
         });
         $("#share").click(function(e){//分享按钮绑定点事件，显示分享弹层
