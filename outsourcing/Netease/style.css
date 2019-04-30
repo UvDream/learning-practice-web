@@ -90,3 +90,7 @@ table {
 .NIE-share_buttons a i{
     font-size: 1.8rem!important;
 }
+.NIE-share-guide{
+    position: absolute!important;
+    right: 0;
+}
