@@ -47,7 +47,7 @@
     .button{
         display: flex;
         justify-content: center;
-        margin-top: 5rem;
+        margin-top: 2rem;
     }
     .button section{
         width: 8.16rem;
@@ -90,13 +90,14 @@
     </div>
 
     <div class="button">
-        <section>前往预约</section>
+        <section onclick="goClick()">前往预约</section>
         <section id="share">分享</section>
     </div>
 </div>
 </body>
 <script src="../js/rem.js"></script>
 <script src="../js/zepto(mixNIE).last.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
 
 <script type="text/javascript">
     nie.define("sharetest",function(){
@@ -120,6 +121,9 @@
             MobileShare.showShare();
         })
     });
+    function goClick() {
+        window.location.href = 'https://url.163.com/PF7 ';
+    }
 </script>
 
 </html>

@@ -11,11 +11,12 @@
 <style>
     .main {
         width: 100%;
-        height: 100vh;
-        position: relative;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
         background-image: url("../images/background.png");
         background-size: cover;
-        position: fixed;
     }
 
     .music {
@@ -58,7 +59,7 @@
         height: 6.32rem;
         background-image: url("../images/button.png");
         background-size: 100% 100%;
-        margin: 25.56rem auto;
+        margin: 21.5rem auto;
     }
 </style>
 
@@ -67,12 +68,12 @@
     <div class="music" id="music" onclick="btnClick()">
         <audio autoplay id="audio" loop>
             <source
-                    src="http://m10.music.126.net/20190424223917/e86c54ac681dcd00ca46b32c2da53382/ymusic/bd63/ae93/10cd/9f9a5a155f99bf4c64f58f242d035437.mp3"
+                    src="https://music.163.com/song/media/outer/url?id=1341937632.mp3"
                     type="audio/mpeg"/>
             Your browser does not support the audio element.
         </audio>
     </div>
-    <div class="btn" onclick="listenClick()">
+    <div class="btn" onclick="listenClick()" >
     </div>
 
 </div>
@@ -111,35 +112,6 @@
 
         audioAutoPlay();
     });
-    $("body").on("touchstart", function(e) {
-
-        e.preventDefault();
-        startX = e.originalEvent.changedTouches[0].pageX,
-            startY = e.originalEvent.changedTouches[0].pageY;
-    });
-    // $("body").on("touchmove", function(e) {
-    //     e.preventDefault();
-    //     moveEndX = e.originalEvent.changedTouches[0].pageX,
-    //         moveEndY = e.originalEvent.changedTouches[0].pageY,
-    //         X = moveEndX - startX,
-    //         Y = moveEndY - startY;
-    //
-    //     if ( X > 0 ) {
-    //         alert("left 2 right");
-    //     }
-    //     else if ( X < 0 ) {
-    //         alert("right 2 left");
-    //     }
-    //     else if ( Y > 0) {
-    //         alert("top 2 bottom");
-    //     }
-    //     else if ( Y < 0 ) {
-    //         alert("bottom 2 top");
-    //     }
-    //     else{
-    //         alert("just touch");
-    //     }
-    // });
 </script>
 
 </html>
