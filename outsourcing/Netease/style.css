@@ -94,3 +94,10 @@ table {
     position: absolute!important;
     right: 0;
 }
+.NIE-share_qrcode div{
+    width: 95%!important;
+    height: 10rem!important;
+}
+.NIE-share_qrcode div p{
+    font-size: 1rem!important;
+}
