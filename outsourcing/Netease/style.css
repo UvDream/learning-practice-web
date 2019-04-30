@@ -84,3 +84,9 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+.NIE-share_buttons a em{
+    font-size: 1rem!important;
+}
+.NIE-share_buttons a i{
+    font-size: 1.8rem!important;
+}
