@@ -35,10 +35,11 @@
 </style>
 
 <body>
-    <div class="main">
-        <!--<div id="mse"></div>-->
-        <video src="https://vod.cc.163.com/file/5cc6d2e724ab4b97f6503e8a.mp4" class="video" id="video" controls="controls" autoplay="autoplay"></video>
-    </div>
+<div class="main">
+    <!--<div id="mse"></div>-->
+    <video src="https://vod.cc.163.com/file/5cc6d2e724ab4b97f6503e8a.mp4" class="video" id="video" controls="controls"
+           autoplay="autoplay"></video>
+</div>
 </body>
 <!--<script src="../js/x-play.js" charset="utf-8"></script>-->
 <script src="../js/rem.js"></script>
@@ -64,26 +65,26 @@
         $("#video")[0].play();
     });
 
-                    // 兼容微信(微信可以自动播放)
-                    document.addEventListener("WeixinJSBridgeReady", function () {
-                        $("#video")[0].play();
-                    }, false);
-                    // let player = new Player({
-                    //     id: 'mse',
-                    //     autoplay: true,
-                    //     volume: 0.3,
-                    //     url: '../asset/test.mp4',
-                    //     playsinline: true,
-                    //     //w微信全屏播放
-                    //     'x5-video-player-fullscreen': true,
-                    //     'x5-video-orientation': 'landscape',
-                    //     controls: true,
-                    //     // fluid: true,
-                    // });
-                    var md = document.getElementsByTagName("video")[0];
-                    md.addEventListener("ended", function () {
-                        window.location.href = './three.html'
-                    })
+    // 兼容微信(微信可以自动播放)
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        $("#video")[0].play();
+    }, false);
+    // let player = new Player({
+    //     id: 'mse',
+    //     autoplay: true,
+    //     volume: 0.3,
+    //     url: '../asset/test.mp4',
+    //     playsinline: true,
+    //     //w微信全屏播放
+    //     'x5-video-player-fullscreen': true,
+    //     'x5-video-orientation': 'landscape',
+    //     controls: true,
+    //     // fluid: true,
+    // });
+    var md = document.getElementsByTagName("video")[0];
+    md.addEventListener("ended", function () {
+        window.location.href = './three.html'
+    })
 </script>
 
 </html>
