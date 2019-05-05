@@ -1,5 +1,5 @@
 /**
- * 数组根据字段Boolean排序
+ * 数组根据字段Boolean值排序
  */
 var arr = [
     {
