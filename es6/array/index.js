@@ -57,3 +57,7 @@ console.log("数组尾部添加新元素",d)
  */
 var g=["1","2","4","3"]
 console.log("数组顺序反转",g.reverse())
+/**
+ * 从数组中选取一个元素
+ */
+console.log("数组选定特定元素",g.slice(1,2))
