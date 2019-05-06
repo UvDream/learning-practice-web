@@ -47,3 +47,10 @@ let findIndex = [1, 5, 10, 12].findIndex(function (value, index, arr) {
     return value > 9
 })
 console.log("findIndex():返回符合条件第一个成员位置", findIndex)
+console.log("%c-----------ES6 数组实例的fill()语法探究-----------", "color: orange;font-size:20px");
+/**
+ * fill():使用给定的值填充数组
+ */
+console.log("fill()",["a","b","c"].fill(7))
+console.log("fill():快速填充", new Array(3).fill(7))
+
