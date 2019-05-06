@@ -42,3 +42,13 @@ console.log("数组变字符串",e)
 var f=["1","2","3"]
 console.log("删除最后一个的元素",f.pop())
 console.log("删除后的数组",f)
+/**
+ * 删除数组第一个元素
+ */
+console.log("删除第一个的元素",f.shift())
+console.log("删除后的数组",f)
+/**
+ * 数组末尾添加新元素
+ */
+d.push("新加元素")
+console.log("数组尾部添加新元素",d)
