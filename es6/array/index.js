@@ -52,3 +52,8 @@ console.log("删除后的数组",f)
  */
 d.push("新加元素")
 console.log("数组尾部添加新元素",d)
+/**
+ * 数组顺序反转,并非排序
+ */
+var g=["1","2","4","3"]
+console.log("数组顺序反转",g.reverse())
