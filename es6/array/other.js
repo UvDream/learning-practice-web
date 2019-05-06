@@ -2,12 +2,12 @@ console.log("%c-----------ES6 Array.of()语法探究-----------------", "color: 
 /**
  * Array.of()将一组值转换为数组,弥补数组构造函数Array()的不足
  */
-console.log("Array.of()",Array.of(2,3,4))
+console.log("Array.of()", Array.of(2, 3, 4))
 //ES5模拟
-function ArrayOf(){
+function ArrayOf() {
     return [].slice.call(arguments)
 }
-console.log("ES5模拟",ArrayOf(1,4,5))
+console.log("ES5模拟", ArrayOf(1, 4, 5))
 
 console.log("%c-----------ES6 数组实例的copyWithin语法探究-----------------", "color: orange;font-size:20px");
 /**
@@ -24,7 +24,7 @@ console.log([1, 2, 3, 4, 5].copyWithin(0, 3, 4)) // [4, 2, 3, 4, 5]
 // -2相当于3号位置,-1相当于5好位置
 console.log([1, 2, 3, 4, 5].copyWithin(0, -2, -1)) // [4, 2, 3, 4, 5]
 
-console.log("%c-----------ES6 数组实例的find()/findIndex()语法探究-----------------", "color: orange;font-size:20px");
+console.log("%c-----------ES6 数组实例的find()/findIndex()语法探究-----------", "color: orange;font-size:20px");
 /**
  * find()用于找出第一个符合条件的数组成员,参数为回调函数
  * 回调函数三个值
@@ -33,10 +33,10 @@ console.log("%c-----------ES6 数组实例的find()/findIndex()语法探究-----
  * arr:原数组
  */
 // 找出第一个小于0的成员
-console.log("find():找出小于0的成员",[1,-4,10].find((x)=>x<0))
-let find=[1,5,10,12].find(function(value,index,arr){
-    console.log(value,index,arr)
-    return value>9
+console.log("find():找出小于0的成员", [1, -4, 10].find((x) => x < 0))
+let find = [1, 5, 10, 12].find(function (value, index, arr) {
+    console.log(value, index, arr)
+    return value > 9
 })
 console.log(find)
 /**
@@ -46,4 +46,4 @@ let findIndex = [1, 5, 10, 12].findIndex(function (value, index, arr) {
     console.log(value, index, arr)
     return value > 9
 })
-console.log("findIndex():返回符合条件第一个成员位置",findIndex)
+console.log("findIndex():返回符合条件第一个成员位置", findIndex)
