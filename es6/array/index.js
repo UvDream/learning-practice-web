@@ -35,11 +35,7 @@ var b=["篮球"]
 var c =["足球"]
 var d=a.concat(b,c)
 console.log("合并数组",d)
-/**
- * 将数组变成字符串
- */
-var e=d.join(d)
-console.log("数组变字符串",e)
+
 
 /**
  * 删除数组最后一个元素
@@ -71,3 +67,9 @@ console.log("数组选定特定元素",g.slice(1,2))
  */
 g.splice(2,0,"新增")
 console.log("在数组第二位置新增",g)
+/**
+ * 将数组变成字符串
+ * join()和toSting()区别在于join()可以特定字符分割
+ */
+console.log("数组转换为字符串toString",g.toString())
+console.log("数组变字符串join", g.join(":"))
