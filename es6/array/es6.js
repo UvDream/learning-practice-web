@@ -62,3 +62,7 @@ console.log("map方法",name1)
 // Array.from()
 let name2=Array.from(spans,s=>s.textContent)
 console.log("Array.from()",name2)
+
+console.log("特别使用",Array.from({length:2},()=>"jack"))
+
+// 可以测字符串长度
