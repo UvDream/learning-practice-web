@@ -39,3 +39,11 @@ let find=[1,5,10,12].find(function(value,index,arr){
     return value>9
 })
 console.log(find)
+/**
+ * findIndex()和find方法很类似,返回第一个符合条件的成员的位置
+ */
+let findIndex = [1, 5, 10, 12].findIndex(function (value, index, arr) {
+    console.log(value, index, arr)
+    return value > 9
+})
+console.log("findIndex():返回符合条件第一个成员位置",findIndex)
