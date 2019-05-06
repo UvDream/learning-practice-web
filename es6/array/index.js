@@ -67,5 +67,7 @@ console.log("数组顺序反转",g.reverse())
  */
 console.log("数组选定特定元素",g.slice(1,2))
 /**
- * 
+ * 在元素第二个位置添加一个元素
  */
+g.splice(2,0,"新增")
+console.log("在数组第二位置新增",g)
