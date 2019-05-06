@@ -1,5 +1,5 @@
 /**
- * 数组根据字段Boolean值排序
+ * 数组根据字段Boolean值/数字排序
  */
 var arr = [
     {
@@ -21,6 +21,11 @@ var arr = [
 console.log('排序前', arr)
 this.arr.sort((a, b) => b.read - a.read)
 console.log('排序后', arr)
+/**
+ * 按字母升序排序
+ */
+var j=["f","b","a","d"]
+console.log("按照字母升序排序",j.sort())
 
 /**
  * 合并两个数组
@@ -61,3 +66,6 @@ console.log("数组顺序反转",g.reverse())
  * 从数组中选取一个元素
  */
 console.log("数组选定特定元素",g.slice(1,2))
+/**
+ * 
+ */
