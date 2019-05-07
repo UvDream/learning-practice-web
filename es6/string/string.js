@@ -16,12 +16,16 @@ console.log("contact():", str.concat(str1))
 /**
  * fromCharCode() 将 Unicode 编码转为一个字符
  */
-console.log("fromCharCode()", String.fromCharCode(65))
+console.log("fromCharCode():", String.fromCharCode(65))
 /**
  * indexOf() 查找字符串 "HELLO"
  */
-console.log("indexOf()", str.indexOf("HELLO"))
+console.log("indexOf():", str.indexOf("HELLO"))
 /**
  * lastIndexOf() 查找字符串 "WORLD"最后出现的位置
  */
-console.log("lastIndexOf()", str.lastIndexOf("WORLD"))
+console.log("lastIndexOf():", str.lastIndexOf("WORLD"))
+/**
+ * match() 在字符串中查找 "WORLD"
+ */
+console.log("match():" ,str.match(/WORLD/g))
