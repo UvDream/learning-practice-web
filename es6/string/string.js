@@ -29,3 +29,7 @@ console.log("lastIndexOf():", str.lastIndexOf("WORLD"))
  * match() 在字符串中查找 "WORLD"
  */
 console.log("match():" ,str.match(/WORLD/g))
+/**
+ * replace() 替换
+ */
+console.log("replace():",str.replace("WORLD","BEAUTIFUL"))
