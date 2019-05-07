@@ -37,3 +37,7 @@ console.log("replace():", str.replace("WORLD", "BEAUTIFUL"))
  * search() 查找位置
  */
 console.log("search():",str.search("HELLO"))
+/**
+ * slice() 提取字符串的某个部分， 并以新的字符串返回被提取的部分
+ */
+console.log("slice():",str.slice(1,3))
