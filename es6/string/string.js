@@ -18,6 +18,10 @@ console.log("contact():", str.concat(str1))
  */
 console.log("fromCharCode()", String.fromCharCode(65))
 /**
- * indexOf() 查找字符串 "welcome"
+ * indexOf() 查找字符串 "HELLO"
  */
 console.log("indexOf()", str.indexOf("HELLO"))
+/**
+ * lastIndexOf() 查找字符串 "WORLD"最后出现的位置
+ */
+console.log("lastIndexOf()", str.lastIndexOf("WORLD"))
