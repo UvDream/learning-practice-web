@@ -4,3 +4,12 @@ console.log("%c-----------ES5 String语法探究-----------------", "color: red;
  */
 var str = "HELLO WORLD";
 console.log("charat():", str.charAt(2))
+/**
+ * charCodeAt() 返回字符串第一个字符的 Unicode 编码
+ */
+console.log("charCodeAt():", str.charCodeAt(0))
+/**
+ * contact() 连接两个字符串
+ */
+var str1 = "!"
+console.log("contact():", str.concat(str1))
