@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	fmt.Println("该脚本版权所属来修帮!请勿随意传播使用!")
+	fmt.Println("该脚本版权所属铉盈网络!请勿随意传播使用!")
 	fmt.Println("启用该脚本前请先确认需要修改的ip地址和新的ip地址,如有乱输后果自负!")
 	//读取当前的文件夹地址
 	filePath := CurrentFile()
@@ -21,6 +21,9 @@ func main() {
 	replaceFile(fileNameArray, filePath)
 }
 
+
+
+
 // 读取当前文件路径
 func CurrentFile() string {
 	_, file, _, ok := runtime.Caller(1)
@@ -28,7 +31,7 @@ func CurrentFile() string {
 		panic(errors.New("无法获取当前目录"))
 	}
 	//打印文件类型
-	//fmt.Println(path.Ext(file))
+	fmt.Println("当前文件目录",file)
 	a := strings.Replace(file, "main.go", "", 100)
 	return a
 }
@@ -41,6 +44,7 @@ func readPathFile(dirPth string, suffix string) (files []string, err error) {
 	}
 
 	PthSep := string(os.PathSeparator)
+
 	suffix = strings.ToUpper(suffix) //忽略后缀匹配的大小写
 
 	for _, fi := range dir {
@@ -80,8 +84,8 @@ func replaceFile(fileNameArray []string, dirPth string) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		//fmt.Println("字节数:", bytesread)
-		//fmt.Println("文件内容:", string(buffer))
+		fmt.Println("字节数:", bytesread)
+		fmt.Println("文件内容:", string(buffer))
 		content := strings.Replace(string(buffer), string(oldData), string(newData), bytesread)
 		if ioutil.WriteFile(a, []byte(content), os.ModeAppend) == nil {
 			fmt.Println("写入文件成功!!!")

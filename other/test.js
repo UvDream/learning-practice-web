@@ -145,7 +145,7 @@
         var r = n("2b0e"), a = function () {
                 var e = this, t = e.$createElement, n = e._self._c || t;
                 return n("div", {attrs: {id: "app"}}, [n("router-view")], 1)
-            }, o = [], u = n("795b"), i = n.n(u), s = n("bc3a"), c = n.n(s), l = "http://www.laixiubang", f = "",
+            }, o = [], u = n("795b"), i = n.n(u), s = n("bc3a"), c = n.n(s), l = "http://www.laixiubang.com", f = "",
             d = Object({NODE_ENV: "production", VUE_APP_CLI_UI_URL: "", BASE_URL: "/"});
         "development" == d.NODE_ENV ? f = "http://180.76.101.155:3000" : "production" == d.NODE_ENV ? f = l : "test" == d.NODE_ENV && (f = "");
         var p = {
