@@ -1,1 +1,10 @@
 
+.main{
+    width: 100%;
+    display: flex;
+}
+.main>section{
+    width: 400px;
+    height: 400px;
+    border: 1px solid gray;
+}
