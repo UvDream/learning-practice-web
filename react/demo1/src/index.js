@@ -4,4 +4,4 @@ import './index.css';
 // import App from './App';
 import Counter from "./Counter"
 
-ReactDOM.render( <Counter / > , document.getElementById('root'));
+ReactDOM.render( <Counter  / > , document.getElementById('root'));

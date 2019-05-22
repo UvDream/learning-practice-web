@@ -1,4 +1,14 @@
-import React,{Component} from 'react'
+import React, {
+    Component,
+} from 'react'
+import PropTypes from 'prop-types';
+
+function Content(props){
+    return <p>Content组件的props:value:{props.value}</p>
+}
+Content.propTypes = {
+    value: PropTypes.number.isRequired
+};
 
 export default class Counter extends Component{
     constructor(){
@@ -17,6 +27,7 @@ export default class Counter extends Component{
                 </button>
                 Counter组件的内部状态:
                 <pre>{JSON.stringify(this.state,null,2)}</pre>
+                <Content value={this.state.value}/>
             </div>
         )
     }
