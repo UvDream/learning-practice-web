@@ -1,3 +1,10 @@
+/*
+ * @Author: wangzhongjie
+ * @Date: 2019-05-22 17:32:03
+ * @LastEditors: wangzhongjie
+ * @LastEditTime: 2019-05-22 17:47:22
+ * @Description: context传递值
+ */
 import React,{Component} from 'react'
 import PropTypes from 'prop-types';
 // 按钮

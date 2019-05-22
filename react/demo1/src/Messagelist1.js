@@ -1,3 +1,10 @@
+/*
+ * @Author: wangzhongjie
+ * @Date: 2019-05-22 15:25:44
+ * @LastEditors: wangzhongjie
+ * @LastEditTime: 2019-05-22 17:47:32
+ * @Description: props逐层传值
+ */
 import React from 'react'
 import PropTypes from 'prop-types';
 // 按钮
