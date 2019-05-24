@@ -5,7 +5,8 @@ import './App.css';
 import Counter from "./Counter"
 import MessageList1 from "./Messagelist1";
 import MessageList2 from "./Messagelist2";
-
+import Life from "./one/app";
+import ThisDirection from "./one/this";
 class App extends Component {
   render(){
     return(
@@ -18,6 +19,15 @@ class App extends Component {
         </section>
         <section >
           < MessageList2 />
+        </section>
+        <section >
+          < MessageList2 />
+        </section>
+        <section >
+          <Life />
+          </section>
+        <section>
+          < ThisDirection />
         </section>
       </div>
     )
