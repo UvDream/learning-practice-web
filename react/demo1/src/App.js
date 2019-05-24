@@ -21,9 +21,6 @@ class App extends Component {
           < MessageList2 />
         </section>
         <section >
-          < MessageList2 />
-        </section>
-        <section >
           <Life />
           </section>
         <section>

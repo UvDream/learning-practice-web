@@ -2,6 +2,7 @@
 .main{
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
 }
 .main>section{
     width: 400px;
