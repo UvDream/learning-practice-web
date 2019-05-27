@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import './style.css'
+import XiaojiejieItem from './XiaojiejieItem'
 export default class Xiaojiejie extends Component {
     constructor(props) {
         super(props);
@@ -30,6 +31,16 @@ export default class Xiaojiejie extends Component {
                             </li>)
                         })
                     }
+                    {
+                        this.state.list.map((item, index) => {
+                            return (
+                                <div>
+                                    <XiaojiejieItem />
+                                </div>
+                            )
+                        })
+                    }
+                    
                 </ul>
             </Fragment>
         )
