@@ -6,7 +6,8 @@ import Counter from "./Counter"
 import MessageList1 from "./Messagelist1";
 import MessageList2 from "./Messagelist2";
 import Life from "./one/app";
-import ThisDirection from "./one/this";
+import ThisDirection from "./one/app";
+import Xiaojiejie from "./lenarn/Xiaojiejie";
 class App extends Component {
   render(){
     return(
@@ -14,7 +15,7 @@ class App extends Component {
         <section>
           < Counter />
         </section>
-        < section >
+        <section>
         <MessageList1 />
         </section>
         <section >
@@ -25,6 +26,9 @@ class App extends Component {
           </section>
         <section>
           < ThisDirection />
+        </section>
+        <section>
+          <Xiaojiejie />
         </section>
       </div>
     )
