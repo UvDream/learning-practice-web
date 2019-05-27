@@ -4,7 +4,7 @@ export default class Xiaojiejie extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputVal: 'xxxx',
+            inputVal: '',
             list: ['基础按摩', '精油推背']
         }
     }
