@@ -5,7 +5,7 @@ export default class Xiaojiejie extends Component {
         super(props);
         this.state = {
             inputVal: 'xxxx',
-            list: []
+            list: ['基础按摩', '精油推背']
         }
     }
 
@@ -13,20 +13,31 @@ export default class Xiaojiejie extends Component {
         return (
             <Fragment>
                 <input value={this.state.inputVal} onChange={this.inputChange.bind(this)}/>
-                <button>增加服务</button>
+                <button onClick={this.addList.bind(this)}>增加服务</button>
                 <ul>
-                    <li>头部按摩</li>
-                    <li>精油推拿</li>
+                    {
+                        this.state.list.map((item, index) => {
+                            return <li key={index}>{item}</li>
+                        })
+                    }
                 </ul>
             </Fragment>
         )
     }
 
+    //输入框改变
     inputChange(e) {
         console.log(e.target.value);
         //this.state.inputVal=e.target.value
         this.setState({
             inputVal: e.target.value
+        })
+    }
+
+    //新增列表
+    addList() {
+        this.setState({
+            list: [...this.state.list, this.state.inputVal]
         })
     }
 }
