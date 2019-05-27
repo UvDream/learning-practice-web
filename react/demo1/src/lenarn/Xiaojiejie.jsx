@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-
+import './style.css'
 export default class Xiaojiejie extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +13,9 @@ export default class Xiaojiejie extends Component {
         return (
             <Fragment>
             {/* jsx注释 */}
-                <input value={this.state.inputVal} onChange={this.inputChange.bind(this)}/>
+            {/* htmlFor和for冲突 */}
+                <label htmlFor="add">增加服务:</label>
+                <input id="add" value={this.state.inputVal} onChange={this.inputChange.bind(this)} className='input'/>
                 <button onClick={this.addList.bind(this)}>增加服务</button>
                 <ul>
                     {
@@ -21,8 +23,10 @@ export default class Xiaojiejie extends Component {
                             return (<li
                                 key={index+item}
                                 onClick={this.deleteItem.bind(this,index)}
+                                //html解析
+                                dangerouslySetInnerHTML={{__html:item}}
                             >
-                                {item}
+                            {/* {item} */}
                             </li>)
                         })
                     }
