@@ -17,7 +17,7 @@ export default class Xiaojiejie extends Component {
                 <ul>
                     {
                         this.state.list.map((item, index) => {
-                            return <li key={index}>{item}</li>
+                            return <li key={index+item}>{item}</li>
                         })
                     }
                 </ul>
@@ -37,7 +37,8 @@ export default class Xiaojiejie extends Component {
     //新增列表
     addList() {
         this.setState({
-            list: [...this.state.list, this.state.inputVal]
+            list: [...this.state.list, this.state.inputVal],
+            inputVal:''
         })
     }
 }
