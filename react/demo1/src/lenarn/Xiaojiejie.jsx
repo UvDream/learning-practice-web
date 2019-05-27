@@ -12,6 +12,7 @@ export default class Xiaojiejie extends Component {
     render() {
         return (
             <Fragment>
+            {/* jsx注释 */}
                 <input value={this.state.inputVal} onChange={this.inputChange.bind(this)}/>
                 <button onClick={this.addList.bind(this)}>增加服务</button>
                 <ul>
