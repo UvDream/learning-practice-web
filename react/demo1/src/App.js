@@ -13,19 +13,19 @@ class App extends Component {
     return(
       <div className="main">
         <section>
-          < Counter />
+          <Counter />
         </section>
         <section>
         <MessageList1 />
         </section>
-        <section >
-          < MessageList2 />
+        <section>
+          <MessageList2 />
         </section>
-        <section >
+        <section>
           <Life />
           </section>
         <section>
-          < ThisDirection />
+          <ThisDirection />
         </section>
         <section>
           <Xiaojiejie />
