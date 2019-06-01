@@ -12,38 +12,47 @@ export default class Xiaojiejie extends Component {
 
     render() {
         return (
-            <Fragment>
+          <Fragment>
             {/* jsx注释 */}
             {/* htmlFor和for冲突 */}
-                <label htmlFor="add">增加服务:</label>
-                <input id="add" value={this.state.inputVal} onChange={this.inputChange.bind(this)} className='input'/>
-                <button onClick={this.addList.bind(this)}>增加服务</button>
-                <ul>
-                    {
-                        this.state.list.map((item, index) => {
-                            return (<li
-                                key={index+item}
-                                onClick={this.deleteItem.bind(this,index)}
-                                //html解析
-                                dangerouslySetInnerHTML={{__html:item}}
-                            >
-                            {/* {item} */}
-                            </li>)
-                        })
-                    }
-                    {
-                        this.state.list.map((item, index) => {
-                            return (
-                                <div>
-                                    <XiaojiejieItem />
-                                </div>
-                            )
-                        })
-                    }
-                    
-                </ul>
-            </Fragment>
-        )
+            <label htmlFor="add">增加服务:</label>
+            <input
+              id="add"
+              value={this.state.inputVal}
+              onChange={this.inputChange.bind(this)}
+              className="input"
+            />
+            <button onClick={this.addList.bind(this)}>增加服务</button>
+            <ul>
+              {/* html解析
+                dangerouslySetInnerHTML={{__html:item}} */}
+              {this.state.list.map((item, index) => {
+                return (
+                  <li
+                    key={index + item}
+                    onClick={this.deleteItem.bind(this, index)}
+                    dangerouslySetInnerHTML={{ __html: item }}
+                  >
+                    {/* {item} */}
+                  </li>
+                );
+              })}
+              <hr/>
+              {this.state.list.map((item, index) => {
+                return (
+                  <XiaojiejieItem
+                    key={index + item}
+                    // 传值
+                    content={item}
+                    index={index}
+                    // 传递方法
+                    deleteItem={this.deleteItem.bind(this)}
+                  />
+                );
+              })}
+            </ul>
+          </Fragment>
+        );
     }
 
     //输入框改变
