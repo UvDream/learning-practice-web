@@ -1,8 +1,7 @@
 /**
  * 数组根据字段Boolean值/数字排序
  */
-var arr = [
-    {
+var arr = [{
         id: 1,
         read: true,
         name: "第一组"
