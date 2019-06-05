@@ -51,7 +51,6 @@ console.log("%c-----------ES6 数组实例的fill()语法探究-----------", "co
 /**
  * fill():使用给定的值填充数组
  */
-console.log("fill()",["a","b","c"].fill(7))
+console.log("fill()", ["a", "b", "c"].fill(7))
 console.log("fill():快速填充", new Array(3).fill(7))
 console.log("%c-----------ES6 数组实例的entries(),keys(),values()语法探究-----------", "color: green;font-size:20px");
-
