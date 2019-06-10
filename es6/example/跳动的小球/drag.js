@@ -20,6 +20,8 @@ class Drag{
 
         this.MOVE = this.move.bind(this);
         document.addEventListener('mousemove', this.MOVE);
+        this.UP = this.up.bind(this);
+        document.addEventListener('mouseup', this.UP);
     }
     // 移动事件
     move(ev){
@@ -28,5 +30,10 @@ class Drag{
         this.curT = ev.clientY - this.strY + this.strT;
         el.style.left=this.curL+'px';
         el.style.top=this.curT+'px';
+    }
+    // 解绑事件,小球松开鼠标补在跟随鼠标移动
+    up(){
+        document.removeEventListener('mousemove', this.MOVE);
+        document.removeEventListener('mouseup', this.UP);
     }
 }
