@@ -43,6 +43,7 @@ export default class Xiaojiejie extends Component {
                   <XiaojiejieItem
                     key={index + item}
                     // 传值
+                    // avname='服务员A'
                     content={item}
                     index={index}
                     // 传递方法
