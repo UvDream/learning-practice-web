@@ -24,6 +24,6 @@ XiaojiejieItem.propTypes={
   deleteItem:PropTypes.func
 }
 XiaojiejieItem.defaultProps={
-  avname:'呵呵'
+  avname:'服务员B-'
 }
 export default XiaojiejieItem;
