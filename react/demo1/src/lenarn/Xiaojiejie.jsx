@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import './style.css'
 import XiaojiejieItem from './XiaojiejieItem'
 export default class Xiaojiejie extends Component {
+  // 在某一时刻,可以自动执行的函数
     constructor(props) {
         super(props);
         this.state = {
@@ -20,10 +21,11 @@ export default class Xiaojiejie extends Component {
               id="add"
               value={this.state.inputVal}
               onChange={this.inputChange.bind(this)}
+              ref={(input)=>{this.input=input}}
               className="input"
             />
             <button onClick={this.addList.bind(this)}>增加服务</button>
-            <ul>
+            <ul ref={(ul)=>{this.ul=ul}}>
               {/* html解析
                 dangerouslySetInnerHTML={{__html:item}} */}
               {this.state.list.map((item, index) => {
@@ -61,16 +63,22 @@ export default class Xiaojiejie extends Component {
         console.log(e.target.value);
         //this.state.inputVal=e.target.value
         this.setState({
-            inputVal: e.target.value
+            // inputVal: e.target.value
+            // ref写法
+            inputVal:this.input.value
         })
     }
 
     //新增列表
     addList() {
+      // setState异步方法
         this.setState({
             list: [...this.state.list, this.state.inputVal],
             inputVal:''
+        },()=>{
+        console.log('长度',this.ul.querySelectorAll('li').length)
         })
+        console.log(this.ul.querySelectorAll('li').length)
     }
     //删除列表项
     deleteItem(index){
