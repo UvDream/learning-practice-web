@@ -8,6 +8,7 @@ import MessageList2 from "./Messagelist2";
 import Life from "./one/app";
 import ThisDirection from "./one/app";
 import Xiaojiejie from "./lenarn/Xiaojiejie";
+import Animate from "./lenarn/animate";
 class App extends Component {
   render(){
     return(
@@ -29,6 +30,9 @@ class App extends Component {
         </section>
         <section>
           <Xiaojiejie />
+        </section>
+        <section>
+          <Animate />
         </section>
       </div>
     )
