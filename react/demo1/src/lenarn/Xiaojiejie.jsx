@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import './style.css'
 import XiaojiejieItem from './XiaojiejieItem'
+import axios from 'axios'
 export default class Xiaojiejie extends Component {
   // 在某一时刻,可以自动执行的函数
     constructor(props) {
@@ -10,7 +11,12 @@ export default class Xiaojiejie extends Component {
             list: ['基础按摩', '精油推背']
         }
     }
-
+    // 第一次进入页面在此生命周期请求远程数据
+    componentDidMount(){
+      axios.get('https://www.easy-mock.com/mock/5d02185141a8893fef9bb9f5/example/getUser')
+          .then((res)=>{console.log('axios 获取数据成功:'+JSON.stringify(res))  })
+          .catch((error)=>{console.log('axios 获取数据失败'+error)})
+  }
     render() {
       console.log("render函数")
         return (
