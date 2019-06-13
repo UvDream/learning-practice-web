@@ -5,6 +5,14 @@ class XiaojiejieItem extends Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
+  // 解决性能问题
+  shouldComponentUpdate(nextProps,nextState){
+    if(nextProps.content!==this.props.content){
+      return true;
+    }else{
+      return false;
+    }
+  }
   render() {
     return <li onClick={this.handleClick}>
     {this.props.avname}

@@ -11,6 +11,7 @@ export default class Xiaojiejie extends Component {
     }
 
     render() {
+      console.log("render函数")
         return (
           <Fragment>
             {/* jsx注释 */}
