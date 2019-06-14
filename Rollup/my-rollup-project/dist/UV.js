@@ -1,5 +1,5 @@
 /*!
- * Vue.js v0.0.1
+ * UV.js v0.0.1
  * (c) 2014-2019 UvDream
  * Released under the MIT License.
  */
