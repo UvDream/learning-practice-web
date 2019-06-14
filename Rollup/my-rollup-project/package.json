@@ -4,12 +4,17 @@
   "description": "",
   "main": "bundle.js",
   "scripts": {
-    "build":"rollup --config rollup.config.js",
+    "dev": "rollup -w -c scripts/config.js --environment TARGET:web-full-dev",
+    "build": "rollup --config rollup.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Wzj",
   "license": "MIT",
   "devDependencies": {
     "rollup-plugin-json": "^4.0.0"
+  },
+  "dependencies": {
+    "rollup-plugin-alias": "^1.5.2",
+    "rollup-plugin-flow-no-whitespace": "^1.0.0"
   }
 }

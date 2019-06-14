@@ -3,6 +3,6 @@ import foo from './foo.js';
 import { version } from '../package.json';
 
 export default function () {
-  console.log(foo);
+  console.log("测试",foo);
   console.log('version ' + version);
 }

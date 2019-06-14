@@ -1,7 +1,7 @@
 'use strict';
 
 // src/foo.js
-var foo = 'hello world!';
+var foo = 'Hello world!';
 
 var version = "0.0.1";
 
