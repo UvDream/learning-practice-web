@@ -10,7 +10,7 @@ import { version } from '../package.json';
 const banner =
   '/*!\n' +
   ` * Vue.js v${version}\n` +
-  ` * (c) 2014-${new Date().getFullYear()} Evan You\n` +
+  ` * (c) 2014-${new Date().getFullYear()} UvDream\n` +
   ' * Released under the MIT License.\n' +
   ' */'
 
