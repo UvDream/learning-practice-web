@@ -1,0 +1,16 @@
+{
+  "name": "test1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node_modules/.bin/rollup -c build/rollup.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "^1.16.2",
+    "rollup-plugin-buble": "^0.19.6"
+  }
+}
