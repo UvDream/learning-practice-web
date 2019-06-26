@@ -1,0 +1,5 @@
+- rollup 模块是rollup.js编译的核心模块
+- rollup-plugin-babel 模块是rollup.js支持babel官方编译插件模块
+- babel-core 是官方 babel 编译核心模块
+- babel-preset-env 是官方 babel 编译解析ES6+ 语言的扩展模块
+- babel-plugin-transform-object-rest-spread 是官方 babel 编译ES6+ 对象扩展的编译插件
