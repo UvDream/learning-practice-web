@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../src/index.js"],"sourcesContent":["var arr1=[1,2,3]\nvar arr2=[4,5,6]\nconsole.log(arr1)\nconsole.log(arr2)"],"names":["arr1","arr2","console","log"],"mappings":";;;;;;CAAA,IAAIA,OAAK,CAAC,CAAD,EAAG,CAAH,EAAK,CAAL,CAAT;CACA,IAAIC,OAAK,CAAC,CAAD,EAAG,CAAH,EAAK,CAAL,CAAT;CACAC,QAAQC,GAAR,CAAYH,IAAZ;CACAE,QAAQC,GAAR,CAAYF,IAAZ;;;;"}
