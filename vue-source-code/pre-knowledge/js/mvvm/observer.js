@@ -8,9 +8,9 @@ function Observer(data) {
 }
 
 Observer.prototype = {
-    /**
-     * walk会将每一个属性都转换成getter.setter的形式来侦测变化来收集属性的依赖,并且当属性发生变化时会通知这些依赖
-     */
+  /**
+   * walk会将每一个属性都转换成getter.setter的形式来侦测变化来收集属性的依赖,并且当属性发生变化时会通知这些依赖
+   */
   walk: function(data) {
     var me = this;
     Object.keys(data).forEach(function(key) {
