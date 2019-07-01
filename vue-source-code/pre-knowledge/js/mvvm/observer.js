@@ -13,7 +13,7 @@ Observer.prototype = {
     convert: function(key, val) {
         this.defineReactive(this.data, key, val);
     },
-
+    // 对object.defineProperty简单封装
     defineReactive: function(data, key, val) {
         var dep = new Dep();
         var childObj = observe(val);
@@ -45,34 +45,35 @@ function observe(value, vm) {
     if (!value || typeof value !== 'object') {
         return;
     }
-
     return new Observer(value);
 };
 
 
 var uid = 0;
 
+// 依赖收集的类Dep
 function Dep() {
     this.id = uid++;
     this.subs = [];
 }
 
 Dep.prototype = {
+    // 收集依赖
     addSub: function(sub) {
         this.subs.push(sub);
     },
-
+    // 修改依赖
     depend: function() {
         Dep.target.addDep(this);
     },
-
+    //删除依赖
     removeSub: function(sub) {
         var index = this.subs.indexOf(sub);
         if (index != -1) {
             this.subs.splice(index, 1);
         }
     },
-
+    // 发送通知
     notify: function() {
         this.subs.forEach(function(sub) {
             sub.update();
