@@ -1,9 +1,16 @@
+/**
+ * observer类会附加到每一个被侦测的object上
+ * 一旦被附加上,observer会将object的所有属性转换为getter/setter的形式来收集属性的依赖,并且当属性发生变化时会通知这些依赖
+ */
 function Observer(data) {
   this.data = data;
   this.walk(data);
 }
 
 Observer.prototype = {
+    /**
+     * walk会将每一个属性都转换成getter.setter的形式来侦测变化来收集属性的依赖,并且当属性发生变化时会通知这些依赖
+     */
   walk: function(data) {
     var me = this;
     Object.keys(data).forEach(function(key) {
