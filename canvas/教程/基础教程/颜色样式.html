@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>颜色样式</title>
+</head>
+<style>
+    .main {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    canvas {
+        outline: 1px solid black;
+        margin: 10px 10px;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <section>
+            <div>填充矩形</div>
+            <canvas id="canvas1" width="200" height="200"></canvas>
+        </section>
+        <section>
+            <div>边框矩形</div>
+            <canvas id="canvas2" width="200" height="200"></canvas>
+        </section>
+        <section>
+            <div>镂空矩形</div>
+            <canvas id="canvas3" width="200" height="200"></canvas>
+        </section>
+        <section>
+            <div>画图形边框</div>
+            <canvas id="canvas4" width="200" height="200"></canvas>
+        </section>
+        <section>
+            <div>画填充图形</div>
+            <canvas id="canvas5" width="200" height="200"></canvas>
+        </section>
+        <section>
+            <div>弧形</div>
+            <canvas id="canvas6" width="200" height="200"></canvas>
+        </section>
+    </div>
+</body>
+<script src="./grid.js"></script>
+<script>
+    // 1.色彩样式
+    /**
+     * fillStyle = color:设置图形的填充颜色
+     * strokeStyle = color:设置图形轮廓的颜色
+     */
+    var ctx1 = document.getElementById('canvas1').getContext('2d');
+    for (var i = 1; i < 6; i++) {
+        for (var j = 1; j < 6; j++) {
+            ctx1.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' + Math.floor(255 - 42.5 * j) + ',0)';
+            ctx1.fillRect(j * 25, i * 25, 25, 25);
+        }
+    }
+    // 2.线型样式
+    // lineWidth = value:设置线条宽度
+    var ctx2 = document.getElementById('canvas2').getContext('2d');
+    ctx2.strokeStyle = "#e78170";
+    for (var i = 0; i < 10; i++) {
+        ctx2.lineWidth = 1 + i;
+        ctx2.beginPath();
+        ctx2.moveTo(25 + i * 14, 25);
+        ctx2.lineTo(25 + i * 14, 140);
+        ctx2.stroke();
+    }
+</script>
+
+</html>
