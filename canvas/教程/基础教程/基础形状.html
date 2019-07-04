@@ -43,7 +43,7 @@
             <canvas id="canvas5" width="200" height="200"></canvas>
         </section>
         <section>
-            <div>1</div>
+            <div>弧形</div>
             <canvas id="canvas6" width="200" height="200"></canvas>
         </section>
     </div>
@@ -121,6 +121,21 @@
     ctx5.lineTo(70, 90);
     ctx5.fill();
     ctx5.closePath();
+
+    // 5.绘制弧形
+    /**
+     * arc(x, y, radius, startAngle, endAngle, anticlockwise)
+     * x,y:圆心坐标
+     * radius:半径
+     * startAngle,endAngle:开始结束弧度
+     * anticlockwise:Boolean值,true逆时针方向,false顺时针方向
+     */
+    var ctx6 = document.getElementById('canvas6').getContext('2d');
+    drawGrid('orange', 10, 10, ctx6);
+    ctx6.beginPath();
+    ctx6.arc(100, 100, 50, 0, Math.PI * 2, true);
+    ctx6.fill()
+    ctx6.stroke();
 </script>
 
 </html>
