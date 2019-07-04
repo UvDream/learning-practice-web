@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基础形状</title>
+</head>
+<style>
+    .main{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    canvas {
+        outline: 1px solid red;
+        margin: 10px 10px;
+    }
+  
+</style>
+
+<body>
+    <div class="main">
+                <canvas id="canvas1" width="200" height="200"></canvas>
+                <canvas id="canvas2" width="200" height="200"></canvas>
+                <canvas id="canvas3" width="200" height="200"></canvas>
+                <canvas id="canvas4" width="200" height="200"></canvas>
+    </div>
+    
+</body>
+<script src="./grid.js"></script>
+<script>
+    // 1
+    var canvas1 = document.getElementById('canvas1')
+    var ctx1 = canvas1.getContext('2d');
+    /**
+     * 绘制一个填充的矩形
+     * fillRect( x ,y ,width, height)
+     * x:起点x轴坐标
+     * y:起点y轴坐标
+     * width:矩形长
+     * height:矩形宽
+     */
+    ctx1.fillRect(10, 10, 100, 30)
+
+    // 2
+    var canvas2 = document.getElementById('canvas2')
+    var ctx2 = canvas2.getContext('2d');
+    /**
+     * 绘制一个矩形的边框
+     * strokeRect( x ,y ,width, height)
+     * x:起点x轴坐标
+     * y:起点y轴坐标
+     * width:矩形长
+     * height:矩形宽
+     */
+    ctx2.strokeRect( 20,20 ,90, 100)
+
+    // 3
+    var canvas3 = document.getElementById('canvas3')
+    var ctx3 = canvas3.getContext('2d');
+    /**
+     * 清除指定矩形区域，让清除部分完全透明
+     * clearRect( x ,y ,width, height)
+     * 前提需要fillReact和背景色
+     */
+    ctx3.fillStyle="red";
+    ctx3.fillRect(0,0,300,150);
+    ctx3.clearRect( 10,10 ,100, 50)
+    // 4.绘制图形步骤
+    /**
+    * (1)需要创建路径起始点。
+    * (2)使用画图命令去画出路径。
+    * (3)把路径封闭。
+    * (4)一旦路径生成，就能通过描边或填充路径区域来渲染图形
+    */
+    /**
+     * beginPath():新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径
+     * closePath():闭合路径之后图形绘制命令又重新指向到上下文中
+     * stroke():通过线条来绘制图形轮廓
+     * fill():通过填充路径的内容区域生成实心的图形
+     */
+    var canvas4 = document.getElementById('canvas4')
+    var ctx4 = canvas4.getContext('2d');
+    drawGrid('#ccc', 20, 20,ctx4);
+
+</script>
+
+</html>
