@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table id="table1" border="1" cellspacing="0" cellpadding="0" >
+        <thead>
+            <tr>
+                <td>序号</td>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>兴趣</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+                <td>18</td>
+                <td>打游戏</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>李四</td>
+                <td>88</td>
+                <td>看电影</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>王五</td>
+                <td>81</td>
+                <td>睡觉</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <table id="table1" border="1" cellspacing="0" cellpadding="0" >
+        <thead>
+            <tr>
+                <td>序号</td>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>兴趣</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+                <td>18</td>
+                <td>打游戏</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>李四</td>
+                <td>88</td>
+                <td>看电影</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>王五</td>
+                <td>81</td>
+                <td>睡觉</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="btn" onclick="btn_export()">导出</button>
+</body>
+<script src="https://cdn.bootcss.com/xlsx/0.14.3/xlsx.full.min.js"></script>
+<script src="./export.js"></script>
+<script>
+    function btn_export() {
+        var table1 = document.querySelector("#table1");
+        var table2 = document.querySelector("#table1");
+
+        var sheet = XLSX.utils.table_to_sheet(table1);//将一个table对象转换成一个sheet对象
+        var sheet = XLSX.utils.table_to_sheet(table2);
+        
+        openDownloadDialog(sheet2blob(sheet),'下载.xlsx');
+    }
+</script>
+</html>
