@@ -72,15 +72,36 @@
      * square 线段末端以方形结束，但是增加了一个宽度和线段相同，高度是线段厚度一半的矩形区域
      */
     var ctx2 = document.getElementById('canvas2').getContext('2d');
+    drawGrid('orange', 10, 10, ctx2);
+
     ctx2.strokeStyle = "red";
     for (var i = 0; i < 10; i++) {
         ctx2.lineWidth = 1 + i;
         ctx2.beginPath();
         ctx2.lineCap = 'round';
-        ctx2.moveTo(25 + i * 14, 25);
-        ctx2.lineTo(25 + i * 14, 140);
+        ctx2.moveTo(10 + i * 14, 25);
+        ctx2.lineTo(10 + i * 14, 140);
         ctx2.stroke();
     }
+    /**
+     * lineJoin = type:设定线条与线条间接合处的样式
+     * round
+     * bevel 
+     * miter(默认)
+     */
+    /**
+     * miterLimit = value:限制当两条线相交时交接处最大长度；所谓交接处长度（斜接长度）是指线条交接处内角顶点到外角顶点的长度
+     */
+    ctx2.beginPath();
+    ctx2.moveTo(150,10);
+    ctx2.lineTo(170,100);
+    ctx2.lineTo(180,60);
+    ctx2.lineJoin='miter';
+    ctx2.lineWidth=10;
+    ctx2.miterLimit=10;
+    ctx2.strokeStyle="black"
+    ctx2.stroke();
+
 </script>
 
 </html>
