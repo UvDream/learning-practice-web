@@ -2462,11 +2462,7 @@ function createWriteFunction (
 /*  */
 
 /**
- * Original RenderStream implementation by Sasha Aickin (@aickin)
- * Licensed under the Apache License, Version 2.0
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Modified by Evan You (@yyx990803)
+ * 源码分析
  */
 
 var stream = require('stream');

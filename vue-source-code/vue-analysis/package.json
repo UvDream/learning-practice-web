@@ -1,7 +1,7 @@
 {
   "name": "vue",
   "version": "2.6.10",
-  "description": "Reactive, component-oriented view layer for modern web interfaces.",
+  "description": "Vue源码分析.",
   "main": "dist/vue.runtime.common.js",
   "module": "dist/vue.runtime.esm.js",
   "unpkg": "dist/vue.js",
@@ -60,7 +60,7 @@
   "keywords": [
     "vue"
   ],
-  "author": "Evan You",
+  "author": "UvDream",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vuejs/vue/issues"
