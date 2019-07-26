@@ -1,0 +1,23 @@
+body,
+html {
+  background-color: #ddd;
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 33% 33% 33%;
+  grid-gap: 0.5%;
+  background-color: #fff;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  padding: 4px;
+}
