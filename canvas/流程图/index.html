@@ -21,16 +21,13 @@
 <script>
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
-    drawGrid('gray', 10, 10, ctx);
+    // drawGrid('gray', 10, 10, ctx);
     //    第一个框
     drawText(20,100,80,40,'#008ec6','发起申请',35,125,'white',false);
     //    第二个框
     drawText(220,100,80,40,'orange','委办局审批',230,125,'white',false);
     //    第三个框
     drawText(420,100,80,40,'black','智慧报告',435,125,'black',true);
-
-    // 文字,外框x,外框y,填充色,颜色,文字,文字x,文字y,文字颜色,镂空
-
 
     //    绘制横向第一条线条
     drawLine(100,120,220,120,'#008ec6');
@@ -46,12 +43,12 @@
     ctx.stroke();
     //第一个小框
     drawText(140,110,40,20,'#008ec6','通过',148,125,'white',false);
-    drawText(140,50,40,20,'orange','驳回',148,65,'white',false);
+    drawText(140,50,40,20,'orange','通过',148,65,'white',false);
 
 
-    //    绘制横向第二条直线
+    //绘制横向第二条直线
     drawLine(300,120,420,120,'gray');
-    //    绘制横向第二条直线
+    //绘制横向第二条直线
     ctx.beginPath();
     ctx.strokeStyle='gray';
     ctx.lineWidth='4';
@@ -61,6 +58,8 @@
     ctx.stroke();
     drawText(340,110,40,20,'gray','通过',348,125,'white',false);
     drawText(340,50,40,20,'gray','驳回',348,65,'white',false);
+
+    //绘制横向直线函数
     function drawLine(x,y,x1,y1,color){
         ctx.beginPath();
         ctx.strokeStyle=color;
@@ -68,15 +67,23 @@
         ctx.moveTo(x,y);
         ctx.lineTo(x1,y1);
         ctx.stroke();
+        //三角形
+        ctx.beginPath();
+        ctx.fillStyle=color;
+        ctx.moveTo(x1-10, y1-10);
+        ctx.lineTo(x1-10, y1+10);
+        ctx.lineTo(x1+2, y1);
+        ctx.fill();
+        ctx.closePath();
     }
     //绘制框体函数
-    function drawText(x,y,width,height,fcolor,text,tx,ty,tcolor,empty){
-        ctx.fillStyle=fcolor;
+    function drawText(x,y,width,height,fColor,text,tx,ty,tColor,empty){
+        ctx.fillStyle=fColor;
         ctx.fillRect(x,y,width,height);
         if(empty){
             ctx.clearRect(x+1, y+1, width-2, height-2);
         }
-        ctx.fillStyle=tcolor;
+        ctx.fillStyle=tColor;
         ctx.font="12px bold 黑体";
         ctx.fillText(text,tx, ty);
     }
