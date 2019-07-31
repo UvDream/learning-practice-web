@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>流程图</title>
+</head>
+<style>
+    canvas{
+        outline: 1px solid red;
+    }
+</style>
+<body>
+    <div class="canvas">
+        <canvas id="canvas" width="580" height="250"></canvas>
+    </div>
+</body>
+<script src="./grid.js"></script>
+<script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    drawGrid('gray', 10, 10, ctx);
+    //第一个框
+    // ctx.fillStyle='#008ec6';
+    // ctx.fillRect(20,100,80,40);
+    //
+    // ctx.fillStyle='white';
+    // ctx.font="12px bold 黑体";
+    // ctx.textBaseline="middle";
+    // ctx.fillText('发起申请',35, 122);
+    drawText(20,100,80,40,'#008ec6','发起申请',35,125,'white',false);
+
+    //    绘制横向第一条线条
+    ctx.beginPath();
+    ctx.strokeStyle='#008ec6';
+    ctx.lineWidth='4';
+    ctx.moveTo(100,120);
+    ctx.lineTo(240,120);
+    ctx.stroke();
+//    绘制竖向第一条直线
+    ctx.beginPath();
+    ctx.strokeStyle='orange';
+    ctx.lineWidth='4';
+    ctx.moveTo(60,100);
+    ctx.lineTo(60,60);
+    ctx.lineTo(260,60);
+    ctx.lineTo(260,100);
+    ctx.stroke();
+//    第二个框
+//     ctx.fillStyle='orange';
+//     ctx.fillRect(220,100,80,40);
+//     ctx.fillStyle='white';
+//     ctx.font="12px bold 黑体";
+//     ctx.fillText('委办局审批',230, 122);
+    drawText(220,100,80,40,'orange','委办局审批',230,125,'white',false);
+
+
+    //    绘制横向第二条直线
+    ctx.beginPath();
+    ctx.strokeStyle='gray';
+    ctx.lineWidth='4';
+    ctx.moveTo(300,120);
+    ctx.lineTo(420,120);
+    ctx.stroke();
+//    绘制横向第二条直线
+    ctx.beginPath();
+    ctx.strokeStyle='gray';
+    ctx.lineWidth='4';
+    ctx.moveTo(260,60);
+    ctx.lineTo(460,60);
+    ctx.lineTo(460,100);
+    ctx.stroke();
+
+
+//    第三个框
+//     ctx.fillStyle='black';
+//     ctx.fillRect(420,100,80,40);
+//     ctx.clearRect(421, 101, 78, 38);
+//     ctx.fillStyle='black';
+//     ctx.font="12px bold 黑体";
+//     ctx.fillText('智慧审批',435, 122);
+    drawText(420,100,80,40,'balck','智慧报告',435,125,'black',true);
+    // 文字  外框x 外框y
+
+   function drawText(x,y,width,height,fcolor,text,tx,ty,tcolor,empty){
+       ctx.fillStyle=fcolor;
+       ctx.fillRect(x,y,width,height);
+       if(empty){
+           ctx.clearRect(x+1, y+1, width-2, height-2);
+       }
+       ctx.fillStyle=tcolor;
+       ctx.font="12px bold 黑体";
+       ctx.fillText(text,tx, ty);
+   }
+</script>
+
+</html>
