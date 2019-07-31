@@ -8,13 +8,12 @@
     <title>流程图</title>
 </head>
 <style>
-    canvas{
-        outline: 1px solid red;
-    }
+
 </style>
+
 <body>
     <div class="canvas">
-        <canvas id="canvas" width="520" height="250"></canvas>
+        <canvas id="canvas" width="520" height="220"></canvas>
     </div>
 </body>
 <script src="./grid.js"></script>
@@ -22,44 +21,45 @@
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     draw();
-    function draw(){
-        drawText(20,100,80,40,'#008ec6','发起申请',35,125,'white',false);
+
+    function draw() {
+        drawText(20, 100, 80, 40, '#008ec6', '发起申请', 35, 125, 'white', false);
         //    第二个框
-        drawText(220,100,80,40,'orange','委办局审批',230,125,'white',false);
+        drawText(220, 100, 80, 40, 'orange', '委办局审批', 230, 125, 'white', false);
         //    第三个框
-        drawText(420,100,80,40,'black','智慧报告',435,125,'black',true);
+        drawText(420, 100, 80, 40, 'black', '智慧报告', 435, 125, 'black', true);
 
         //    绘制横向第一条线条
-        drawLine(100,120,220,120,'#008ec6');
+        drawLine(100, 120, 220, 120, '#008ec6');
         //第一个小框
-        drawText(140,110,40,20,'#008ec6','通过',148,125,'white',false);
+        drawText(140, 110, 40, 20, '#008ec6', '通过', 148, 125, 'white', false);
         //绘制横向第二条直线
-        drawLine(300,120,420,120,'gray');
+        drawLine(300, 120, 420, 120, 'gray');
         //绘制横向第二条直线
-        drawBrokenLine(60,100,'orange',true);
-        drawText(140,50,40,20,'orange','通过',148,65,'white',false);
-        drawBrokenLine(260,100,'gray',false);
-        drawText(340,110,40,20,'gray','通过',348,125,'white',false);
-        drawText(340,50,40,20,'gray','驳回',348,65,'white',false);
+        drawBrokenLine(260, 100, 'gray', false);
+        drawBrokenLine(60, 100, 'orange', true);
+        drawText(140, 50, 40, 20, 'orange', '通过', 148, 65, 'white', false);
+        drawText(340, 110, 40, 20, 'gray', '通过', 348, 125, 'white', false);
+        drawText(340, 50, 40, 20, 'gray', '驳回', 348, 65, 'white', false);
     }
     // drawGrid('gray', 10, 10, ctx);
     //    第一个框
 
-    function  drawBrokenLine(x,y,color,left) {
+    function drawBrokenLine(x, y, color, left) {
         ctx.beginPath();
-        ctx.strokeStyle=color;
-        ctx.lineWidth='4';
-        ctx.moveTo(x,y);
-        ctx.lineTo(x,y-40);
-        ctx.lineTo(x+200,y-40);
-        ctx.lineTo(x+200,y);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = '4';
+        ctx.moveTo(x, y);
+        ctx.lineTo(x, y - 40);
+        ctx.lineTo(x + 200, y - 40);
+        ctx.lineTo(x + 200, y);
         ctx.stroke();
-        if(left){
+        if (left) {
             ctx.beginPath();
-            ctx.fillStyle=color;
-            ctx.moveTo(x, y+2);
-            ctx.lineTo(x-10, y-10);
-            ctx.lineTo(x+10, y-10);
+            ctx.fillStyle = color;
+            ctx.moveTo(x, y + 2);
+            ctx.lineTo(x - 10, y - 10);
+            ctx.lineTo(x + 10, y - 10);
             ctx.fill();
         }
         // {
@@ -74,55 +74,54 @@
         // }
     }
     //绘制横向直线函数
-    function drawLine(x,y,x1,y1,color){
+    function drawLine(x, y, x1, y1, color) {
         ctx.beginPath();
-        ctx.strokeStyle=color;
-        ctx.lineWidth='4';
-        ctx.moveTo(x,y);
-        ctx.lineTo(x1,y1);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = '4';
+        ctx.moveTo(x, y);
+        ctx.lineTo(x1, y1);
         ctx.stroke();
         //三角形
         ctx.beginPath();
-        ctx.fillStyle=color;
-        ctx.moveTo(x1-10, y1-10);
-        ctx.lineTo(x1-10, y1+10);
-        ctx.lineTo(x1+2, y1);
+        ctx.fillStyle = color;
+        ctx.moveTo(x1 - 10, y1 - 10);
+        ctx.lineTo(x1 - 10, y1 + 10);
+        ctx.lineTo(x1 + 2, y1);
         ctx.fill();
         ctx.closePath();
     }
     //绘制框体函数
-    function drawText(x,y,width,height,fColor,text,tx,ty,tColor,empty){
-        ctx.fillStyle=fColor;
-        ctx.fillRect(x,y,width,height);
-        if(empty){
-            ctx.clearRect(x+1, y+1, width-2, height-2);
+    function drawText(x, y, width, height, fColor, text, tx, ty, tColor, empty) {
+        ctx.fillStyle = fColor;
+        ctx.fillRect(x, y, width, height);
+        if (empty) {
+            ctx.clearRect(x + 1, y + 1, width - 2, height - 2);
         }
-        ctx.fillStyle=tColor;
-        ctx.font="12px bold 黑体";
-        ctx.fillText(text,tx, ty);
+        ctx.fillStyle = tColor;
+        ctx.font = "12px bold 黑体";
+        ctx.fillText(text, tx, ty);
     }
-    canvas.addEventListener('mousemove',function(e){
-        ctx.clearRect(0,0,800,500);
+    canvas.addEventListener('mousemove', function (e) {
+        ctx.clearRect(0, 0, 800, 500);
         draw();
         let cRect = canvas.getBoundingClientRect();
         let canvasX = Math.round(e.clientX - cRect.left);
         let canvasY = Math.round(e.clientY - cRect.top);
-        ctx.fillStyle='red';
-        if((canvasX<100 && canvasX>20 && canvasY>100&&canvasY<140) || (canvasX<300 &&canvasX>220&& canvasY>100&&canvasY<140)){
-            ctx.fillStyle='rgba(0,0,0,.5)';
-            ctx.fillRect(canvasX,canvasY,200,50);
-            ctx.fillText('经办人:大数据管理员',canvasX+10,canvasY+20);
-            ctx.fillText('操作时间:2019/7/29 10:21:34',canvasX+10,canvasY+40);
+        ctx.fillStyle = 'red';
+        if ((canvasX < 100 && canvasX > 20 && canvasY > 100 && canvasY < 140) || (canvasX < 300 && canvasX >
+                220 && canvasY > 100 && canvasY < 140)) {
+            ctx.fillStyle = 'rgba(0,0,0,.5)';
+            ctx.fillRect(canvasX, canvasY, 200, 50);
+            ctx.fillText('经办人:大数据管理员', canvasX + 10, canvasY + 20);
+            ctx.fillText('操作时间:2019/7/29 10:21:34', canvasX + 10, canvasY + 40);
         }
-        if((canvasX<500 &&canvasX>420&& canvasY>100&&canvasY<140)){
-            ctx.fillStyle='rgba(0,0,0,.5)';
-            ctx.fillRect(canvasX-200,canvasY,200,50);
-            ctx.fillText('经办人:大数据管理员',canvasX-190,canvasY+20);
-            ctx.fillText('操作时间:2019/7/29 10:21:34',canvasX-190,canvasY+40);
+        if ((canvasX < 500 && canvasX > 420 && canvasY > 100 && canvasY < 140)) {
+            ctx.fillStyle = 'rgba(0,0,0,.5)';
+            ctx.fillRect(canvasX - 200, canvasY, 200, 50);
+            ctx.fillText('经办人:大数据管理员', canvasX - 190, canvasY + 20);
+            ctx.fillText('操作时间:2019/7/29 10:21:34', canvasX - 190, canvasY + 40);
         }
     })
-
-
 </script>
 
 </html>
