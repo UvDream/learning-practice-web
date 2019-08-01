@@ -34,6 +34,7 @@ class App extends Component {
         <section>
           <Animate />
         </section>
+      
       </div>
     )
   }
