@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Input, Button, List } from "antd";
 import store from "../store";
+import {CHANGE_INPUT,ADD_ITEM,DELETE_ITEM} from "../store/actionTypes";
+
 // const data = [
 //     '早上八点开会',
 //     '晚上八点下班'
@@ -41,7 +43,7 @@ class ToDoList extends Component {
   }
   changeInputValue(e) {
     const action = {
-      type: "changeInput",
+      type: CHANGE_INPUT,
       value: e.target.value
     };
     store.dispatch(action);
@@ -51,13 +53,13 @@ class ToDoList extends Component {
     }
     clickBtn() {
         const action = {
-            type:'addItem'
+            type:ADD_ITEM
         }
         store.dispatch(action)
     }
     deleteItem(index) {
         const action = {
-            type: 'deleteItem',
+            type: DELETE_ITEM,
             index
         }
         store.dispatch(action)
