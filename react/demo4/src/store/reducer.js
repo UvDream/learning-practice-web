@@ -9,6 +9,12 @@ export default (state = defaultState, action) => {
     let newState = JSON.parse(JSON.stringify(state)); //深度拷贝state
     newState.inputValue = action.value;
     return newState;
-  }
+    }
+    if (action.type === "addItem") {
+        let newState = JSON.parse(JSON.stringify(state)); //深度拷贝state
+        newState.list.push(newState.inputValue);
+        newState.inputValue=''
+        return newState;
+    }
   return state;
 };
