@@ -14,6 +14,7 @@ class ToDoList extends Component {
     this.storeChange = this.storeChange.bind(this);
       store.subscribe(this.storeChange);
       this.clickBtn = this.clickBtn.bind(this);
+
   }
   render() {
     return (
@@ -29,9 +30,10 @@ class ToDoList extends Component {
         </div>
         <div style={{ margin: "10px", width: "300px" }}>
           <List
-            bordered
-            dataSource={this.state.list}
-            renderItem={item => <List.Item>{item}</List.Item>}
+                    bordered
+                    dataSource={this.state.list}
+                    renderItem={(item,index) => <List.Item onClick={this.deleteItem.bind(this,index)}>{item}</List.Item>
+                    }
           />
         </div>
       </div>
@@ -50,6 +52,13 @@ class ToDoList extends Component {
     clickBtn() {
         const action = {
             type:'addItem'
+        }
+        store.dispatch(action)
+    }
+    deleteItem(index) {
+        const action = {
+            type: 'deleteItem',
+            index
         }
         store.dispatch(action)
     }
