@@ -2,6 +2,7 @@ import React from 'react';
 import {Button,Input} from 'antd';
 // import store from '../store';
 import {connect} from 'react-redux';
+import {inputChangeAction,addItemAction,deleteItemAction} from '../store/actionCreates'
 const ToDoList=(props)=>{
     let {inputValue,inputChange,clickBtn,deleteItem,list}=props;
     return (  
@@ -30,23 +31,15 @@ const ToDoList=(props)=>{
  const dispatchToProps=(dispatch)=>{
      return {
          inputChange(e){
-            let action={
-                type:'change_input',
-                value:e.target.value
-            }
+            let action=inputChangeAction(e.target.value)
             dispatch(action)
          },
          clickBtn(){
-             let action={
-                 type:'add_item'
-             }
+             let action=addItemAction()
              dispatch(action)
          },
          deleteItem(index){
-             let action={
-                 type:'delete_item',
-                 index
-             }
+             let action=deleteItemAction(index)
              dispatch(action)
          }
      }
