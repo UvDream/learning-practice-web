@@ -1,27 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Button,Input} from 'antd';
 // import store from '../store';
 import {connect} from 'react-redux';
-class ToDoList extends Component {
-
-    render() { 
-        return (  
+const ToDoList=(props)=>{
+    let {inputValue,inputChange,clickBtn,deleteItem,list}=props;
+    return (  
+    <div>
         <div>
-            <div>
-                <Input placeholder="请输入" value={this.props.inputValue} style={{ width: "250px", marginRight: "20px" }} onChange={this.props.inputChange} />
-                <Button type="primary" onClick={this.props.clickBtn}>提交</Button>
-            </div>
-            <ul>
-              { this.props.list.map((item,index)=>{
-                    return (
-                        <li key={index} onClick={()=>{this.props.deleteItem(index)}}>{item}</li>
-                    )
-              })}
-            </ul>
+            <Input placeholder="请输入" value={inputValue} style={{ width: "250px", marginRight: "20px" }} onChange={inputChange} />
+            <Button type="primary" onClick={clickBtn}>提交</Button>
         </div>
-        );
-    }
-    
+        <ul>
+          { list.map((item,index)=>{
+                return (
+                    <li key={index} onClick={()=>{deleteItem(index)}}>{item}</li>
+                )
+          })}
+        </ul>
+    </div>
+    );
 }
 // 映射
  const stateToProps=(state)=>{
