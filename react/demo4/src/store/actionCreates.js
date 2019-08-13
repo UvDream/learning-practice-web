@@ -2,11 +2,17 @@
  * @Author: wangzhongjie
  * @Date: 2019-08-13 09:16:08
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2019-08-13 14:47:05
+ * @LastEditTime: 2019-08-13 15:00:46
  * @Description:仓库
  * @Email: uvdream@163.com
  */
-import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_LIST } from "./actionTypes";
+import {
+  CHANGE_INPUT,
+  ADD_ITEM,
+  DELETE_ITEM,
+  GET_LIST,
+  GET_MY_LIST
+} from "./actionTypes";
 import axios from "axios";
 export const changeInputAction = value => ({
   type: CHANGE_INPUT,
@@ -23,6 +29,7 @@ export const getListAction = data => ({
   type: GET_LIST,
   data
 });
+// thunk
 export const getToList = () => {
   return dispatch => {
     axios
@@ -36,3 +43,8 @@ export const getToList = () => {
       });
   };
 };
+
+//sagas
+export const getMyListAction = () => ({
+  type: GET_MY_LIST
+});

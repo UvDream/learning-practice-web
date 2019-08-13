@@ -4,7 +4,7 @@ import {
   changeInputAction,
   addItemAction,
   deleteItemAction,
-  getToList
+  getMyListAction
 } from "../store/actionCreates";
 import ToDoListUi from "./ToDoListUi";
 // const data = [
@@ -35,6 +35,8 @@ class ToDoList extends Component {
   componentDidMount() {
     // const action = getToList();
     // store.dispatch(action);
+    const action = getMyListAction();
+    store.dispatch(action);
   }
   // 输入框改变
   changeInputValue(e) {
