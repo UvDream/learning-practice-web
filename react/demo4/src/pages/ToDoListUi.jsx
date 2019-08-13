@@ -2,9 +2,9 @@
  * @Author: wangzhongjie
  * @Date: 2019-08-13 13:58:01
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2019-08-13 14:17:41
+ * @LastEditTime: 2019-08-13 14:30:17
  * @Description:无状态组件
- * @Email: uvdream@163.com
+ * @Email: UvDream@163.com
  */
 import React from "react";
 import { Input, Button, List } from "antd";

@@ -2,8 +2,8 @@
  * @Author: wangzhongjie
  * @Date: 2019-08-13 09:16:08
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2019-08-13 14:26:04
- * @Description:方法
+ * @LastEditTime: 2019-08-13 14:31:54
+ * @Description:仓库
  * @Email: uvdream@163.com
  */
 import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_LIST } from "./actionTypes";
