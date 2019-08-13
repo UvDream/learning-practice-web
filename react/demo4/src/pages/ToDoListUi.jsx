@@ -7,7 +7,7 @@ class ToDoListUi extends Component {
       <div>
         <div style={{ margin: "10px" }}>
           <Input
-            placeholder={this.props.inputValue}
+            placeholder="请输入新增内容"
             style={{ width: "250px", marginRight: "20px" }}
             onChange={this.props.changeInputValue}
             value={this.props.inputValue}
