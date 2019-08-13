@@ -44,7 +44,8 @@ const ToDoList=(props)=>{
          },
          deleteItem(index){
              let action={
-                 type:'delete_item'
+                 type:'delete_item',
+                 index
              }
              dispatch(action)
          }
