@@ -2,15 +2,15 @@
  * @Author: wangzhongjie
  * @Date: 2019-08-13 09:16:08
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2019-08-13 14:12:30
+ * @LastEditTime: 2019-08-13 14:28:49
  * @Description:redux
  * @Email: uvdream@163.com
  */
-import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from "./actionTypes";
+import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_LIST } from "./actionTypes";
 
 const defaultState = {
   inputValue: "",
-  list: ["早上八点上班", "晚上八点下班"]
+  list: []
 };
 
 export default (state = defaultState, action) => {
@@ -29,6 +29,12 @@ export default (state = defaultState, action) => {
   if (action.type === DELETE_ITEM) {
     let newState = JSON.parse(JSON.stringify(state)); //深度拷贝state
     newState.list.splice(action.index, 1);
+    return newState;
+  }
+  if (action.type === GET_LIST) {
+    let newState = JSON.parse(JSON.stringify(state));
+    newState.list = action.data.data.list;
+    console.log(newState);
     return newState;
   }
   return state;

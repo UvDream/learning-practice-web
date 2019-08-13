@@ -3,9 +3,11 @@ import store from "../store";
 import {
   changeInputAction,
   addItemAction,
-  deleteItemAction
+  deleteItemAction,
+  getListAction
 } from "../store/actionCreates";
 import ToDoListUi from "./ToDoListUi";
+import axios from "axios";
 // const data = [
 //     '早上八点开会',
 //     '晚上八点下班'
@@ -30,6 +32,18 @@ class ToDoList extends Component {
         deleteItem={this.deleteItem}
       />
     );
+  }
+  componentDidMount() {
+    axios
+      .get(
+        "https://www.easy-mock.com/mock/5cfcce489dc7c36bd6da2c99/xiaojiejie/getList"
+      )
+      .then(res => {
+        console.log(res);
+        const data = res.data;
+        const action = getListAction(data);
+        store.dispatch(action);
+      });
   }
   // 输入框改变
   changeInputValue(e) {
