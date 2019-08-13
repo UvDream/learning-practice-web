@@ -33,8 +33,8 @@ class ToDoList extends Component {
     );
   }
   componentDidMount() {
-    const action = getToList();
-    store.dispatch(action);
+    // const action = getToList();
+    // store.dispatch(action);
   }
   // 输入框改变
   changeInputValue(e) {
