@@ -1,11 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-function Index() {
-  return <div>测试1</div>;
-}
-function List() {
-  return <div>列表</div>;
-}
+import Index from './pages/Index';
+import List from './pages/List';
+
+
+
 function AppRouter(){
     return(
         <Router>
@@ -17,6 +16,7 @@ function AppRouter(){
                     <Link to="/list/">列表</Link>
                 </li>
             </ul>
+            {/* exact 精确匹配 */}
             <Route path="/" exact component={Index}></Route>
             <Route path="/list/"  component={List}></Route>
 
