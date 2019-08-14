@@ -5,7 +5,12 @@ class List extends Component {
         this.state = {  }
     }
     render() { 
-        return ( <div>列表</div> );
+        return ( <div>路由参数:{this.state.id}</div> );
+    }
+    componentDidMount(){
+        console.log(this.props.match)
+        let tempId=this.props.match.params.id;
+        this.setState({id:tempId})
     }
 }
  

@@ -13,13 +13,12 @@ function AppRouter(){
                     <Link to="/">首页</Link>
                 </li>
                 <li>
-                    <Link to="/list/">列表</Link>
+                    <Link to="/list/123">列表</Link>
                 </li>
             </ul>
             {/* exact 精确匹配 */}
             <Route path="/" exact component={Index}></Route>
-            <Route path="/list/"  component={List}></Route>
-
+            <Route path="/list/:id"  component={List}></Route>
         </Router>
     )
 }
