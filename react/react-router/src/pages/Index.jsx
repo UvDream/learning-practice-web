@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+// import { Link,Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 
 class Index extends Component {
     constructor(props) {
@@ -12,9 +14,13 @@ class Index extends Component {
 
             ]
          }
+        //  编程式重定向
+         this.props.history.push('/home/')
     }
     render() { 
         return (
+            // 重定向
+            // <Redirect to='/home/'>
             <div>
                 <ul>
                     {
@@ -31,6 +37,7 @@ class Index extends Component {
                     }
                 </ul>
             </div>
+            // </Redirect>
         );
     }
 }
