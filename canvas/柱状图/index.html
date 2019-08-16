@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>柱状图</title>
+</head>
+<style>
+    #canvas {
+        width: 300px;
+        height: 200px;
+        outline: 1px solid red;
+    }
+
+    canvas {
+        outline: 1px solid orange;
+    }
+</style>
+
+<body>
+    <div id="canvas"></div>
+</body>
+<script src="./index.js"></script>
+<script>
+    let charts = new Charts({
+        el: 'canvas',
+        data: [
+            [2007, 750],
+            [2008, 425],
+            [2009, 960],
+            [2010, 700],
+            [2011, 800],
+            [2012, 975],
+            [2013, 375],
+            [2014, 775]
+        ]
+    })
+    charts.initChart()
+</script>
+
+</html>
