@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 function Example() {
-    const [age, setAge] = useState(18)
-    const [sex, setSex] = useState('男')
+    const [age] = useState(18)
+    const [sex] = useState('男')
      
-    const [work, setWork] = useState('前端')
+    const [work] = useState('前端')
 
     return (
             <div>
