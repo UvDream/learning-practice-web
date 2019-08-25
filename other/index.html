@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文件服务器</title>
+</head>
+<style>
+    .zj {
+        min-width: 1000px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .zj>section {
+        width: 200px;
+        height: 180px;
+        margin: 5px 5px;
+        box-shadow: 2px 2px 5px rgb(163, 168, 235);
+        border: 1px solid rgb(161, 165, 230);
+        border-radius: 4px;
+    }
+
+    .zj>section>div {
+        text-align: center;
+        line-height: 30px;
+    }
+
+    .zj>section>div>img {
+        width: 40px;
+        margin-top: 20px;
+    }
+
+    .zj>section>div>span {
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <div class="zj">
+            <section v-for="item in list">
+                <div>
+                    <img src="./number.png" alt="">
+                </div>
+                <div style="color:  rgb(107, 107, 235)">
+                    -{{item.name}}-
+                </div>
+                <div>
+                    <span style="color:#666666">更新时间</span>
+                    :{{item.time}}
+                </div>
+                <div>
+                    <span>查看</span>
+                    |
+                    <span>下载</span>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+</body>
+<script src="./vue.min.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            list: [{
+                    id: 1,
+                    name: '测试清洗',
+                    num: '18',
+                    from: '数据录入',
+                    time: '2019-10-2'
+                },
+                {
+                    id: 2,
+                    name: '测试清洗',
+                    num: '18',
+                    from: '数据录入',
+                    time: '2019-10-2'
+                },
+                {
+                    id: 3,
+                    name: '测试清洗',
+                    num: '18',
+                    from: '数据录入',
+                    time: '2019-10-2'
+                },
+                {
+                    id: 4,
+                    name: '测试清洗',
+                    num: '18',
+                    from: '数据录入',
+                    time: '2019-10-2'
+                },
+                {
+                    id: 4,
+                    name: '测试清洗',
+                    num: '18',
+                    from: '数据录入',
+                    time: '2019-10-2'
+                }, {
+                    id: 4,
+                    name: '测试清洗',
+                    num: '18',
+                    from: '数据录入',
+                    time: '2019-10-2'
+                },
+                {
+                    id: 4,
+                    name: '测试清洗',
+                    num: '18',
+                    from: '数据录入',
+                    time: '2019-10-2'
+                },
+                {
+                    id: 4,
+                    name: '测试清洗',
+                    num: '18',
+                    from: '数据录入',
+                    time: '2019-10-2'
+                },
+                {
+                    id: 4,
+                    name: '测试清洗',
+                    num: '18',
+                    from: '数据录入',
+                    time: '2019-10-2'
+                }
+            ]
+        }
+    })
+</script>
+
+</html>
