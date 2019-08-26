@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 function Example() {
     const [age] = useState(18)
     const [sex] = useState('男')
-     
     const [work] = useState('前端')
 
     return (
