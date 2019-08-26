@@ -6,6 +6,7 @@ import Example4 from './example4'
 import '../index'
 import ReducerDemo from './example5'
 import Example6 from './example6';
+import Example7 from './example7';
 
 // useEffect 离开生命周期
 function Index() {
@@ -74,6 +75,9 @@ function App() {
             </section>
             <section>
                 <Example6/>
+            </section>
+            <section>
+                <Example7/>
             </section>
         </div>
     )
