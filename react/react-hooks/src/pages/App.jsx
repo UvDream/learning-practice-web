@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import Example from './example'
 import Exampled from './example3'
 import { BrowserRouter as Router,Route,Link} from 'react-router-dom';
+import Example4 from './example4'
 // useEffect 离开生命周期
 function Index(){
     useEffect(()=>{
@@ -53,6 +54,7 @@ function App() {
                 <Route path="/" exact component={Index}></Route>
                 <Route path="/"  component={List}></Route>
             </Router>
+            <Example4/>
             </div>
     )
 }
