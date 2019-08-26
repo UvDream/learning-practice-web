@@ -4,6 +4,7 @@ import Exampled from './example3'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Example4 from './example4'
 import '../index'
+import ReducerDemo from './example5'
 // useEffect 离开生命周期
 function Index() {
     useEffect(() => {
@@ -65,6 +66,9 @@ function App() {
             </section>
             <section>
                 <Example4 />
+            </section>
+            <section>
+                <ReducerDemo/>
             </section>
         </div>
     )
