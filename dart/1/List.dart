@@ -9,4 +9,8 @@ main() {
   l2.add('张三');
   l2.add('李四');
   print(l2);
+  // 3.定义list指定类型
+  var l3 = new List();
+  l3.add('呵呵');
+  print(l3);
 }
