@@ -36,7 +36,7 @@ main() {
   // p1 = "";
   // p1 = new Person("王五", 12);
   // p1.getInfo(); //错误
-  // (p1 as Person).getInfo();
+  // (p1 as Person).getInfo();吧
 
   Person p1 = new Person("王五", 12);
   p1.getInfo();
