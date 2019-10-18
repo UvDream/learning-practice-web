@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>脑图树</title>
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        html,
+        body {
+            overflow: hidden;
+            margin: 0;
+        }
+
+        #mountNode {
+            outline: 10px solid red;
+            position: relative;
+        }
+
+        #down {}
+    </style>
+</head>
+
+<body>
+    <div id="mountNode">
+        <div id="down">下载</div>
+    </div>
+    <script>
+        /*Fixing iframe window.innerHeight 0 issue in Safari*/
+        document.body.clientHeight;
+    </script>
+    <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g6-3.0.2/build/g6.js"></script>
+    <script src="https://gw.alipayobjects.com/os/antv/assets/lib/jquery-3.2.1.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.hierarchy-0.4.0/build/hierarchy.js"></script>
+    <script>
+        var data = {
+            "id": "数据库",
+            "children": [{
+                    "id": "四级1",
+                    "children": [{
+                            "id": "目录1"
+                        },
+                        {
+                            "id": "目录2"
+                        },
+                        {
+                            "id": "目录3"
+                        },
+                        {
+                            "id": "目录4"
+                        }
+                    ]
+                },
+                {
+                    "id": "四级2",
+                    "children": [{
+                            "id": "五级1",
+                            "children": [{
+                                "id": "六级1"
+                            }]
+                        },
+                        {
+                            "id": "五级2",
+                            "children": [{
+                                    "id": "六级1"
+                                },
+                                {
+                                    "id": "六级2"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "二级1",
+                    "children": [{
+                            "id": "一级1"
+                        },
+                        {
+                            "id": "一级2"
+                        },
+                        {
+                            "id": "一级3"
+                        },
+                        {
+                            "id": "一级4"
+                        },
+                        {
+                            "id": "一级5"
+                        }
+                    ]
+                },
+                {
+                    "id": "二级2",
+                    "children": [{
+                            "id": "一级1"
+                        },
+                        {
+                            "id": "一级2"
+                        },
+                        {
+                            "id": "一级3"
+                        },
+                        {
+                            "id": "一级4"
+                        },
+                        {
+                            "id": "一级5"
+                        }
+                    ]
+                }
+            ]
+        }
+        create(data);
+
+        function create(data) {
+            console.log(data)
+            var graph = new G6.TreeGraph({
+                container: 'mountNode',
+                width: 800,
+                height: 500,
+                pixelRatio: 2,
+                modes: {
+                    default: [{
+                        type: 'collapse-expand',
+                        onChange: function onChange(item, collapsed) {
+                            var data = item.get('model').data;
+                            data.collapsed = collapsed;
+                            return true;
+                        }
+                    }, 'drag-canvas', 'zoom-canvas']
+                },
+                defaultNode: {
+                    size: 16,
+                    anchorPoints: [
+                        [0, 0.5],
+                        [1, 0.5]
+                    ]
+                },
+                defaultEdge: {
+                    shape: 'cubic-horizontal'
+                },
+                nodeStyle: {
+                    default: {
+                        fill: '#40a9ff',
+                        stroke: '#096dd9'
+                    }
+                },
+                edgeStyle: {
+                    default: {
+                        stroke: '#A3B1BF'
+                    }
+                },
+                layout: function layout(data) {
+                    return Hierarchy.mindmap(data, {
+                        direction: 'H',
+                        getHeight: function getHeight() {
+                            return 16;
+                        },
+                        getWidth: function getWidth() {
+                            return 16;
+                        },
+                        getVGap: function getVGap() {
+                            return 10;
+                        },
+                        getHGap: function getHGap() {
+                            return 100;
+                        }
+                    });
+                }
+            });
+            graph.data(data);
+            graph.render();
+            var root = graph.find('node', function (node) {
+                return node.get('model').data.id === '数据库';
+            });
+            var x = root.get('model').x;
+            graph.getNodes().forEach(function (node) {
+                var model = node.get('model');
+                model.label = model.data.id;
+                model.labelCfg = {
+                    offset: 10,
+                    style: {
+                        fill: '#666'
+                    }
+                };
+                if (model.children && model.children.length > 0) {
+                    model.labelCfg.position = 'left';
+                } else {
+                    if (model.x > x) {
+                        model.labelCfg.position = 'right';
+                    } else {
+                        model.labelCfg.position = 'left';
+                    }
+                }
+            });
+            graph.refresh();
+            graph.fitView();
+
+            document.getElementById('down').onclick = function () {
+                graph.downloadImage();
+            }
+            // graph.on('click', ev => {
+            //     console.log(ev)
+
+            // });
+            // graph.downloadImage();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>流程图</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div class="canvas">
+        <canvas id="canvas" width="520" height="220"></canvas>
+    </div>
+</body>
+<script src="./grid.js"></script>
+<script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    draw();
+
+    function draw() {
+        // drawText(20, 100, 80, 40, '#67c23a', '发起审批', 35, 125, '#67c23a', true);
+        drawRoundedRect(ctx, 20, 100, 80, 40, 10, true, false, '#67c23a', true, '发起审批', '#67c23a', 35, 125)
+
+        //    第二个框
+        // drawText(220, 100, 80, 40, '#67c23a', '委办局审批', 230, 125, 'white', false);
+        drawRoundedRect(ctx, 220, 100, 80, 40, 10, true, false, '#67c23a', false, '委办局审批', '#fff', 230, 125)
+
+        //    第三个框
+        // drawText(420, 100, 80, 40, '#1890ff', '智慧办审批', 432, 125, 'white', false);
+        drawRoundedRect(ctx, 420, 100, 80, 40, 10, true, false, '#1890ff', false, '智慧办审批', '#fff', 432, 125)
+
+        //    绘制横向第一条线条
+        drawLine(100, 120, 220, 120, '#67c23a');
+        drawText(140, 110, 40, 20, '#67c23a', '通过', 148, 125, 'white', false);
+        drawLine(300, 120, 420, 120, '#67c23a');
+        drawText(340, 110, 40, 20, '#67c23a', '通过', 348, 125, 'white', false);
+
+        //绘制横向第二条直线
+        drawBrokenLine(60, 100, 'red', false);
+        drawBrokenLine(60, 100, 'orange', true);
+        drawText(140, 50, 40, 20, 'orange', '驳回', 148, 65, 'white', false);
+        drawText(340, 50, 40, 20, 'orange', '驳回', 348, 65, 'white', false);
+    }
+    // drawGrid('gray', 10, 10, ctx);
+    //    第一个框
+    function drawRoundedRect(ctx, x, y, width, height, r, fill, stroke, color, empty, text, tColor, tx, ty) {
+        ctx.save();
+        ctx.beginPath(); // draw top and top right corner 
+        ctx.moveTo(x + r, y);
+        ctx.fillStyle = color;
+        ctx.arcTo(x + width, y, x + width, y + r, r); // draw right side and bottom right corner 
+        ctx.arcTo(x + width, y + height, x + width - r, y + height, r); // draw bottom and bottom left corner 
+        ctx.arcTo(x, y + height, x, y + height - r, r); // draw left and top left corner 
+        ctx.arcTo(x, y, x + r, y, r);
+
+        if (fill) {
+            ctx.fill();
+        }
+        if (stroke) {
+            ctx.stroke();
+        }
+        if (empty) {
+            drawRoundedRect(ctx, x + 1, y + 1, width - 2, height - 2, r, fill, stroke, '#fff', false, text, tColor, tx,
+                ty)
+        }
+        ctx.fillStyle = tColor;
+        ctx.font = "12px bold 黑体";
+        ctx.fillText(text, tx, ty);
+        ctx.restore();
+
+        // ctx.fillStyle = 'red';
+        // ctx.fillRect(x + 2, y + 2, width - 4, height - 4);
+    }
+
+    function drawBrokenLine(x, y, color, left) {
+        ctx.beginPath();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = '3';
+        ctx.moveTo(x, y);
+        ctx.lineTo(x, y - 40);
+        if (left) {
+
+            ctx.lineTo(x + 200, y - 40);
+            ctx.lineTo(x + 200, y);
+        } else {
+            ctx.lineTo(x + 400, y - 40);
+            ctx.lineTo(x + 400, y);
+        }
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.fillStyle = color;
+        ctx.moveTo(x, y + 2);
+        ctx.lineTo(x - 10, y - 10);
+        ctx.lineTo(x + 10, y - 10);
+        ctx.fill();
+    }
+    //绘制横向直线函数
+    function drawLine(x, y, x1, y1, color) {
+        ctx.beginPath();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = '3';
+        ctx.moveTo(x, y);
+        ctx.lineTo(x1, y1);
+        ctx.stroke();
+        //三角形
+        ctx.beginPath();
+        ctx.fillStyle = color;
+        ctx.moveTo(x1 - 10, y1 - 10);
+        ctx.lineTo(x1 - 10, y1 + 10);
+        ctx.lineTo(x1 + 2, y1);
+        ctx.fill();
+        ctx.closePath();
+    }
+    //绘制框体函数
+    function drawText(x, y, width, height, fColor, text, tx, ty, tColor, empty) {
+        ctx.fillStyle = fColor;
+        ctx.fillRect(x, y, width, height);
+        if (empty) {
+            ctx.clearRect(x + 1, y + 1, width - 2, height - 2);
+        }
+        ctx.fillStyle = tColor;
+        ctx.font = "12px bold 黑体";
+        ctx.fillText(text, tx, ty);
+    }
+    canvas.addEventListener('mousemove', function (e) {
+        ctx.clearRect(0, 0, 800, 500);
+        draw();
+        let cRect = canvas.getBoundingClientRect();
+        let canvasX = Math.round(e.clientX - cRect.left);
+        let canvasY = Math.round(e.clientY - cRect.top);
+        ctx.fillStyle = 'red';
+        if ((canvasX < 100 && canvasX > 20 && canvasY > 100 && canvasY < 140) || (canvasX < 300 && canvasX >
+                220 && canvasY > 100 && canvasY < 140)) {
+            ctx.fillStyle = 'rgba(0,0,0,.5)';
+            ctx.fillRect(canvasX, canvasY, 200, 50);
+            ctx.fillText('经办人:大数据管理员', canvasX + 10, canvasY + 20);
+            ctx.fillText('操作时间:2019/7/29 10:21:34', canvasX + 10, canvasY + 40);
+        }
+        if ((canvasX < 500 && canvasX > 420 && canvasY > 100 && canvasY < 140)) {
+            ctx.fillStyle = 'rgba(0,0,0,.5)';
+            ctx.fillRect(canvasX - 200, canvasY, 200, 50);
+            ctx.fillText('经办人:大数据管理员', canvasX - 190, canvasY + 20);
+            ctx.fillText('操作时间:2019/7/29 10:21:34', canvasX - 190, canvasY + 40);
+        }
+    })
+</script>
+
+</html>

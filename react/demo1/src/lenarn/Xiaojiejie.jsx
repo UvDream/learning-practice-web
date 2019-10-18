@@ -2,6 +2,8 @@ import React, {Component, Fragment} from 'react';
 import './style.css'
 import XiaojiejieItem from './XiaojiejieItem'
 import axios from 'axios'
+import { CSSTransition, TransitionGroup} from 'react-transition-group'
+
 export default class Xiaojiejie extends Component {
   // 在某一时刻,可以自动执行的函数
     constructor(props) {
@@ -46,9 +48,16 @@ export default class Xiaojiejie extends Component {
                   </li>
                 );
               })}
-              <hr/>
+              <hr />
+              <TransitionGroup>
               {this.state.list.map((item, index) => {
                 return (
+                  <CSSTransition
+                    timeout={2000}
+                    classNames='boss-text'
+                    unmountOnExit
+                    key={index+item}
+                    >
                   <XiaojiejieItem
                     key={index + item}
                     // 传值
@@ -57,9 +66,11 @@ export default class Xiaojiejie extends Component {
                     index={index}
                     // 传递方法
                     deleteItem={this.deleteItem.bind(this)}
-                  />
+                    />
+                    </CSSTransition>
                 );
               })}
+              </TransitionGroup>
             </ul>
           </Fragment>
         );

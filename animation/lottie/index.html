@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Articulation Pieces by Al Boardman</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div class="grid">
+    <div class="box" id="rejection"></div>
+    <div class="box" id="inattentive"></div>
+    <div class="box" id="mnemonics"></div>
+    <div class="box" id="phonological"></div>
+    <div class="box" id="estimate"></div>
+    <div class="box" id="dyslexia"></div>
+    <div class="box" id="articulation"></div>
+    <div class="box" id="incomprehension"></div>
+    <div class="box" id="confusion"></div>
+  </div>
+  <!-- partial -->
+  <script src='https://labs.nearpod.com/bodymovin/demo/al_boardman/articulation/lottie2.min.js'></script>
+  <!-- <script src="./script.js"></script> -->
+  <script>
+    var elem = document.getElementById('rejection')
+    var animData = {
+      container: elem,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      rendererSettings: {
+        progressiveLoad: true,
+        preserveAspectRatio: 'xMidYMid meet'
+      },
+      // path: 'https://labs.nearpod.com/bodymovin/demo/al_boardman/articulation/phonological.json'
+      path: './1.json'
+    };
+    var anim = lottie.loadAnimation(animData);
+    anim.setSubframe(false);
+  </script>
+</body>
+
+</html>
