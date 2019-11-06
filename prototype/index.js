@@ -1,3 +1,11 @@
+/*
+ * @Author: wangzhongjie
+ * @Date: 2019-09-10 17:32:57
+ * @LastEditors: wangzhongjie
+ * @LastEditTime: 2019-09-10 17:32:57
+ * @Description:canvas 绘制验证码
+ * @Email: UvDream@163.com
+ */
 function RegCode(params = {}) {
   let p = Object.assign(
     {
