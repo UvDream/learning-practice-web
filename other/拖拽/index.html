@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2019-08-09 08:58:20
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2019-11-25 15:01:23
+ * @LastEditTime: 2019-11-25 15:02:38
  * @Description: 
  * @Email: uvdream@163.com
  -->
@@ -81,8 +81,6 @@
     var isMove = false;
     // 是否可以改变大小
     var isDrag = false;
-    // 该元素可以拖动
-    var isUp = false
     // 双击事件
     moveBox.onclick = function () {
         moveBox.style.border = "1px dashed black";
@@ -94,6 +92,7 @@
     }
 
 
+    // 鼠标按下
     moveBox.onmousedown = function (e) {
         isMove = true
         moveBox.style.cursor = "move";
@@ -117,10 +116,13 @@
 
         }
     }
+    // 鼠标松下
     moveBox.onmouseup = function () {
         moveBox.style.cursor = "default";
         isMove = false
     }
+
+    // 鼠标离开
     moveBox.onmouseout = function () {
         isMove = false
     }
