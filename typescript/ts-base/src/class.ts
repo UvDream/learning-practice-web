@@ -2,10 +2,11 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-03 14:54:07
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-03 15:05:50
+ * @LastEditTime: 2020-04-03 16:04:27
  * @Description:类
  * @Email: UvDream@163.com
  */
+
 class Dog {
   constructor(name: string) {
     this.name = name;
@@ -39,3 +40,58 @@ class Husky extends Dog {
   color: string;
 }
 console.log(Husky.food);
+
+//
+// 抽象类
+abstract class Animal {
+  eat() {
+    console.log("吃饭");
+  }
+  //   抽象方法
+  abstract sleep(): void;
+}
+class Pig extends Animal {
+  constructor(name: string) {
+    super();
+    this.name = name;
+  }
+  name: string;
+  sleep() {
+    console.log("睡觉");
+  }
+}
+let pig = new Pig("zhu");
+pig.eat();
+pig.sleep();
+
+// 多态
+class Cat extends Animal {
+  sleep() {
+    console.log("猫睡了");
+  }
+}
+let cat = new Cat();
+let animals: Animal[] = [pig, cat];
+animals.forEach(i => {
+  i.sleep();
+});
+// this
+class WorkFlow {
+  step1() {
+    return this;
+  }
+  step2() {
+    return this;
+  }
+}
+// 链式调用
+new WorkFlow().step1().step2();
+class MyFlow extends WorkFlow {
+  next() {
+    return this;
+  }
+}
+new MyFlow()
+  .next()
+  .step1()
+  .next();
