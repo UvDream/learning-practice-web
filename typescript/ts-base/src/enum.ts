@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-03 10:46:30
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-03 11:33:26
+ * @LastEditTime: 2020-04-03 14:03:37
  * @Description:枚举
  * @Email: UvDream@163.com
  */
@@ -75,3 +75,54 @@ e1 == e3; //同枚举类型可以比较
 let g1: G;
 let g2: G.a;
 // g1==g2
+
+// 接口
+interface List {
+  readonly id: number; // readonly可读属性,不可修改
+  name: string;
+  //   3.第三种
+  //   [x: string]: any;
+  age?: number; //可选属性
+}
+interface Result {
+  data: List[];
+}
+function render(result: Result) {
+  result.data.forEach(value => {
+    console.log(value.id, value.name);
+    if (value.age) {
+      console.log(value.age);
+    }
+  });
+}
+let result = {
+  data: [
+    { id: 1, name: "A", sex: "male" },
+    { id: 2, name: "B" }
+  ]
+};
+render(result);
+// 类型断言
+// 1.第一种
+render({
+  data: [
+    { id: 1, name: "A", sex: "male" },
+    { id: 2, name: "B" }
+  ]
+} as Result);
+// 2.第二种
+render(<Result>{
+  data: [
+    { id: 1, name: "A", sex: "male" },
+    { id: 2, name: "B" }
+  ]
+});
+// 索引签名
+interface StringArray {
+  [index: number]: string;
+}
+let chars: StringArray = ["A", "B"];
+interface Names {
+  [x: string]: string;
+  [z: number]: string;
+}
