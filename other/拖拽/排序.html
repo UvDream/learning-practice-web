@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=false" />
+    <title>排序</title>
+</head>
+<style>
+    ul {
+        list-style: none;
+        margin: 200px;
+    }
+
+    .ele {
+        width: 100%;
+        height: 40px;
+        border: 1px solid #999;
+        background: #EA6E59;
+        margin-top: 2px;
+        border-radius: 10px;
+        padding-left: 10px;
+        color: white;
+        cursor: move;
+    }
+</style>
+
+<body>
+    <ul id="container">
+        <li class="ele" draggable="true">1</li>
+        <li class="ele" draggable="true">2</li>
+        <li class="ele" draggable="true">3</li>
+        <li class="ele" draggable="true">4</li>
+        <li class="ele" draggable="true" v-for="(item,index) in data">{{item}}</li>
+    </ul>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#container',
+        data: {
+            data: [1, 2, 3, 4, 5, 6],
+        },
+        watch: {
+            data: {
+                handler(val) {
+                    alert(val)
+                }
+            }
+        }
+    })
+    var node = document.querySelector("#container");
+    var draging = null;
+    //使用事件委托，将li的事件委托给ul
+    node.ondragstart = function (event) {
+        //console.log("start");
+        //firefox设置了setData后元素才能拖动！！！！
+        event.dataTransfer.setData("te", event.target.innerText); //不能使用text，firefox会打开新tab
+        //event.dataTransfer.setData("self", event.target);
+        draging = event.target;
+    }
+    node.ondragover = function (event) {
+        //console.log("onDrop over");
+        event.preventDefault();
+        var target = event.target;
+        //因为dragover会发生在ul上，所以要判断是不是li
+        if (target.nodeName === "LI" && target !== draging) {
+            if (_index(draging) < _index(target)) {
+                target.parentNode.insertBefore(draging, target.nextSibling);
+            } else {
+                target.parentNode.insertBefore(draging, target);
+            }
+        }
+    }
+    //获取元素在父元素中的index
+    function _index(el) {
+        var index = 0;
+
+        if (!el || !el.parentNode) {
+            return -1;
+        }
+
+        while (el && (el = el.previousElementSibling)) {
+            //console.log(el);
+            index++;
+        }
+
+        return index;
+    }
+</script>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=false" />
+    <title>排序</title>
+</head>
+<style>
+    .check {
+        display: flex;
+        user-select: none;
+        outline: 1px solid orange;
+    }
+
+    li {
+        list-style: none;
+        margin: 0 10px;
+        cursor: move;
+        outline: 1px solid red;
+    }
+
+    label {
+        cursor: move;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<body>
+    <div id="app">
+        <ul class="check" @dragstart="onDragStart" @dragover="onDragOver" @dragend="onDragEnd" ref="parentNode">
+            <li v-for="item in list" draggable="true">
+                <input type="checkbox" name="like" :value="item.value">{{item.name}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                list: [{
+                        id: 1,
+                        name: "选项1",
+                        value: 1,
+                    },
+                    {
+                        id: 2,
+                        name: "选项2",
+                        value: 2,
+
+                    },
+                    {
+                        id: 3,
+                        name: "选项3",
+                        value: 2,
+                    }
+                ],
+                drag: null, //被拖拽的对象
+                target: null, //目标对象
+            }
+        },
+        watch: {
+
+        },
+        methods: {
+            onDragStart(event) {
+                console.log("++++++++++++++开始拖拽++++++++++++++")
+                console.log(event.target)
+                this.drag = event.target;
+            },
+            onDragOver(event) {
+                console.log("开始拖拽")
+                console.log(event.target)
+                console.log(event.target.nodeName)
+                this.target = event.target;
+                // 判断拖拽元素不是目标对象并且拖拽的目标对象是li元素
+                if (this.target.nodeName === "LI" && this.target !== this.drag) {
+                    if (this._index(this.drag) < this._index(this.target)) {
+                        this.target.parentNode.insertBefore(this.drag, this.target.nextSibling);
+                    } else {
+                        this.target.parentNode.insertBefore(this.drag, this.target);
+                    }
+
+                }
+            },
+            onDragEnd(event) {
+                console.log("-----------------拖拽结束-----------------")
+                let currentNodes = Array.from(this.$refs.parentNode.childNodes);
+                // 重新排序
+                let arr = []
+                currentNodes.map((i, index) => {
+                    this.list.forEach(item => {
+                        if (item.name == i.innerText) {
+                            console.log("此项相等")
+                            console.log(item)
+                            arr.push(item)
+                        }
+                    })
+                });
+                console.table(arr)
+            },
+            _index(el) {
+                // 寻找索引
+                let domData = Array.from(this.$refs.parentNode.childNodes);
+                return domData.findIndex(i => i.innerText == el.innerText);
+            },
+        }
+    })
+</script>
+
+</html>
