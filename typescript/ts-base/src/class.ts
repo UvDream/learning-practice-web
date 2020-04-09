@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-03 14:54:07
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-03 16:04:27
+ * @LastEditTime: 2020-04-09 20:15:42
  * @Description:类
  * @Email: UvDream@163.com
  */
@@ -72,7 +72,7 @@ class Cat extends Animal {
 }
 let cat = new Cat();
 let animals: Animal[] = [pig, cat];
-animals.forEach(i => {
+animals.forEach((i) => {
   i.sleep();
 });
 // this
@@ -91,7 +91,4 @@ class MyFlow extends WorkFlow {
     return this;
   }
 }
-new MyFlow()
-  .next()
-  .step1()
-  .next();
+new MyFlow().next().step1().next();
