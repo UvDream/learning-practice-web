@@ -408,7 +408,7 @@ var option = {
         label: {
             normal: {
                 show: true,
-                fontSize:'20',
+                fontSize:'15',
                 // color: 'rgba(0,0,0,0.7)'
             }
         },
