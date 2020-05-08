@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-02 16:03:29
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-09 20:53:36
+ * @LastEditTime: 2020-05-08 19:49:31
  * @Description:
  * @Email: UvDream@163.com
  */
@@ -13,5 +13,6 @@ import "./function";
 import "./class";
 import "./class-interface";
 import "./generics";
+import "./advance";
 let hello: string = "Hello world!!";
 document.querySelectorAll(".app")[0].innerHTML = hello;
