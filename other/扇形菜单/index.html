@@ -16,7 +16,22 @@
         font-size: 14px;
         color: #000;
       }
-
+      .tips {
+        width: 702px;
+        margin: 0 auto;
+        line-height: 24px;
+        padding-top: 10px;
+      }
+      .bredcolor {
+        color: #fff;
+      }
+      .menuHolder {
+        width: 100px;
+        height: 100px;
+        margin: 0px 0 250px 0px;
+        position: relative;
+        z-index: 100;
+      }
       .menuHolder ul {
         padding: 0;
         margin: 0;
@@ -38,6 +53,7 @@
         font: bold 13px/30px arial, sans-serif;
         text-align: center;
         box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.4);
+
         transform-origin: 0 0;
       }
       .menuHolder ul.p1 li {
@@ -46,11 +62,20 @@
         top: 0;
       }
       .menuHolder ul.p2 {
+        transform: rotate(0deg);
         z-index: -1;
-        outline: 1px solid red;
       }
       .menuHolder ul.p3 {
+        outline: 1px solid red;
         z-index: -1;
+      }
+      .menuHolder li.s1 > a {
+        position: absolute;
+        display: block;
+        width: 100px;
+        height: 100px;
+        background: #c8c8c8;
+        border-radius: 0 0 100px 0;
       }
       .menuHolder li.s2 > a {
         position: absolute;
@@ -72,31 +97,99 @@
       }
       .menuHolder ul ul {
         transform-origin: 0 0;
+
         transform: rotate(90deg);
+
         transition: 1s;
       }
       .menuHolder li.s2:nth-of-type(6) > a {
         background: #888;
+
         transform: rotate(75deg);
       }
       .menuHolder li.s2:nth-of-type(5) > a {
         background: #999;
+
         transform: rotate(60deg);
       }
       .menuHolder li.s2:nth-of-type(4) > a {
         background: #aaa;
+
         transform: rotate(45deg);
       }
       .menuHolder li.s2:nth-of-type(3) > a {
         background: #bbb;
+
         transform: rotate(30deg);
       }
       .menuHolder li.s2:nth-of-type(2) > a {
         background: #ccc;
+
         transform: rotate(15deg);
       }
 
-      .menuHolder li.s1:hover ul.p2 {
+      .menuHolder .a6 li:nth-of-type(6) > a {
+        background: #444;
+
+        transform: rotate(75deg);
+      }
+      .menuHolder .a6 li:nth-of-type(5) > a {
+        background: #555;
+
+        transform: rotate(60deg);
+      }
+      .menuHolder .a6 li:nth-of-type(4) > a {
+        background: #666;
+
+        transform: rotate(45deg);
+      }
+      .menuHolder .a6 li:nth-of-type(3) > a {
+        background: #777;
+
+        transform: rotate(30deg);
+      }
+      .menuHolder .a6 li:nth-of-type(2) > a {
+        background: #888;
+
+        transform: rotate(15deg);
+      }
+
+      .menuHolder .a5 li:nth-of-type(5) > a {
+        background: #555;
+
+        transform: rotate(72deg);
+      }
+      .menuHolder .a5 li:nth-of-type(4) > a {
+        background: #666;
+
+        transform: rotate(54deg);
+      }
+      .menuHolder .a5 li:nth-of-type(3) > a {
+        background: #777;
+
+        transform: rotate(36deg);
+      }
+      .menuHolder .a5 li:nth-of-type(2) > a {
+        background: #888;
+
+        transform: rotate(18deg);
+      }
+
+      .menuHolder .a3 li:nth-of-type(3) > a {
+        background: #777;
+
+        transform: rotate(60deg);
+      }
+      .menuHolder .a3 li:nth-of-type(2) > a {
+        background: #888;
+
+        transform: rotate(30deg);
+      }
+
+      /* .menuHolder li.s1:hover ul.p2 {
+        transform: rotate(0deg);
+      } */
+      .menuHolder li.s2:hover ul.p3 {
         transform: rotate(0deg);
       }
       .menuHolder ul li:hover > a {
@@ -107,15 +200,52 @@
         background: #d00;
         color: #fff;
       }
+      .menuHolder .a6 li:hover > a {
+        background: #b00;
+        color: #fff;
+      }
+      .menuHolder .a5 li:hover > a {
+        background: #b00;
+        color: #fff;
+      }
+      .menuHolder .a3 li:hover > a {
+        background: #b00;
+        color: #fff;
+      }
 
       .menuWindow {
         width: 310px;
         height: 310px;
+        overflow: hidden;
         position: absolute;
-        left: 400px;
-        top: 400px;
+        left: 300px;
+        top: 300px;
         z-index: 100;
+
         transition: 0s 1s;
+      }
+
+      .menuHolder span {
+        display: block;
+
+        transform: rotate(5deg);
+      }
+      .menuHolder ~ img.close {
+        width: 0;
+        height: 0;
+        position: fixed;
+        z-index: -1;
+        left: 0;
+        top: 0;
+      }
+      .menuHolder:hover .menuWindow {
+        width: 310px;
+        height: 310px;
+        transition: 0s 0s;
+      }
+      .menuHolder:hover ~ img.close {
+        width: 100%;
+        height: 100%;
       }
     </style>
   </head>
@@ -131,48 +261,48 @@
               </li>
               <li class="s2">
                 <a href="#url"><span>服务</span></a>
-                <!-- <ul class="p3 a3">
+                <ul class="p3 a3">
                   <li><a href="#">打印</a></li>
                   <li><a href="#">编辑</a></li>
                   <li><a href="#">保管</a></li>
-                </ul> -->
+                </ul>
               </li>
               <li class="s2">
                 <a href="#url"><span>联系</span></a>
-                <!-- <ul class="p3 a6">
+                <ul class="p3 a6">
                   <li><a href="#">支持</a></li>
                   <li><a href="#">销售</a></li>
                   <li><a href="#">购买</a></li>
                   <li><a href="#">摄影师</a></li>
                   <li><a href="#">零售商</a></li>
                   <li><a href="#">常规</a></li>
-                </ul> -->
+                </ul>
               </li>
               <li class="s2">
                 <a href="#url"><span>商店</span></a>
-                <!-- <ul class="p3 a3">
+                <ul class="p3 a3">
                   <li><a href="#">南区</a></li>
                   <li><a href="#">北区</a></li>
                   <li><a href="#">中心区</a></li>
-                </ul> -->
+                </ul>
               </li>
               <li class="s2">
                 <a href="#url"><span>联系我们</span></a>
-                <!-- <ul class="p3 a3">
+                <ul class="p3 a3">
                   <li><a href="#">邮箱</a></li>
                   <li><a href="#">邮递</a></li>
                   <li><a href="#">电话</a></li>
-                </ul> -->
+                </ul>
               </li>
               <li class="s2 b6">
                 <a href="#url"><span>销量</span></a>
-                <!-- <ul class="p3 a5">
+                <ul class="p3 a5">
                   <li><a href="#">数码单反机身</a></li>
                   <li><a href="#">镜头</a></li>
                   <li><a href="#">闪光枪</a></li>
                   <li><a href="#">三角架</a></li>
                   <li><a href="#">过滤器</a></li>
-                </ul> -->
+                </ul>
               </li>
             </ul>
           </li>
