@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-05-26 06:27:11
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-05-26 06:50:07
+ * @LastEditTime: 2020-05-26 07:06:32
  * @Description: 布尔操作符
  * @Email: UvDream@163.com
  */ 
@@ -15,7 +15,7 @@
 // 6.null=>true
 // 7.NAN=>true
 // 8.undefined=>true
-
+// > Infinity 属性用于存放表示正无穷大的数值。
 
 // 逻辑与(&&)
 // 共同成立才返回true
