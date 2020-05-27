@@ -2,14 +2,14 @@
  * @Author: wangzhongjie
  * @Date: 2020-05-26 06:27:11
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-05-26 07:06:32
+ * @LastEditTime: 2020-05-27 06:07:32
  * @Description: 布尔操作符
  * @Email: UvDream@163.com
  */ 
 // 逻辑非(!val)
 // 1.对象=>false
 // 2.空字符串=>true
-// 3.非空字符串=>true
+// 3.非空字符串=>false
 // 4.0=>true
 // 5.非0数值(包括Infinity)=>false
 // 6.null=>true
