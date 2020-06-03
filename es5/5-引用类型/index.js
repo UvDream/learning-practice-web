@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-06-01 06:42:59
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-06-03 06:24:55
+ * @LastEditTime: 2020-06-04 06:15:48
  * @Description: 引用类型
  * @Email: UvDream@163.com
  */ 
@@ -59,3 +59,10 @@ const obj = {
   copy = completeAssign({}, obj);
   console.log(copy);
   // { foo:1, get bar() { return 2 } }
+
+// Object.is()
+console.log(Object.is('foo','foo'))
+let foo={a:1}
+let bar={age:1}
+console.log(Object.is(foo,foo))
+console.log(Object.is(foo,bar))
