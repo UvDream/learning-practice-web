@@ -342,7 +342,7 @@ console.log(Object.entries(obj)) //[ [ 'foo', 1 ], [ 'bar', 2 ] ]
 ```
 
 <iframe src="https://tool.lu/coderunner/?id=91q" width="650" height="550" frameborder="0" mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>
-## `Object.create(proto[, propertiesObject])`方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。`
+## `Object.create(proto[, propertiesObject])`方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。
 
 ```
 // Shape - 父类(superclass)
