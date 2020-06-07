@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-06-01 06:42:59
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-06-04 06:15:48
+ * @LastEditTime: 2020-06-05 06:24:39
  * @Description: 引用类型
  * @Email: UvDream@163.com
  */ 
@@ -66,3 +66,11 @@ let foo={a:1}
 let bar={age:1}
 console.log(Object.is(foo,foo))
 console.log(Object.is(foo,bar))
+
+console.log("-----Object.keys(obj),Object.values(obj),Object.entries(obj)-----")
+let arr=["a","b","c"]
+console.log(Object.keys(arr))
+// let obj={0:"a",1:"b",2:"c"}
+console.log(Object.keys(obj)) //[ 'foo', 'bar' ]
+console.log(Object.values(obj)) //[ 1, 2 ]
+console.log(Object.entries(obj)) //[ [ 'foo', 1 ], [ 'bar', 2 ] ]
