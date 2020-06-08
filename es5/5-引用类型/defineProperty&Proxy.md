@@ -1,4 +1,6 @@
-# `Object.defineProperty()` 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。
+# `Object.defineProperty()` 
+
+>  方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。
 
 ## 语法
 
@@ -54,3 +56,86 @@ console.log(object1.name) //获取属性值,是get
 object1.name="张三"//设置属性值是set
 console.log(object1)
 ```
+
+
+
+## 简单应用
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=false"
+    />
+    <title>MVVM</title>
+  </head>
+  <body>
+    <p>
+      Hello,
+      <span id="name"></span>
+    </p>
+    <input type="text" id="input" />
+  </body>
+  <script>
+    const obj = {
+      input: "",
+    };
+    const inputDOM = document.getElementById("input");
+    const nameDOM = document.getElementById("name");
+    inputDOM.addEventListener("input", function (e) {
+      obj.input = e.target.value;
+    });
+    Object.defineProperty(obj, "input", {
+      set: function (newValue) {
+        nameDOM.innerHTML = newValue.trim().toUpperCase();
+      },
+    });
+  </script>
+</html>
+```
+
+
+
+# `Proxy`
+
+> 对象用于定义基本操作的自定义行为（如属性查找、赋值、枚举、函数调用等）
+
+## 语法
+
+```
+const p = new Proxy(target, handler)
+```
+
+> `handler`:包含捕捉器（trap）的占位符对象，可译为处理器对象。
+
+> traps:提供属性访问的方法。这类似于操作系统中捕获器的概念。
+
+> target:被 Proxy 代理虚拟化的对象。它常被作为代理的存储后端。根据目标验证关于对象不可扩展性或不可配置属性的不变量（保持不变的语义）
+
+```javascript
+console.log("-----------------------------------------------------------")
+var obj=new Proxy({},{
+    get(target,key,receiver){
+        console.log("这是get",target,"|",key,"|",receiver)
+        return Reflect.get(target,key,receiver)
+    },set(target,key,value,receiver){
+        console.log("这是set",target,"|",key,"|",value,"|",receiver)
+        return Reflect.set(target,key,value,receiver)
+    }
+})
+console.log("获取")
+obj.count=1;
+console.log("改变")
+++obj.count
+console.log("再次获取")
+console.log(obj.count)
+```
+
+
+
+![image-20200609065309990](https://gitee.com/UvDream/images/raw/master/images/20200609065312.png)
+
+以上代码Proxy实际上重载了点运算符,即是用自己定义覆盖了语言的原始定义

@@ -6,8 +6,29 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=false"
     />
-    <title>测试</title>
+    <title>MVVM</title>
   </head>
-  <body></body>
+  <body>
+    <p>
+      Hello,
+      <span id="name"></span>
+    </p>
+    <input type="text" id="input" />
+  </body>
+  <script>
+    // const obj = {
+    //   input: "",
+    // };
+    // const inputDOM = document.getElementById("input");
+    // const nameDOM = document.getElementById("name");
+    // inputDOM.addEventListener("input", function (e) {
+    //   obj.input = e.target.value;
+    // });
+    // Object.defineProperty(obj, "input", {
+    //   set: function (newValue) {
+    //     nameDOM.innerHTML = newValue.trim().toUpperCase();
+    //   },
+    // });
+  </script>
   <script src="./defineProperty&Proxy.js"></script>
 </html>
