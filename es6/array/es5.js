@@ -19,7 +19,7 @@ var arr = [{
     }
 ];
 console.log('排序前', arr);
-this.arr.sort((a, b) => b.read - a.read);
+arr.sort((a, b) => b.read - a.read);
 console.log('排序后', arr);
 
 /**
@@ -53,7 +53,13 @@ console.log("删除后的数组", f);
  */
 console.log("删除第一个的元素", f.shift());
 console.log("删除后的数组", f);
-
+/**
+ * unshift
+ * arr.unshift(element1, ..., elementN)
+ * 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度(该方法修改原有数组),并且返回新的长度
+ */
+console.log(f)
+console.log("数组开头添加元素",f,f.unshift("呵呵"))
 /**
  * push
  * 数组末尾添加新元素
