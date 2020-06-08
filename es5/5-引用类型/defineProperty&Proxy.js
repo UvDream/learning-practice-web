@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-06-08 06:10:55
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-06-08 07:21:11
+ * @LastEditTime: 2020-06-08 14:17:29
  * @Description: defineProperty&Proxy
  * @Email: UvDream@163.com
  */ 
@@ -24,15 +24,16 @@ Object.defineProperty(object1,"sex",{
 console.log(object1)//{age: 42, sex: "男"}
 console.log(Object.keys(object1));// 打印["sex"]
 // set/get
+let temp=null
 Object.defineProperty(object1,"name",{
     configurable: true,
     get(){
         console.log("这是get")
-        return this.name
+        return temp
     },
     set(val){
         console.log("这是set",val)
-        this.name=val
+        temp=val
     }
 })
 console.log(object1.name) //获取属性值,是get
