@@ -82,20 +82,7 @@ g.splice(2, 0, "新增");
 console.log("在数组第二位置新增", g);
 console.log("**********************访问器方法***********************")
 
-/**
- * every() 方法用于检测数组所有元素是否都符合指定条件（通过函数提供）。
- *every() 方法使用指定函数检测数组中的所有元素：
- *如果数组中检测到有一个元素不满足，则整个表达式返回 false ，且剩余的元素不会再进行检测。
- *如果所有元素都满足条件，则返回 true。
- *every()是对数组中每一项运行给定函数，如果该函数对每一项返回true,则返回true。
- *some()是对数组中每一项运行给定函数，如果该函数对任一项返回true，则返回true。
- */
-let ev = arr.every(item => {
-    console.log("every方法");
-    console.log(item);
-    return item.read;
-});
-console.log(ev);
+
 /**
  * concat() 
  * 方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。
@@ -140,3 +127,24 @@ const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
 console.log(beasts.indexOf('bison'));
 console.log(beasts.lastIndexOf('bison'));
 console.log("**********************迭代方法***********************")
+/**
+ * forEach()
+ * 循环遍历数组
+ */
+arr.forEach((element,index)=>{
+    console.log(element,index)
+})
+/**
+ * every() 方法用于检测数组所有元素是否都符合指定条件（通过函数提供）。
+ *every() 方法使用指定函数检测数组中的所有元素：
+ *如果数组中检测到有一个元素不满足，则整个表达式返回 false ，且剩余的元素不会再进行检测。
+ *如果所有元素都满足条件，则返回 true。
+ *every()是对数组中每一项运行给定函数，如果该函数对每一项返回true,则返回true。
+ *some()是对数组中每一项运行给定函数，如果该函数对任一项返回true，则返回true。
+ */
+let ev = arr.every(item => {
+    console.log("every方法");
+    console.log(item);
+    return item.read;
+});
+console.log(ev);
