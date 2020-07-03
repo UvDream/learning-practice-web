@@ -1,0 +1,40 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\91390\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @babel/core@7.4.5 @babel/preset-env@7.4.5 --dev
+
+PATH: 
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\TortoiseGit\bin;C:\Program Files\nodejs\;C:\Go\bin;D:\software\bin;C:\Windows\SysWOW64\5097;C:\Windows\SysWOW64\5097;C:\Windows\SysWOW64;D:\matlab\runtime\win64;D:\matlab\bin;D:\matlab\polyspace\bin;"C:\Program Files\Java\jdk1.8.0_241\bin;C:\Program Files\Java\jdk1.8.0_241\jre\bin;";D:\apache-maven-3.5.4\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Users\91390\.cargo\bin;C:\Users\91390\AppData\Local\Microsoft\WindowsApps;D:\Microsoft VS Code\bin;C:\Users\91390\AppData\Roaming\npm;C:\Users\91390\go\bin;C:\Users\91390\.deno\bin;C:\Program Files (x86)\GitHub CLI\;C:\Users\91390\AppData\Local\GitHubDesktop\bin;D:\software\WebStorm 2020.1.2\bin;
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.14.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'D:\code\work\单元测试\JestTest\node_modules\babel-jest\build'
+
+npm manifest: 
+  {
+    "name": "jesttest",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "jest --watchAll",
+      "coverage": "jest --coverage"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "jest": "^24.8.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
