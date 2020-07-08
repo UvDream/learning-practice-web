@@ -12,6 +12,8 @@
     <div id="div1">我是一个div</div>
     <div>2</div>
     <div>3</div>
+    <div>3</div>
+    <div>3</div>
   </body>
   <script>
     var func = function (a, b, c) {
@@ -46,14 +48,14 @@
     // 封闭作用域
     var nodes = document.getElementsByTagName("div");
     for (var i = 0; i < nodes.length; i++) {
-      // nodes[i].onclick = function () {
-      //   console.log(i);
-      // };
-      (function (i) {
-        nodes[i].onclick = function () {
-          console.log(i);
-        };
-      })(i);
+      nodes[i].onclick = function () {
+        console.log(i);
+      };
+      // (function (i) {
+      //   nodes[i].onclick = function () {
+      //     console.log(i);
+      //   };
+      // })(i);
     }
   </script>
 </html>
