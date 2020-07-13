@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=false"
+    />
+    <title></title>
+  </head>
+  <body></body>
+  <script>
+    function Person(name) {
+      this.name = name;
+    }
+    Person.prototype.getName = function () {
+      console.log(this.name);
+    };
+    function Car(model) {
+      this.model = model;
+    }
+    Car.prototype.getModel = function () {
+      console.log(this.model);
+    };
+    function create(type, param) {
+      if (this instanceof create) {
+        return new this[type](param);
+      } else {
+        return new create(type, param);
+      }
+    }
+    create.prototype = {
+      person: Person,
+      car: Car,
+    };
+    var person = new create("person", "张三");
+    var car = create("car", "特斯拉");
+    person.getName();
+    car.getModel();
+  </script>
+</html>
