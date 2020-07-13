@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=false"
+    />
+    <title>单例模式</title>
+  </head>
+  <body></body>
+  <script>
+    var Cat = function (name) {
+      this.name = name;
+      this.instance = null;
+    };
+    Cat.prototype.getName = function () {
+      console.log(this.name);
+    };
+    Cat.getInstance = function (name) {
+      console.log("获取", this.instance, name);
+      if (!this.instance) {
+        this.instance = new Cat(name);
+      }
+      return this.instance;
+    };
+    var a = Cat.getInstance("猫咪1");
+    var b = Cat.getInstance("猫咪2");
+
+    console.log(a);
+    console.log(b);
+  </script>
+</html>

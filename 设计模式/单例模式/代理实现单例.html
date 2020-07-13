@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=false"
+    />
+    <title>代理实现单例模式</title>
+  </head>
+  <body></body>
+  <script>
+    var createDiv = function (html) {
+      this.html = html;
+      this.init();
+    };
+    createDiv.prototype.init = function () {
+      var div = document.createElement("div");
+      div.innerHTML = this.html;
+      document.body.appendChild(div);
+    };
+    var ProxySingleCreateDiv = (function () {
+      var instance;
+      return function (html) {
+        if (!instance) {
+          instance = new createDiv(html);
+        }
+        return instance;
+      };
+    })();
+    var a = new ProxySingleCreateDiv("呵呵");
+    var b = new ProxySingleCreateDiv("嘻嘻");
+  </script>
+</html>
