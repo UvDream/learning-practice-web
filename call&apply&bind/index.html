@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=false"
+    />
+    <title>call/apply</title>
+  </head>
+  <body>
+    <div id="div1">我是一个div</div>
+    <div>2</div>
+    <div>3</div>
+    <div>3</div>
+    <div>3</div>
+  </body>
+  <script>
+    var func = function (a, b, c) {
+      console.log(this);
+      console.log(a, b, c);
+    };
+    func.apply(null, [1, 2, 3]); //1 2 3
+    func.call(null, 4, 5, 6); //4 5 6
+
+    // 改变this指向
+    var obj1 = {
+      name: "张三",
+    };
+    var obj2 = {
+      name: "李四",
+    };
+    window.name = "王五";
+    var getName = function () {
+      console.log(this.name);
+    };
+    getName(); //王五
+    getName.call(obj1); //张三
+    getName.call(obj2); //李四
+    // 实际
+    document.getElementById("div1").onclick = function () {
+      var that = this;
+      var func = function () {
+        console.log(that.id); //undefined
+      };
+      func();
+    };
+    // 封闭作用域
+    var nodes = document.getElementsByTagName("div");
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].onclick = function () {
+        console.log(i);
+      };
+      // (function (i) {
+      //   nodes[i].onclick = function () {
+      //     console.log(i);
+      //   };
+      // })(i);
+    }
+  </script>
+</html>

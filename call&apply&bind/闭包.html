@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=false"
+    />
+    <title>闭包</title>
+  </head>
+  <body>
+    <button id="execute">点击我执行命令</button>
+    <button id="undo">点击我执行命令</button>
+  </body>
+  <script>
+    //   闭包
+    // var extent = function () {
+    //   var value = 0;
+    //   return {
+    //     call: function () {
+    //       value++;
+    //       console.log(value);
+    //     },
+    //   };
+    // };
+    // var extent = extent();
+    // extent.call();
+    // extent.call();
+    // 面向对象1
+    // var extent = {
+    //   value: 0,
+    //   call: function () {
+    //     this.value++;
+    //     console.log(this.value);
+    //   },
+    // };
+    // extent.call();
+    // extent.call();
+    // 面向对象2
+    var extent = function () {
+      this.value = 0;
+    };
+    extent.prototype.call = function () {
+      this.value++;
+      console.log(this.value);
+    };
+    var extent = new extent();
+    extent.call();
+
+    // 封装命令
+    var Tv = {
+      open: function () {
+        console.log("打开电视");
+      },
+      close: function () {
+        console.log("关上电视");
+      },
+    };
+    var OpenTvCommand = function (receiver) {
+      console.log(Tv);
+      this.receiver = receiver;
+      console.log(this.receiver);
+    };
+    OpenTvCommand.prototype.execute = function () {
+      this.receiver.open();
+    };
+    OpenTvCommand.prototype.undo = function () {
+      this.receiver.close();
+    };
+    var setCommand = function (command) {
+      document.getElementById("execute").onclick = function () {
+        command.execute(); // 输出：打开电视机
+      };
+      document.getElementById("undo").onclick = function () {
+        command.undo(); // 输出：关闭电视机
+      };
+    };
+    setCommand(new OpenTvCommand(Tv));
+  </script>
+</html>

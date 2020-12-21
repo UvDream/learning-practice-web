@@ -1,5 +1,7 @@
 # Array
 
+![Array](https://gitee.com/Uvdream/images/raw/master/images/20200612165828.png)
+
 ## 方法
 
 ### 修改器方法

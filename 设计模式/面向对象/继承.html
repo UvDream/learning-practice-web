@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 类式继承
+      //   function A(name) {
+      //     this.name = name;
+      //     this.list = [1, 2, 3];
+      //   }
+      //   A.prototype.getName = function () {
+      //     console.log(this.name);
+      //   };
+      //   function SubA() {
+      //     this.subName = "sub" + this.name;
+      //   }
+      //   SubA.prototype = new A();
+      //   var sa1 = new SubA("sa1");
+      //   console.log(sa1.name, sa1.list);
+      //   类式继承缺点
+      // 1.不支持父构造函数带参数
+      // 2.父构造函数里面的方法和属性都会变成公有属性
+
+      // 构造函数继承
+      //   function A(name) {
+      //     this.name = name;
+      //     this.list = [1, 2, 3];
+      //   }
+      //   A.prototype.getName = function () {
+      //     console.log(this.name);
+      //   };
+      //   function SubA(name) {
+      //     A.call(this, name);
+      //     console.log(this);
+      //     this.subName = "sub" + this.name;
+      //   }
+      //   var sa1 = new SubA("呵呵");
+      //   console.log(sa1.name, sa1.list);
+      //   构造函数继承问题
+      // 不能继承父构造函数的原型方法
+
+      //   组合式继承
+      //   function A(name) {
+      //     this.name = name;
+      //     this.list = [1, 2, 3];
+      //   }
+      //   A.prototype.getName = function () {
+      //     console.log("这个名字=>", this.name);
+      //   };
+      //   function SubA(name) {
+      //     //   构造函数继承关键
+      //     A.call(this, name);
+      //     console.log(this);
+      //     this.subName = "sub" + this.name;
+      //   }
+      //   //   类式继承关键
+      //   SubA.prototype = new A();
+      //   var sa1 = new SubA("呵呵");
+      //   console.log(sa1.name, sa1.list);
+      //   sa1.getName();
+      //   小问题
+      //   __proto__里面的属性没用
+      //   执行了两次父构造函数
+
+      //   寄生组合式继承
+      function A(name) {
+        this.name = name;
+        this.list = [1, 2, 3];
+      }
+      A.prototype.getName = function () {
+        console.log("这个名字=>", this.name);
+      };
+      function SubA(name) {
+        A.call(this, name);
+        this.subName = "sub" + this.name;
+      }
+      //   SubA.prototype = new A();
+      function inheritPrototype(subClass, superClass) {
+        function F() {}
+        F.prototype = subClass.prototype;
+        subClass.prototype = new F();
+      }
+      inheritPrototype(SubA, A);
+      var sa1 = new SubA("呵呵");
+      console.log(sa1.name, sa1.list);
+      sa1.getName();
+    </script>
+  </body>
+</html>

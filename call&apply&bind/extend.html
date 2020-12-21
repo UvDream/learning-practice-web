@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=false"
+    />
+    <title>借用</title>
+  </head>
+  <body></body>
+  <script>
+    var A = function (name) {
+      console.log(this); //this已经指向B
+      this.name = name;
+    };
+    var B = function () {
+      A.apply(this, arguments);
+    };
+    B.prototype.getName = function () {
+      return this.name;
+    };
+    var b = new B("张三");
+    console.log(b.getName());
+  </script>
+</html>
