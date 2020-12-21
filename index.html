@@ -1,14 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title日常前端学习和练习</title> </head> <body>
-        <div>
-            学习练习
+    <title>日常前端学习和练习</title>
+</head>
+<style>
+    html,
+    body {
+        margin: 0;
+        background-color: #edeef3;
+    }
+
+    .main {
+        padding: 10px;
+    }
+
+    .title {
+        background: #fff;
+        color: #66687d;
+        height: 44px;
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .title-icon {
+        background: #ffb9b5;
+        width: 2px;
+        height: 24px;
+    }
+
+    .title-text {
+        margin-left: 18px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #66687d;
+    }
+
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .list-block {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 10px;
+        background-color: #fff;
+    }
+
+    a {
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .list-block-title {
+        display: block;
+        height: 60px;
+        line-height: 60px;
+    }
+
+    .list-block-code {
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        color: #727171;
+        font-size: 12px;
+        border-top: 1px solid #ccc;
+    }
+</style>
+
+<body>
+    <div id="app" class="main">
+        <div v-for="item in data">
+            <div class="title">
+                <div class="title-icon"></div>
+                <div class="title-text">
+                    {{item.title}}
+                </div>
+            </div>
+            <div class="list">
+                <div v-for="a in item.list" class="list-block">
+                    <a :href="a.link" class="list-block-title">
+                        {{a.title}}
+                    </a>
+                    <a :href="a.url" class="list-block-code">
+                        源码
+                    </a>
+                </div>
+
+            </div>
         </div>
-        </body>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script>
+            const App = {
+                data() {
+                    return {
+                        msg: "信息展示",
+                        data: [
+                            {
+                                title: "canvas练习", list: [
+                                    {
+                                        title: "基础形状", desc: "", link: "http://www.uvdream.cn/demo/canvas/教程/基础教程/1-基础形状.html", url: "https://github.com/UvDream/learning-practice-web/blob/master/canvas/教程/基础教程"
+                                    },
+                                    {
+                                        title: "颜色样式", desc: "", link: "http://www.uvdream.cn/demo/canvas/教程/基础教程/2-颜色样式.html", url: "https://github.com/UvDream/learning-practice-web/blob/master/canvas/教程/基础教程"
+                                    },
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+            Vue.createApp(App).mount("#app")
+        </script>
+</body>
 
 </html>
