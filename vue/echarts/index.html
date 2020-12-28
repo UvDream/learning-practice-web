@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="main" style="width: 1000px; height: 1000px"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script
+      crossorigin="anonymous"
+      integrity="sha384-et+fqdf7kslHL5Ip8rXSJPUPODLa7eMfpFTBaCfnlMzrcAz/wxI5Xm/mNTZwd+7H"
+      src="https://lib.baomitu.com/echarts/4.7.0/echarts.min.js"
+    ></script>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            myChart: "",
+            color1: "red",
+            color2: "green",
+            color3: "yellow",
+            data: {
+              nodes: [
+                {
+                  id: "4",
+                  name: "操作系统集团",
+                  symbol: "rect",
+                  symbolSize: [80, 30],
+                  category: 0,
+                },
+                {
+                  id: "1",
+                  name: "浏览器有限公司",
+                  category: 0,
+                },
+                {
+                  id: "2",
+                  name: "HTML科技",
+                  category: 0,
+                },
+                {
+                  id: "3",
+                  name: "JavaScript科技",
+                  category: 0,
+                },
+                {
+                  id: "5",
+                  name: "CSS科技",
+                  category: 0,
+                },
+                {
+                  id: "6",
+                  name: "Chrome",
+                  category: 2,
+                },
+                {
+                  id: "7",
+                  name: "IE",
+                  category: 1,
+                },
+                {
+                  id: "8",
+                  name: "Firefox",
+                  category: 1,
+                },
+                {
+                  id: "9",
+                  name: "Safari",
+                  category: 1,
+                },
+                {
+                  id: "10",
+                  name: "小米",
+                  category: 1,
+                },
+                {
+                  id: "11",
+                  name: "华为",
+                  category: 1,
+                },
+                {
+                  id: "12",
+                  name: "oppo",
+                  category: 1,
+                },
+                {
+                  id: "13",
+                  name: "vivo",
+                  category: 1,
+                },
+                {
+                  id: "14",
+                  name: "联想",
+                  category: 1,
+                },
+              ],
+              links: [
+                {
+                  source: "1",
+                  target: "2",
+                  name: "参股",
+                },
+                {
+                  source: "1",
+                  target: "3",
+                  name: "参股",
+                },
+                {
+                  source: "1",
+                  target: "4",
+                  name: "参股",
+                },
+                {
+                  source: "1",
+                  target: "5",
+                  name: "参股",
+                },
+                {
+                  source: "1",
+                  target: "6",
+                  name: "参股",
+                },
+                {
+                  source: "1",
+                  target: "7",
+                  name: "参股",
+                },
+                {
+                  source: "1",
+                  target: "8",
+                  name: "参股",
+                },
+                {
+                  source: "1",
+                  target: "9",
+                  name: "参股",
+                },
+                {
+                  source: "1",
+                  target: "10",
+                  name: "参股",
+                },
+                {
+                  source: "1",
+                  target: "11",
+                  name: "参股",
+                },
+                {
+                  source: "1",
+                  target: "12",
+                  name: "参股",
+                },
+                {
+                  source: "1",
+                  target: "13",
+                  name: "参股",
+                },
+                {
+                  source: "1",
+                  target: "14",
+                  name: "参股",
+                },
+              ],
+            },
+            categories: [
+              {
+                name: "公司",
+                itemStyle: {
+                  color: this.color1,
+                },
+              },
+              {
+                name: "董事",
+                itemStyle: {
+                  color: this.color2,
+                },
+              },
+            ],
+          };
+        },
+        mounted() {
+          this.myChart = echarts.init(document.getElementById("main"));
+          this.data.nodes.forEach((node) => {
+            if (node.category === 0) {
+              node.itemStyle = {
+                color: this.color1,
+              };
+            } else if (node.category === 1) {
+              node.itemStyle = {
+                color: this.color2,
+              };
+            }
+          });
+
+          this.data.links.forEach((link) => {
+            link.label = {
+              align: "center",
+              fontSize: 12,
+            };
+
+            if (link.name === "参股") {
+              link.lineStyle = {
+                color: this.color2,
+              };
+            } else if (link.name === "董事") {
+              link.lineStyle = {
+                color: this.color1,
+              };
+            } else if (link.name === "法人") {
+              link.lineStyle = {
+                color: this.color3,
+              };
+            }
+          });
+          this.initLine(this.data);
+          this.myChart.on("click", (data) => {
+            console.log(data);
+            if (data.data.name == "浏览器有限公司") {
+              let name = "测试";
+              let id = Math.random();
+              this.data.nodes.push({
+                id: String(id),
+                name: name,
+                category: 1,
+              });
+              this.data.links.push({
+                source: "1",
+                target: String(id),
+                name: "测试",
+              });
+              this.initLine(this.data);
+            }
+          });
+        },
+        methods: {
+          initLine(data) {
+            // 指定图表的配置项和数据
+            var option = {
+              title: {
+                // text: "知识图谱",
+              },
+              tooltip: {
+                trigger: "item",
+                formatter: (params) => {
+                  console.log(params);
+                  let info =
+                    '<p class="tip-title">表名:' +
+                    params.name +
+                    "</p>" +
+                    '<p class="tip-title">表名:' +
+                    params.name +
+                    "</p>";
+                  return info;
+                },
+              },
+
+              series: [
+                {
+                  type: "graph",
+                  layout: "force",
+                  symbolSize: 58,
+                  draggable: true,
+                  layoutAnimation: false,
+                  roam: true,
+                  focusNodeAdjacency: true,
+                  categories: this.categories,
+                  edgeSymbol: ["", "arrow"],
+                  edgeLabel: {
+                    normal: {
+                      show: true,
+                      textStyle: {
+                        fontSize: 20,
+                      },
+                      formatter(x) {
+                        return x.data.name;
+                      },
+                    },
+                  },
+                  label: {
+                    show: true,
+                    // normal: {
+                    //   formatter: (data) => {
+                    //     console.log(data, "呵呵");
+                    //     return data;
+                    //   },
+                    // },
+                  },
+                  force: {
+                    repulsion: 2000,
+                    edgeLength: 120,
+                  },
+                  data: data.nodes,
+                  links: data.links,
+                },
+              ],
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            this.myChart.setOption(option);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

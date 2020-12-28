@@ -17,7 +17,7 @@ eg:
     };
     func.apply(null, [1, 2, 3]); //1 2 3
     func.call(null, 4, 5, 6); //4 5 6
-    ```
+```
 ````
 
 # 区别
@@ -140,3 +140,7 @@ var A = function (name) {
     var b = new B("张三");
     console.log(b.getName());
 ```
+
+```
+
+ FU
