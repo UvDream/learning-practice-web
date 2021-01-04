@@ -1,7 +1,7 @@
 /.idea
-/Rollup/my-rollup-project/node_modules
 /react/webpack/node_modules
 /typescript/node_modules
 /typescript/ts-base/node_modules
 /test/JestTest/node_modules/
 /webpack/webpack-demo-1/node_modules
+/node_modules

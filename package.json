@@ -1,0 +1,12 @@
+{
+  "name": "learning-practice-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/UvDream/learning-practice-web.git",
+  "author": "wangzhongjie <uvdream@163.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "react/*"
+  ]
+}
