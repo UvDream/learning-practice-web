@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+}
+
+.container {
+    width : 1000px;
+    margin: 0 auto;
+}
+
+.video-wrappe {
+    position: relative;
+}
+
+.video-wrapper video {
+    width: 100%;
+}
+
+.video-wrapper canvas {
+    position: absolute;
+    left    : 0;
+    top     : 0;
+    width   : 100%;
+    height  : 100%;
+}
+
+.container .tool-box {
+    height: 38px;
+}
+
+input,
+button {
+    outline       : none;
+    border        : none;
+    vertical-align: middle;
+    box-sizing    : border-box;
+}
+
+.container input,
+.container button {
+    height       : 100%;
+    margin-right : 15px;
+    border-radius: 5px;
+}
+
+.container .danmu-input {
+    width : 300px;
+    border: 1px solid #ccc;
+}
+
+.container .danmu-btn {
+    color           : #fff;
+    background-color: orange;
+}
