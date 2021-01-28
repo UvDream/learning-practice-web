@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="600" height="600"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('mycanvas')
+    var ctx = canvas.getContext("2d")
+    function React(x, y, w, h, c) {
+        this.x = x
+        this.y = y
+        this.w = w
+        this.h = h
+        this.c = c
+    }
+    React.prototype.update = function () {
+
+        if (this.x > canvas.width) {
+            this.x = 0
+        } else {
+            this.x++
+        }
+    }
+    React.prototype.render = function () {
+        ctx.fillStyle = "red"
+        ctx.fillRect(this.x, this.y, this.w, this.h)
+    }
+    var r1 = new React(100, 100, 50, 50, 'orange')
+    setInterval(() => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        r1.update()
+        r1.render()
+    }, 10)
+</script>
+
+</html>
