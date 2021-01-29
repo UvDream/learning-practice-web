@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型原型链</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 3], obj = {}
+        var fn = function () { }
+        console.dir(arr)
+        console.dir(obj)
+        console.dir(fn)
+        console.log(arr.__proto__ === arr.constructor.prototype)
+        console.log(obj.__proto__ === obj.constructor.prototype)
+        console.log(fn.__proto__ === fn.constructor.prototype)
+
+
+        console.log(obj.prototype) //undefined
+        console.log(obj.__proto__) //{}
+
+        console.log(fn.prototype) //{}
+        console.log(fn.__proto__) //function(){}
+
+    </script>
+</body>
+
+</html>
