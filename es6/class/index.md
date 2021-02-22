@@ -15,7 +15,7 @@
 
 ## 图解
 
-![原型](https://gitee.com/Uvdream/images/raw/master/images/20210129144628.png)
+![原型 (3)](https://gitee.com/Uvdream/images/raw/master/images/20210201100159.png)
 
 ## 原型规则
 
