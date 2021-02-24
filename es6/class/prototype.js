@@ -2,7 +2,10 @@
 var Person=function(){
     this.a=1
 }
-Person.prototype.b=2
+Person.prototype={
+    b:2,
+    constructor:Person
+}
 Object.prototype.c=3
 var person=new Person()
 // 原型链
@@ -30,8 +33,12 @@ console.log("------")
 console.log(person.constructor==Person)
 console.log(Person.prototype.constructor==Person)
 
-
-
+console.log("es6")
+console.log(Object.getPrototypeOf(person))
+//constructor
+console.log('constructor')
+console.log(person.constructor===Person)
+console.log(person.constructor)
 /** 
  * person:{
  *   a:1,
