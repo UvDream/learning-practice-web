@@ -1,0 +1,55 @@
+<!--
+ * @Author: wangzhongjie
+ * @Date: 2021-02-26 14:06:22
+ * @LastEditors: wangzhongjie
+ * @LastEditTime: 2021-02-26 17:17:36
+ * @Description: 
+ * @Email: UvDream@163.com
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>算法</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function sortFunc(num) {
+        var str = num + ""
+        var arr = []
+        var big = []
+        // 切割重组
+        for (var i = 0; i < str.length; i++) {
+            arr.push(parseInt(str[i]))
+            big.push(parseInt(str[i]))
+        }
+        //排序
+        big.sort(function (a, b) {
+            return b - a
+        })
+        // 寻找替换
+        for (var i = 0; i < arr.length; i++) {
+            if (big[i] != arr[i]) {
+                for (var j = arr.length - 1; j >= 0; j--) {
+                    if (arr[j] == big[i]) {
+                        arr[j] = arr[i]
+                        arr[i] = big[i]
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        return parseInt(arr.join(""))
+    };
+    console.log(sortFunc(1234));
+
+</script>
+
+</html>
