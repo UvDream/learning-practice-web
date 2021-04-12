@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-09 20:53:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-09 21:18:52
+ * @LastEditTime: 2021-04-12 22:26:27
  * @Description:泛型
  * @Email: UvDream@163.com
  */
@@ -10,15 +10,30 @@ function log<T>(value: T): T {
   console.log(value);
   return value;
 }
+// 调用方式
+// 1
 log<string[]>(["a", "b"]);
+// 2
 log(["a", "b"]);
 
+// 定义泛型函数
 type Log = <T>(value: T) => T;
 let mylog: Log = log;
-interface Logs<T> {
+
+// 泛型接口
+// interface Logs<T> {
+//   (value: T): T;
+// }
+// let mylogs: Logs<number> = log;
+
+// 指定默认类型
+interface Logs<T = string> {
   (value: T): T;
 }
-let mylogs: Logs<number> = log;
+let mylogs: Logs = log;
+
+
+
 
 class Login<T> {
   run(value: T) {
