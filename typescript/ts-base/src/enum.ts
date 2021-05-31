@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-03 10:46:30
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-03 14:03:37
+ * @LastEditTime: 2021-05-08 08:59:34
  * @Description:枚举
  * @Email: UvDream@163.com
  */
@@ -20,11 +20,11 @@ console.log(Role.Reporter); //0 //1
 // 枚举的实现原理反向映射
 
 // 字符串枚举
-enum Message {
+`enum Message {
   Success = "成功了!",
   Filed = "失败了!"
 }
-console.log(Message.Success);
+console.log(Message.Success);`
 
 // 异构枚举
 enum Answer {
