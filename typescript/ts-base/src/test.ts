@@ -1,4 +1,6 @@
-let f = () => ({name: 'Alice'})
-let g = () => ({name: 'Alice', location: 'Beijing'})
-f = g
-g = f
+interface Empty<T> {
+    value: T
+}
+let obj1: Empty<number>
+let obj2: Empty<string>
+obj1 = obj2
