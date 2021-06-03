@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-02 16:46:58
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-02 17:14:17
+ * @LastEditTime: 2021-06-02 17:57:02
  * @Description:数据类型
  * @Email: UvDream@163.com
  */
@@ -52,18 +52,18 @@ console.log(un === nu);
 // num=nu;这是不允许的,只有let num: number | undefined | null  = 123;
 
 // void
-let noReturn = () => {};
+let noReturn = () => { };
 
 // any
 let x;
 x = 1;
 x = [];
-x = () => {};
+x = () => { };
 
 // never
 let error = () => {
   throw new Error("error");
 };
 let endless = () => {
-  while (true) {}
+  while (true) { }
 };
