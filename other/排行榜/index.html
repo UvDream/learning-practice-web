@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>排行动画</title>
+    <style>
+        html,
+        body,
+        div,
+        ul,
+        li,
+        img,
+        span {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul,
+        li {
+            list-style: none
+        }
+
+        span {
+            display: inline-block;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        #box {
+            padding: 20px;
+            height: 700px;
+        }
+
+        #box ul {
+            padding-left: 20px;
+            position: relative;
+        }
+
+        #box li {
+            margin-left: 60px;
+            height: 28px;
+            box-sizing: border-box;
+            position: absolute;
+            line-height: 28px;
+            transition: width ease 1s, transform ease 1s, opacity ease 1s;
+            opacity: 0;
+            background: #ddd;
+            border-radius: 20px;
+            box-shadow: inset -5px 0px 25px rgba(0, 0, 0, .4);
+        }
+
+        #box li .name {
+            position: absolute;
+            left: -60px;
+            white-space: nowrap;
+        }
+
+        #box li .count {
+            margin-left: 15px;
+            position: absolute;
+            left: 100%;
+            font-size: 18px;
+            letter-spacing: 1px;
+            color: #fff;
+            font-style: italic;
+            text-shadow: 1px 0 2px #000, 0 1px 2px #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <h3>销量排行</h3>
+        <ul id="list"></ul>
+    </div>
+    <script>
+        class Animate {
+            constructor() {
+                this._baseData;
+                this.htmlDOMData = [];
+            }
+
+            init() {
+                // 初始化数据
+                this._initArr();
+
+                // 创建动画
+                this._createAnimate();
+
+                // 新增事件
+                this._addNewAnimate();
+            }
+
+            _initArr() {
+                let data = [];
+
+                for (let i = 0; i < 10; i++) {
+                    let _obj = {
+                        id: `id${i + 1}`,
+                        name: `第${i + 1}位`,
+                        count: parseInt(Math.random() * 800)
+                    };
+                    data.push(_obj)
+                }
+                this._baseData = data;
+            }
+
+            _createAnimate() {
+                // 如果是第一次先创建DOM元素，不是就开始动画
+                for (let i = 0; i < 5; i++) {
+                    if (i === 0) {
+                        this._firstCreate();
+                    } else {
+                        setInterval(() => {
+                            this._beginAnimate()
+                        }, i * 3000)
+                    }
+                }
+            }
+
+            _firstCreate() {
+                this._first = false;
+                let bar = document.querySelector('#list');
+
+                this._baseData.sort((l, n) => n.count - l.count);
+                this._baseData.forEach((_data, index) => {
+                    let li = this._createLiDom(_data, index);
+                    bar.appendChild(li);
+
+                    this.htmlDOMData.push({
+                        id: _data.id,
+                        el: li
+                    })
+                })
+            }
+
+            // 随机生成bar背景颜色
+            _createBgColor() {
+                return `rgb(${parseInt(Math.random() * 255)}, ${parseInt(Math.random() * 255)}, ${parseInt(Math.random() * 255)})`
+            }
+
+            // 创建单个bar元素
+            _createLiDom(data, index) {
+                let li = document.createElement('li');
+                let name = document.createElement('span');
+                let count = document.createElement('span');
+
+                name.classList.add('name');
+                name.innerText = data.name;
+
+                count.classList.add('count');
+                count.innerText = data.count;
+
+                li.style.opacity = 1;
+                li.style.width = `${data.count}px`;
+                li.style.background = this._createBgColor();
+                li.style.transform = `translateY(${index * 40}px)`;
+
+                li.append(name, count);
+                return li;
+            }
+
+            // 开始动画的函数
+            _beginAnimate() {
+                let bar = document.querySelector('#list');
+                let newData = this._reoederBasedata(); // 重排数据
+
+                newData.forEach((_l, i) => {
+                    this.htmlDOMData.some((n, k) => {
+                        if (_l.id === n.id) {
+                            n.el.style.width = `${_l.count}px`;
+                            n.el.style.transform = `translateY(${i * 40}px)`;
+                            n.el.lastElementChild.innerText = _l.count;
+                        }
+
+                        if (n.isNew) {
+                            bar.appendChild(n.el)
+                            n.isNew = false;
+                        }
+                    })
+                })
+            }
+
+            // 重新排序
+            _reoederBasedata() {
+                this._baseData.forEach(_d => {
+                    _d.count = parseInt(Math.random() * 800);
+                })
+
+                return this._baseData.sort((l, n) => n.count - l.count);
+            }
+
+            // 添加新数据的动画
+            _addNewAnimate() {
+                let num = 0, timer = null;
+
+                timer = setInterval(() => {
+                    num += 1;
+                    this._addNewData()
+
+                    if (num > 3) { // 新增到4个之后就清除定时器
+                        num = 0;
+                        clearInterval(timer);
+                    }
+                }, 6000);
+            }
+
+            // 添加新数据
+            _addNewData() {
+                let len = this._baseData.length;
+                let _new = {
+                    id: `id${len + 1}`,
+                    name: `第${len + 1}位`,
+                    count: parseInt(Math.random() * 800)
+                }
+                let li = this._createLiDom(_new, len + 1);
+
+                this._baseData.push(_new);
+                this.htmlDOMData.push({
+                    id: `id${len + 1}`,
+                    el: li,
+                    isNew: true
+                })
+            }
+        }
+
+        let myAnimate = new Animate();
+        myAnimate.init()
+    </script>
+</body>
+
+</html>
