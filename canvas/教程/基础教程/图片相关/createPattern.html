@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片</title>
+</head>
+<style>
+    .main {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    canvas {
+        outline: 1px solid black;
+        margin: 10px 10px;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <section>
+            <div>
+                图片纹理
+            </div>
+            <canvas id="canvas1" width="400" height="200"></canvas>
+        </section>
+    </div>
+</body>
+<script src="../grid.js"></script>
+
+<script>
+    var img = new Image();
+    img.onload = function () {
+        // 我们创建一个Canvas元素
+        var canvasCreated = document.createElement('canvas');
+        canvasCreated.width = 50;
+        canvasCreated.height = 34;
+        canvasCreated.getContext('2d').drawImage(img, 0, 0, 50, 34);
+        //页面纹理上下文
+        var ctx = getCtx(1)
+        //createPattern
+        var pattern = ctx.createPattern(canvasCreated, 'repeat-x');
+        ctx.fillStyle = pattern;
+        ctx.fillRect(0, 0, 250, 167);
+    }
+    img.src = "../assets/img.jpg"
+</script>
+
+</html>

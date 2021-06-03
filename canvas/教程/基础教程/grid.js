@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2019-07-04 10:38:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2019-07-04 10:43:30
+ * @LastEditTime: 2021-06-03 21:39:31
  * @Description: 绘制canvas网格图
  * @Email: uvdream@163.com
  */
@@ -27,4 +27,8 @@ function drawGrid(color, stepx, stepy, context) {
     context.stroke();
   }
   context.restore();
+}
+
+function getCtx(num) {
+  return document.getElementById('canvas' + num).getContext('2d');
 }

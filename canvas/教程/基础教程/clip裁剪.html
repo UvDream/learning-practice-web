@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>裁剪</title>
+</head>
+<style>
+    .main {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    canvas {
+        outline: 1px solid black;
+        margin: 10px 10px;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <section>
+            <div>
+                裁剪
+            </div>
+            <canvas id="canvas1" width="200" height="200"></canvas>
+        </section>
+    </div>
+</body>
+<script src="./grid.js"></script>
+
+<script>
+    var ctx = getCtx(1)
+    var img = new Image()
+    img.onload = function () {
+        ctx.beginPath()
+        ctx.moveTo(20, 20)
+        ctx.lineTo(200, 80)
+        ctx.lineTo(100, 100)
+        ctx.clip()
+        ctx.drawImage(img, 0, 0, 250, 167)
+
+    }
+    img.src = "./assets/img.jpg"
+</script>
+
+</html>

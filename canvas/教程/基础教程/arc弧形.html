@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弧形</title>
+</head>
+<style>
+    .main {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    canvas {
+        outline: 1px solid black;
+        margin: 10px 10px;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <section>
+            <div>
+                顺时针0到1/4圆弧
+            </div>
+            <canvas id="canvas1" width="200" height="200"></canvas>
+        </section>
+        <section>
+            <div>
+                逆时针0到1/4圆弧
+            </div>
+            <canvas id="canvas2" width="200" height="200"></canvas>
+        </section>
+        <section>
+            <div>
+                绘制圆
+            </div>
+            <canvas id="canvas3" width="200" height="200"></canvas>
+        </section>
+        <section>
+            <div>
+                绘制填充圆
+            </div>
+            <canvas id="canvas4" width="200" height="200"></canvas>
+        </section>
+    </div>
+</body>
+<script src="./grid.js"></script>
+
+<script>
+    // 顺时针0到1/4圆弧
+    var ctx1 = getCtx(1)
+    ctx1.beginPath()
+    ctx1.arc(100, 100, 50, 0, Math.PI / 2)
+    ctx1.stroke();
+    ctx1.closePath()
+    //逆时针0到1/4圆弧
+    var ctx2 = getCtx(2)
+    ctx2.beginPath()
+    ctx2.arc(100, 100, 50, 0, Math.PI / 2, true)
+    ctx2.stroke();
+    ctx2.closePath()
+    // 绘制圆
+    var ctx3 = getCtx(3)
+    ctx3.beginPath()
+    ctx3.arc(100, 100, 50, 0, Math.PI * 2)
+    ctx3.stroke();
+    ctx3.closePath()
+    var ctx4 = getCtx(4)
+    ctx4.beginPath()
+    ctx4.arc(100, 100, 50, 0, Math.PI * 2)
+    ctx4.fill();
+    ctx4.closePath()
+</script>
+
+</html>

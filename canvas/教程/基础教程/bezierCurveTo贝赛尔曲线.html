@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贝赛尔曲线</title>
+</head>
+<style>
+    .main {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    canvas {
+        outline: 1px solid black;
+        margin: 10px 10px;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <section>
+            <div>
+                贝赛尔曲线
+            </div>
+            <canvas id="canvas1" width="400" height="400"></canvas>
+        </section>
+    </div>
+</body>
+<script src="./grid.js"></script>
+
+<script>
+    var ctx1 = getCtx(1)
+    ctx1.beginPath()
+    ctx1.moveTo(50, 50);
+    ctx1.bezierCurveTo(100, 100, 200, 40, 250, 100)
+    ctx1.stroke()
+    ctx1.closePath()
+</script>
+
+</html>
