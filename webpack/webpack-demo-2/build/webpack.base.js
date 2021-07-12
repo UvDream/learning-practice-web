@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2021-07-12 14:07:41
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2021-07-12 14:11:22
+ * @LastEditTime: 2021-07-12 14:14:20
  * @Description: 
  * @Email: UvDream@163.com
  */
@@ -24,6 +24,11 @@ module.exports = {
         use: 'babel-loader',
         include: path.resolve(rootDir, 'src'),
         exclude: /node_modules/,
+      },
+      {
+        test: /\.(le|c)ss$/,
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'less-loader']
       },
     ]
   },
