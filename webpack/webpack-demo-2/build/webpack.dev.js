@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2021-07-12 14:07:53
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2021-07-12 14:08:56
+ * @LastEditTime: 2021-07-12 14:47:54
  * @Description: 
  * @Email: UvDream@163.com
  */
@@ -12,6 +12,10 @@ const baseConfig = require('./webpack.base');
 module.exports = merge(baseConfig, {
   mode: 'development',
   devtool: 'eval-cheap-module-source-map',
+  //缓存
+  cache:{
+    type:"memory"
+  },
   devServer: {
     port: '3001', // 默认是 8080
     hot: true,
