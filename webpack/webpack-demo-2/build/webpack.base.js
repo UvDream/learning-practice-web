@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2021-07-12 14:07:41
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2021-07-12 14:52:53
+ * @LastEditTime: 2021-07-12 15:16:43
  * @Description: 
  * @Email: UvDream@163.com
  */
@@ -20,13 +20,18 @@ const OptimizeCssPlugin = require('optimize-css-assets-webpack-plugin');
 const rootDir = process.cwd();
 
 module.exports = {
-    entry: path.resolve(rootDir, 'src/index.js'),
+    entry: path.resolve(rootDir, 'src/index.ts'),
     output: {
         path: path.resolve(rootDir, 'dist'),
         filename: 'bundle.[contenthash:8].js',
     },
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+              },
             {
                 test: /\.(jsx|js)$/,
                 use: 'babel-loader',
@@ -67,6 +72,9 @@ module.exports = {
                 ]
             },
         ]
+    },
+    resolve:{
+        extensions: ['.tsx', '.ts', '.js'],
     },
     plugins: [
         //   html处理
