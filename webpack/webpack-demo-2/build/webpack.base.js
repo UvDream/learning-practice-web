@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2021-07-12 14:07:41
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2021-07-12 14:39:04
+ * @LastEditTime: 2021-07-12 14:42:01
  * @Description: 
  * @Email: UvDream@163.com
  */
@@ -12,6 +12,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { options } = require('less');
 const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssPlugin = require('optimize-css-assets-webpack-plugin');
 const rootDir = process.cwd();
 
 module.exports = {
@@ -69,5 +70,6 @@ module.exports = {
     new MiniCssExtractPlugin({
         filename: 'css/[name].css',
       }),
+      new OptimizeCssPlugin(),
   ],
 }
