@@ -2,13 +2,13 @@
  * @Author: wangzhongjie
  * @Date: 2021-07-12 14:07:41
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2021-07-12 14:08:39
+ * @LastEditTime: 2021-07-12 14:11:22
  * @Description: 
  * @Email: UvDream@163.com
  */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const rootDir = process.cwd();
 
 module.exports = {
@@ -33,5 +33,6 @@ module.exports = {
       inject: 'body',
       scriptLoading: 'blocking',
     }),
+    new CleanWebpackPlugin(),
   ],
 }
