@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2021-07-12 14:07:41
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2021-07-12 14:42:01
+ * @LastEditTime: 2021-07-12 14:45:10
  * @Description: 
  * @Email: UvDream@163.com
  */
@@ -29,6 +29,10 @@ module.exports = {
         include: path.resolve(rootDir, 'src'),
         exclude: /node_modules/,
       },
+      {
+        test: /\.(png|jpg|gif|jpeg|webp|svg|eot|ttf|woff|woff2)$/,
+        type: 'asset',
+    },
       {
         test: /\.(le|c)ss$/,
         exclude: /node_modules/,
