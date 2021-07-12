@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2021-07-12 14:07:41
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2021-07-12 14:30:00
+ * @LastEditTime: 2021-07-12 14:39:04
  * @Description: 
  * @Email: UvDream@163.com
  */
@@ -11,6 +11,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { options } = require('less');
 const autoprefixer = require('autoprefixer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const rootDir = process.cwd();
 
 module.exports = {
@@ -32,15 +33,16 @@ module.exports = {
         exclude: /node_modules/,
         // use: ['style-loader', 'css-loader', 'less-loader'],
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
+        //   'style-loader',
           {
             loader: 'css-loader',
-            // options: {
-            //   modules: {
-            //     compileType: 'module',
-            //     localIdentName: "[local]__[hash:base64:5]",
-            //   },
-            // },
+            options: {
+              modules: {
+                compileType: 'module',
+                localIdentName: "[local]__[hash:base64:5]",
+              },
+            },
           },
           'less-loader',
           {
@@ -52,7 +54,7 @@ module.exports = {
                       ]
                   }
               }
-          }
+          },
         ]
       },
     ]
@@ -64,5 +66,8 @@ module.exports = {
       scriptLoading: 'blocking',
     }),
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+        filename: 'css/[name].css',
+      }),
   ],
 }

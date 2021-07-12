@@ -7,7 +7,7 @@ class Test {
     renderDiv() {
       const div = document.createElement('div')
       div.className = 'test'
-      div.innerHTML = 'hello world!'
+      div.innerHTML = 'hello world'
       document.body.appendChild(div)
     }
   
