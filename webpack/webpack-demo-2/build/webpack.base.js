@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2021-07-12 14:07:41
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2021-07-12 14:23:31
+ * @LastEditTime: 2021-07-12 14:30:00
  * @Description: 
  * @Email: UvDream@163.com
  */
@@ -10,6 +10,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { options } = require('less');
+const autoprefixer = require('autoprefixer');
 const rootDir = process.cwd();
 
 module.exports = {
@@ -29,18 +30,29 @@ module.exports = {
       {
         test: /\.(le|c)ss$/,
         exclude: /node_modules/,
+        // use: ['style-loader', 'css-loader', 'less-loader'],
         use: [
           'style-loader',
           {
             loader: 'css-loader',
-            options: {
-              modules: {
-                compileType: 'module',
-                localIdentName: "[local]__[hash:base64:5]",
-              },
-            },
+            // options: {
+            //   modules: {
+            //     compileType: 'module',
+            //     localIdentName: "[local]__[hash:base64:5]",
+            //   },
+            // },
           },
-          'less-loader'
+          'less-loader',
+          {
+              loader:'postcss-loader',
+              options:{
+                  postcssOptions:{
+                      plugin:[
+                          ['autoprefixer']
+                      ]
+                  }
+              }
+          }
         ]
       },
     ]
