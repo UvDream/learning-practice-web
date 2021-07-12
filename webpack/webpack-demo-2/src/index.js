@@ -1,6 +1,6 @@
 class Test {
     constructor() {
-      document.writeTest('hello world')
+      document.write('hello world')
     }
   }
   
