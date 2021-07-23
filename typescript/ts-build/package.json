@@ -1,0 +1,14 @@
+{
+  "name": "ts-build",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "tsc -w --incremental --p src"
+  },
+  "dependencies": {
+    "typescript": "^4.3.5",
+    "yargs-parser": "^20.2.4"
+  }
+}
