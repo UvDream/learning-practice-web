@@ -4,8 +4,10 @@
     "moduleResolution": "node",
     "strict": true,
     "declaration": true,
+    "declarationDir": "dist",
     "noImplicitOverride": true,
     "noUnusedLocals": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "typeRoots": ["./src"]
   }
 }

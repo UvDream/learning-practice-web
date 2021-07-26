@@ -6,6 +6,6 @@
     "module": "esnext",
     "types": [],
     "lib": ["ESNext", "DOM"],
-    "declaration": false
+    "declaration": true
   }
 }
