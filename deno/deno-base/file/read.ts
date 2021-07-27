@@ -10,7 +10,7 @@ console.log(dataSync);
 const decoder = new TextDecoder("utf-8");
 const dataFile = await Deno.readFile("./test.json");
 console.log(decoder.decode(dataFile));
-
+// 同步读取文件
 const decoder1 = new TextDecoder("utf-8");
 const dataFileSync = Deno.readFileSync("./test.json");
 console.log(decoder1.decode(dataFileSync));
