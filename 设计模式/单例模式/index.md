@@ -1,32 +1,65 @@
-![](https://gitee.com/Uvdream/images/raw/master/images/20200708152110.png)
+# 单例模式
 
-# 定义
+## 简介
 
-保证一个类仅有一个实例，并提供一个访问它的全局访问点
+所谓的单例, 就是指一个类只有一个实例, 不管你 new 多少次, 都是这一个实例
 
-# 实现
+## 示例
 
-> 要实现一个标准的单例模式并不复杂，无非是用一个变量来标志当前是否已经为某个类创建
-> 过对象，如果是，则在下一次获取该类的实例时，直接返回之前创建的对象
+- 标识符形式
 
+```js
+class Single {
+  constructor() {
+    this.isLogin = false;
+  }
+  login() {
+    this.isLogin = true;
+  }
+}
+// 标识flag
+var instance;
+function getSingle() {
+  if (!instance) instance = new Single();
+  return instance;
+}
+const a = getSingle();
+const b = getSingle();
+a.login();
+console.log(a == b);
+console.log(b.isLogin);
 ```
-    var Cat = function (name) {
-      this.name = name;
-      this.instance = null;
-    };
-    Cat.prototype.getName = function () {
-      console.log(this.name);
-    };
-    Cat.getInstance = function (name) {
-      console.log("获取", this.instance, name);
-      if (!this.instance) {
-        this.instance = new Cat(name);
-      }
-      return this.instance;
-    };
-    var a = Cat.getInstance("猫咪1");
-    var b = Cat.getInstance("猫咪2");
 
-    console.log(a);
-    console.log(b);
+- 利用闭包
+
+```js
+class Single {
+  constructor() {
+    this.isLogin = false;
+  }
+  login() {
+    this.isLogin = true;
+  }
+}
+Single.getInstance = (function () {
+  let instance;
+  // 利用闭包把外部函数的变量保存在内存中
+  return function () {
+    if (!instance) {
+      instance = new Single();
+    }
+    return instance;
+  };
+})();
+const c = Single.getInstance();
+const d = Single.getInstance();
+c.login();
+console.log(c == d);
+console.log(d.isLogin);
 ```
+
+## 场景
+
+- vuex
+  通过传入 Vue 实例对象,如果一已经穿如果,提示已经传入实例,否则再将 vuex 初始化逻辑写进 vue 的钩子函数
+- vue-router
