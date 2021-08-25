@@ -1,0 +1,13 @@
+{
+  "name": "tapable",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "uvdream",
+  "license": "MIT",
+  "dependencies": {
+    "tapable": "^2.2.0"
+  },
+  "scripts": {
+    "dev": "tsc --build --watch"
+  }
+}
