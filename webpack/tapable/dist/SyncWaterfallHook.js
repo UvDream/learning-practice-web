@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var tapable_1 = require("tapable");
 // @ts-ignore
-var hook = new tapable_1.SyncWaterfallHook(["name", "sex", "age"]);
+var hook = new tapable_1.SyncWaterfallHook([1, 1, 1]);
 // @ts-ignore
 hook.tap('printName', function (name, sex, age) {
     var nameStr = '我的名字是' + name;

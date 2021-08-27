@@ -1,6 +1,6 @@
 import { SyncWaterfallHook } from "tapable"
 // @ts-ignore
-const hook = new SyncWaterfallHook(["name", "sex", "age"])
+const hook = new SyncWaterfallHook([1, 1, 1])
 // @ts-ignore
 hook.tap('printName', (name: string, sex: any, age: any) => {
     const nameStr = '我的名字是' + name;
