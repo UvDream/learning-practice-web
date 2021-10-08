@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=100%, initial-scale=1.0">
+    <title>毛玻璃效果</title>
+</head>
+<style>
+    /* 卡片 */
+    .card {
+        width: 800px;
+        height: 800px;
+        background: url(https://w.wallhaven.cc/full/g7/wallhaven-g75r7d.jpg);
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text {
+        width: 200px;
+        height: 100px;
+        color: #fff;
+        line-height: 100px;
+        text-align: center;
+        backdrop-filter: blur(20px);
+    }
+
+    /* 背景图 */
+    .img-background {
+        width: 800px;
+        height: 800px;
+        background: url(https://w.wallhaven.cc/full/g7/wallhaven-g75r7d.jpg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .img-background::after {
+        backdrop-filter: blur(10px);
+        content: "";
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+    }
+
+    img {
+        width: 50%;
+        height: 50%;
+        z-index: 1;
+    }
+</style>
+
+<body>
+    <div class="card">
+        <div class="text">
+            这是文字
+        </div>
+    </div>
+    <div class="img-background">
+        <img src="https://w.wallhaven.cc/full/g7/wallhaven-g75r7d.jpg" alt="">
+    </div>
+</body>
+
+</html>
