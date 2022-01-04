@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>2</div>
+</body>
+<script>
+    // 打开数据库
+    const request = window.indexedDB.open('cyber-editor', 2.1)
+    var db
+    request.onerror = function (event) {
+        console.log('error: ' + event.target.errorCode)
+    }
+    request.onsuccess = function (event) {
+        db = event.target.result
+        console.log('success')
+        // add()
+        read()
+        readAll()
+        // update()
+        // deleteData()
+        findIndex()
+    }
+    // 建表
+    request.onupgradeneeded = function (event) {
+        db = event.target.result
+        let objectStore = db.createObjectStore('editor-data', {
+            keyPath: 'id',
+            autoIncrement: true
+        })
+        objectStore.createIndex('name', 'name', {
+            unique: false
+        })
+        objectStore.createIndex('content', 'content', {
+            unique: false
+        })
+
+    }
+    // 新增数据
+    function add() {
+        console.log("----");
+        console.log(db);
+        let request = db.transaction(['editor-data'], 'readwrite').objectStore('editor-data').add({
+            name: 'cyber-editor' + Math.ceil(Math.random() * 10),
+            content: 'cyber-editor'
+        })
+        request.onsuccess = function (event) {
+            console.log('创建success')
+        }
+    }
+    // 读取数据
+    function read() {
+        let transaction = db.transaction(['editor-data'])
+        let objectStore = transaction.objectStore('editor-data')
+        let request = objectStore.get(1)
+        request.onsuccess = function (event) {
+            console.log("读取成功");
+            if (request.result) {
+                console.log(request.result.name);
+            } else {
+                console.log('没有数据');
+            }
+        }
+        request.onerror = function (event) {
+            console.log("读取失败")
+        }
+    }
+    // 遍历数据
+    function readAll() {
+        let objectStore = db.transaction(['editor-data']).objectStore('editor-data')
+        objectStore.openCursor().onsuccess = function (event) {
+            let cursor = event.target.result
+            if (cursor) {
+                console.log(cursor.value.name)
+                cursor.continue()
+            }
+        }
+    }
+    // 更新数据
+    function update() {
+        let transaction = db.transaction(['editor-data'], 'readwrite')
+        let objectStore = transaction.objectStore('editor-data')
+        let request = objectStore.get(1)
+        request.onsuccess = function (event) {
+            let data = event.target.result
+            data.name = '更新的数据' + Math.ceil(Math.random() * 10)
+            data.content = '更新的数据内容'
+            let request = objectStore.put(data)
+            request.onsuccess = function (event) {
+                console.log('更新成功')
+            }
+        }
+    }
+    // 删除数据
+    function deleteData() {
+        let transaction = db.transaction(['editor-data'], 'readwrite')
+        let objectStore = transaction.objectStore('editor-data')
+        let request = objectStore.delete(1)
+        request.onsuccess = function (event) {
+            console.log('删除成功')
+        }
+    }
+    // 根据索引查数据
+    function findIndex() {
+        let transaction = db.transaction(['editor-data'], 'readonly')
+        let store = transaction.objectStore('editor-data')
+        let index = store.index('name')
+        let request = index.get('cyber-editor2')
+        request.onsuccess = function (event) {
+            console.log("查询成功");
+            let result = event.target.result
+            if (result) {
+                console.log('11111');
+                console.log(result);
+            }
+        }
+    }
+
+</script>
+
+</html>
