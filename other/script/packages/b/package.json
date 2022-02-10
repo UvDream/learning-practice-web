@@ -1,0 +1,9 @@
+{
+  "name": "script",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "zx": "^5.0.0"
+  }
+}

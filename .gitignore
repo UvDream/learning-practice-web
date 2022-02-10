@@ -10,3 +10,4 @@ promise/node_modules
 webpack/webpack-demo-2/dist/
 typescript/ts-build/node_modules/
 webpack/tapable/node_modules/
+other/script/node_modules
