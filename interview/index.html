@@ -6,10 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .parent {
+        width: 500px;
+        height: 100px;
+        background-color: gray;
+    }
+
+    .child {
+        height: 80px;
+        background-color: red;
+    }
+
+    .enclosure {
+        outline: 1px dashed #333;
+        padding: 50px;
+    }
+</style>
 
 <body>
-    <div>
-
+    <div class="enclosure">
+        <h3>
+            子元素设置margin为0
+        </h3>
+        <div style="display: flex;">
+            <div>
+                <h4>width:100%</h4>
+                <div class="parent">
+                    <div style="width:100%;" class="child"></div>
+                </div>
+            </div>
+            <div style="width:100px"></div>
+            <div>
+                <h4>width:auto</h4>
+                <div class="parent">
+                    <div style="width:auto;" class="child"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="enclosure">
+        <h3>
+            子元素设置margin为0 30px
+        </h3>
+        <div style="display: flex;">
+            <div>
+                <h4>width:100%</h4>
+                <div class="parent">
+                    <div style="width:100%;margin:0 30px" class="child"></div>
+                </div>
+            </div>
+            <div style="width:100px"></div>
+            <div>
+                <h4>width:auto</h4>
+                <div class="parent">
+                    <div style="width:auto;margin:0 30px" class="child"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="enclosure">
+        <h3>
+            子元素设置margin为0 -30px
+        </h3>
+        <div style="display: flex;">
+            <div>
+                <h4>width:100%</h4>
+                <div class="parent">
+                    <div style="width:100%;margin:0 -30px" class="child"></div>
+                </div>
+            </div>
+            <div style="width:100px"></div>
+            <div>
+                <h4>width:auto</h4>
+                <div class="parent">
+                    <div style="width:auto;margin:0 -30px" class="child"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
